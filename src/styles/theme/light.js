@@ -1,3 +1,5 @@
+import LogoYplay from '../../assets/yplay.png';
+
 export default {
     colors: {
         background: "#fff",
@@ -12,5 +14,9 @@ export default {
 
     backgroundGradient: {
         backgroundImage: "linear-gradient(180deg, transparent, rgba(218, 218, 218, 0.61), #FFF)"
+    },
+
+    logoImage: {
+        backgroundImage: `url(${LogoYplay})`
     }
 }

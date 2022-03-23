@@ -1,9 +1,13 @@
 .drawerConfig {
     width: 20%;
     max-width: 280px;
-    min-width: 80px;
     height: 100vh;
+    margin-right: 80px;
     display: block;
+}
+
+.testar {
+    background-image: url(../../assets/yplay_branco.png);
 }
 
 .linkEffect {
@@ -19,9 +23,9 @@
 .click:hover .linkEffect{
     display: block;
     position: absolute;
-    margin-left: -20px;
+    margin-left: -30px;
     font-weight: bold;
-    padding: 10px 30px 10px 80px;
+    padding: 6px 30px 10px 80px;
     background-color: rgb(255, 208, 0);
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;

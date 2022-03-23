@@ -9,7 +9,8 @@ import PermanentDrawerLeft from '../../components/drawer';
 import './index.css';
 import Gradient from '../../styles/theme/components/Gradient';
 import api from '../../services/api';
-import Chart from '../../components/charts/index.tsx';
+import Chart from '../../components/charts/PieChart.tsx';
+import SimpleChart from '../../components/charts/SimpleChart.tsx';
 
 
 
@@ -91,17 +92,14 @@ function Products() {
           <div style={{ width: '100%', height: 2000}}>
             <TesteHeader />
 
-            <div style={{width: '95%', margin: 'auto', boxShadow: '2px 5px 3px rgba(0, 0, 0, 0.4)', marginTop: 50, borderRadius: 15}}>
+            <div style={{width: '95%', margin: 'auto',  borderRadius: 15}}>
               {watchingQtdChannels.map((item) => (
                 <div key={item.Canal}>
                   {console.log(item.Canal)}
                 </div>
               ))}
-
-
-              <Gradient style={{height: '25.5rem', borderRadius: 15}} />
-              <Container style={{height: 300, marginTop: 40}}>
-                <Chart/>
+              <Container style={{height: 450, marginTop: 40}}>
+              <SimpleChart style={{margin: 'auto'}} />
               </Container>
             </div>
 

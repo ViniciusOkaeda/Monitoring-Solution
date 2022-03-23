@@ -23,6 +23,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import './index.css';
 import IconStyle from '../../styles/theme/components/IconStyle';
+import Gradient from '../../styles/theme/components/Gradient';
 
 
 export default function TesteHeader() {
@@ -53,6 +54,7 @@ export default function TesteHeader() {
                             <MenuIcon style={{width: 30, height: 30}} />
                           </IconStyle>
                         </IconButton>
+                        
                     </div>
 
                     <div className='responsiveProfileMenu'>
@@ -89,7 +91,7 @@ export default function TesteHeader() {
                         </Menu>
                     </div>
                 </div>
-            </Container>
+            </Container >
         </header>
       </div>
       );

@@ -14,6 +14,8 @@ import Link from '@material-ui/core/Link';
 import Links from '../../styles/theme/components/Links';
 import NotificationAddIcon from '@mui/icons-material/NotificationAdd';
 import './index.css';
+import YplayLogo from '../../assets/yplay.png';
+import BackgroundLogo from '../../styles/theme/components/BackgroundLogo';
 
 
 export default function PermanentDrawerLeft() {
@@ -22,10 +24,12 @@ export default function PermanentDrawerLeft() {
     return (
       <div className='drawerConfig'>
 
-      <Container style={{ marginTop: 150, position: 'fixed', borderRadius: 15, minWidth: 60}}>
+      <Container style={{ borderRadius: 10, minWidth: 60, height: '100%', maxWidth: 80, position: 'fixed', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <Toolbar />
+      <BackgroundLogo/>
+
       <Divider />
-      <List style={{paddingTop: 10, paddingBottom: 10,  }}>
+      <List style={{paddingTop: 50, paddingBottom: 10, paddingLeft: 30  }}>
 
       <ListItem button className='click' >
         <ListItemIcon className='icone'>
