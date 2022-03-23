@@ -1,0 +1,65 @@
+
+.headerConfig {
+    width: 100%;
+    min-width: 500px;
+    height: 80px;
+}
+
+header {
+    width: 95%;
+    margin: auto;
+
+}
+
+.headerContent {
+    width: 100%;
+    height: 80px;
+    border-radius: 10px;
+
+}
+
+.headerJustify {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+
+.iconButton {
+width: 100px;
+height: 80px;
+}
+
+.MuiSvgIcon-root {
+    width: 40px;
+    height: 40px;
+}
+
+
+
+.responsiveMenu {
+    width: 10%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.responsiveProfileMenu {
+    width: 30%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
+
+@media screen and (max-width: 770px) {
+    header {
+        width: 100%;
+    }
+    }
+    
+

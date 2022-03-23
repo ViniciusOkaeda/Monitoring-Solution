@@ -1,0 +1,31 @@
+
+  .inputSearch:hover,
+  .inputSearch:focus {
+    box-shadow: 0px 0px 25px rgba(220, 220, 220, 1)
+  }
+  .inputSearch2:hover,
+  .inputSearch2:focus {
+    box-shadow: 0px 0px 25px rgba(220, 220, 220, 1)
+  }
+
+  .error {
+    color: red;
+    font-weight: bold;
+    }
+
+.mdl{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400;
+    background: white;
+    box-shadow: 4;
+    border-radius: 10px;
+    padding: 4,
+}
+
+.tableStyle {
+    min-width: 170px;
+    border: none;
+}

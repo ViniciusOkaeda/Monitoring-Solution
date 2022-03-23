@@ -1,0 +1,24 @@
+.pageContent {
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+
+}
+
+.pgn {
+    width: 500px;
+    height: 550px;
+    background-color: aquamarine;
+}
+
+
+.pagina--fadeBottom {
+    height: 7.5rem;
+    background-image: linear-gradient(
+        180deg,
+        transparent,
+        rgba(37, 37, 37, 0.61),
+        #111
+    );
+}
