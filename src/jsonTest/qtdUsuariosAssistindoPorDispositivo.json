@@ -1,0 +1,187 @@
+{
+    "status": 1,
+    "response": [
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Tipo": "android tv",
+            "Versao": "2.0.50",
+            "customers": 54
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Tipo": "android tv",
+            "Versao": null,
+            "customers": 1
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Tipo": "android tv",
+            "Versao": "2.0.59",
+            "customers": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Tipo": "android tv",
+            "Versao": "2.0.41",
+            "customers": 364
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Tipo": "android tv",
+            "Versao": "2.1.3",
+            "customers": 100
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Tipo": "android tv",
+            "Versao": "2.1.5",
+            "customers": 32
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Tipo": "android tv",
+            "Versao": "2.0.50",
+            "customers": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Tipo": "android tv",
+            "Versao": "2.0.65",
+            "customers": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Tipo": "android",
+            "Versao": "2.5.0",
+            "customers": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Tipo": "android",
+            "Versao": "2.3.5",
+            "customers": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Tipo": "android tv",
+            "Versao": "2.1.3",
+            "customers": 29
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Tipo": "android tv",
+            "Versao": "2.0.59",
+            "customers": 21
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Tipo": "android tv",
+            "Versao": "2.0.54",
+            "customers": 10
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Tipo": "android",
+            "Versao": "2.4.3",
+            "customers": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Tipo": "android tv",
+            "Versao": "2.0.53",
+            "customers": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Tipo": "android tv",
+            "Versao": "2.1.3",
+            "customers": 54
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Tipo": "android tv",
+            "Versao": "2.3.1",
+            "customers": 8
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Tipo": "android",
+            "Versao": "2.3.2",
+            "customers": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Tipo": "android tv",
+            "Versao": "2.4.0",
+            "customers": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Tipo": "android tv",
+            "Versao": "2.1.3",
+            "customers": 5
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Tipo": "android tv",
+            "Versao": "2.0.50",
+            "customers": 3
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Tipo": "android tv",
+            "Versao": "2.4.0",
+            "customers": 3
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Tipo": "android tv",
+            "Versao": "2.0.53",
+            "customers": 2
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Tipo": "android tv",
+            "Versao": "1.4.32",
+            "customers": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Tipo": "android tv",
+            "Versao": "2.0.49",
+            "customers": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Tipo": "android tv",
+            "Versao": "2.2.3",
+            "customers": 1
+        }
+    ]
+}

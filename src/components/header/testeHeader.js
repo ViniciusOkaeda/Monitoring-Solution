@@ -1,30 +1,16 @@
 import React, {useEffect, useState} from 'react';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
+
 import Container from '../../styles/theme/components/Container';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import Link from '@material-ui/core/Link';
-import Links from '../../styles/theme/components/Links';
-import NotificationAddIcon from '@mui/icons-material/NotificationAdd';
+import IconStyle from '../../styles/theme/components/IconStyle';
+
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import Switch from '@mui/material/Switch';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormGroup from '@mui/material/FormGroup';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import './index.css';
-import IconStyle from '../../styles/theme/components/IconStyle';
-import Gradient from '../../styles/theme/components/Gradient';
 
+
+import './index.css';
 
 export default function TesteHeader() {
     const [auth, setAuth] = React.useState(true);
@@ -42,6 +28,8 @@ export default function TesteHeader() {
       setAnchorEl(null);
     };
 
+
+
     return (
       <div className='headerConfig'>
           <header>
@@ -58,6 +46,7 @@ export default function TesteHeader() {
                     </div>
 
                     <div className='responsiveProfileMenu'>
+
                     <IconButton 
                         aria-label="account of current user"
                         aria-controls="menu-appbar"
@@ -86,7 +75,7 @@ export default function TesteHeader() {
                             <Container style={{width: '100%', height: '100%', padding: 10}}>
 
                             <MenuItem onClick={handleClose}>Profile</MenuItem>
-                            <MenuItem onClick={handleClose}>My account</MenuItem>
+                            <MenuItem onClick={handleClose}>Logout</MenuItem>
                             </Container>
                         </Menu>
                     </div>

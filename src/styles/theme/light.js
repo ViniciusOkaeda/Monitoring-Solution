@@ -18,5 +18,10 @@ export default {
 
     logoImage: {
         backgroundImage: `url(${LogoYplay})`
+    },
+
+    alternativeThead: {
+        backgroundColor: "rgba(243, 246, 249, 1)",
+        textColor: "#2a2f34"
     }
 }

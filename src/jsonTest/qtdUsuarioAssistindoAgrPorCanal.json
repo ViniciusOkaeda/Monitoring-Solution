@@ -1,0 +1,1097 @@
+{
+    "status": 1,
+    "response": [
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "GLOBO",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/05/12/36/channels_235-609bde1fac9a8.png",
+            "QTD": 19
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "SBT",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/05/12/39/channels_233-609bdce150a69.png",
+            "QTD": 4
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "CARTOONITO",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/12/07/16/channels_33-61afa38e32c84.png",
+            "QTD": 3
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "Discovery Kids HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2022/01/12/30/channels_819-61df06f53cd02.png",
+            "QTD": 3
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "AXN HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/11/26/2/channels_14-5fbff5548d06f.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "Discovery Channel HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2022/01/12/4/channels_818-61df05f5f1c7b.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "CARTOON NETWORK",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/07/15/7/channels_25-60f04413b3005.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "TV EVANGELIZAR",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/05/12/46/channels_259-609be92c5d75a.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "HISTORY2 HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/32/channels_119-5fd0e5c5d28d0.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "ID - Investigaçao Discovery HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2022/01/12/3/channels_821-61df0c1ecfff8.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "ARTE 1 SD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/41/channels_108-5fd0d6b6a4078.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "RECORD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/05/12/29/channels_237-609bdf2d83724.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "COMEDY CENTRAL",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/9/channels_125-5fd0e7d8d0fc7.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "Band News",
+            "URL": "https://mw.yplay.com.br/assets/channels/2022/01/12/42/channels_829-61df11379f731.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "TV APARECIDA",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/05/12/1/channels_255-609be812ba236.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "Record News",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/12/02/37/channels_783-61a911f639833.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "TV BRASIL 2",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/05/12/2/channels_215-609bd6b7183bd.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "GAZETA",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/05/12/44/channels_239-609bdff569bd7.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "BAND",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/05/12/27/channels_241-609be28b1e684.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "Discovery Theater HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2022/01/12/11/channels_826-61df0f56a642e.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "NICKELODEON HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/11/26/45/channels_23-5fc01854ba456.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "REDE SÉCULO 21",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/05/12/19/channels_243-609be32b3e387.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "BOA VONTADE TV",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/07/26/37/channels_245-60feb4489ae40.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "JOVEM PAN",
+            "URL": "https://mw.yplay.com.br/assets/channels/2022/01/05/35/channels_797-61d5ce2539ecc.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "TLC - HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2022/01/12/3/channels_822-61df0ca8595b3.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "Discovery Turbo HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2022/01/12/1/channels_824-61df0e2b5a32f.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "CANAL INFORMATIVO",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/07/26/22/channels_191-60feaf40cbd9d.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Canal": "TV FUTURA",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/05/12/44/channels_231-609bdc68aaf51.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "Globo HD SP",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/04/16/49/channels_155-6079e7b34028f.png",
+            "QTD": 130
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "DISCOVERY WORLD HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/19/channels_135-5fd11927efdf7.png",
+            "QTD": 61
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "CNN Brasil",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/06/09/45/channels_203-60c11cf7bc72c.png",
+            "QTD": 36
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "Canal Institucional (HSL)",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/07/06/6/channels_359-60e49a0d4d7af.png",
+            "QTD": 31
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "TV GLOBO HD BSB",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/06/01/29/channels_317-60b6672046396.png",
+            "QTD": 28
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "Band HD SP",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/04/16/34/channels_157-6079ece345a99.png",
+            "QTD": 18
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "ESPN 2",
+            "URL": "https://mw.yplay.com.br/assets/channels/2022/02/23/35/channels_104-62168d1f373cb.png",
+            "QTD": 15
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "TRAVEL BOX HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/11/27/12/channels_47-5fc10277f0098.png",
+            "QTD": 13
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "REDE TV HD SP",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/04/22/26/channels_179-6081b2429e296.png",
+            "QTD": 12
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "Record HD SP",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/04/16/23/channels_161-6079ed98a48e2.png",
+            "QTD": 12
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "SBT HD SP",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/04/16/31/channels_159-6079ed0974594.png",
+            "QTD": 11
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "GloboNews HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/06/08/29/channels_201-60bf86b5c9404.png",
+            "QTD": 11
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "BAND NEWS HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/50/channels_107-5fd0d64d4988d.png",
+            "QTD": 10
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "ESPN",
+            "URL": "https://mw.yplay.com.br/assets/channels/2022/02/23/17/channels_105-62168ce2138a6.png",
+            "QTD": 10
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "HISTORY HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/11/26/7/channels_16-5fbff63ab4c74.png",
+            "QTD": 6
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "CNN INTERNACIONAL SD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/07/1/channels_84-5fce7f32a934e.png",
+            "QTD": 5
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "DISCOVERY CHANNEL HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/11/26/11/channels_7-5fbfec2a0d9d3.png",
+            "QTD": 4
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "MEGAPIX HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/07/40/channels_74-5fce3747dccc3.png",
+            "QTD": 4
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "SporTV",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/19/38/channels_463-6197a93dc64fd.png",
+            "QTD": 3
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "REDE VIDA HD SP",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/04/22/44/channels_183-6081b6283526b.png",
+            "QTD": 3
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "HISTORY2 HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/32/channels_119-5fd0e5c5d28d0.png",
+            "QTD": 3
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "RECORD HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/06/01/15/channels_325-60b6699838330.png",
+            "QTD": 3
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "NICK JUNIOR HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/19/channels_126-5fd0e85f2a57c.png",
+            "QTD": 3
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "SBT HD BSB",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/06/01/2/channels_323-60b668dd2f9d6.png",
+            "QTD": 3
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "TV Aparecida HD SP",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/04/22/38/channels_181-6081b42861461.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "HBO 2 HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/11/27/39/channels_36-5fc0fd320b4ef.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "HBO POP HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/11/27/49/channels_38-5fc0fe237dda3.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "Viva",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/09/23/5/channels_475-614c9909d1a87.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "Românticas",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/09/30/35/channels_519-6155d8d2e1ac5.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "+ Globosat",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/09/23/29/channels_451-614c8f51290df.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "TNT HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/07/15/23/channels_26-60f0444c903cb.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "HBO HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/11/27/24/channels_35-5fc0fc8a88728.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "Anos 60",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/09/30/2/channels_527-6156056762fdd.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "GNT",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/09/23/33/channels_450-614c8e9cc220a.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "TELECINE TOUCH HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/07/44/channels_72-5fce341f89226.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "HGTV HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/45/channels_132-5fd10a710e9d2.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "RECORD HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/41/channels_122-5fd0e6c529f59.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "STUDIO UNIVERSAL HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/18/channels_121-5fd0e65e158dd.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "Off",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/09/23/21/channels_454-614c904dad1b1.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "SONY HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/24/channels_116-5fd0da16867c5.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "PARAMOUNT HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/7/channels_114-5fd0d943111d3.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "DISCOVERY KIDS HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/11/26/5/channels_9-5fbfed6bf06ef.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "DISCOVERY THEATER HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/34/channels_134-5fd118c01c55c.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "BAND HD BSB",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/06/01/27/channels_321-60b667e6f0c45.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "FISH TV HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/20/channels_113-5fd0d8fc33ee1.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "HBO MUNDI HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/11/27/44/channels_42-5fc10028133da.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "NHK WORLD HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/04/4/channels_53-5fcaa2e12bbf8.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "Canal do Paciente  HSL (SP)",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/06/10/17/channels_333-60c224e9c2b27.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "Trilha Sonora",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/09/30/25/channels_525-6155d9b488509.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "WARNER HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/42/channels_118-5fd0e57c00fee.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "RA TIM BUM",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/11/26/44/channels_15-5fbff5c0b9721.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "Multishow",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/09/23/34/channels_453-614c8fff0eb01.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "TELECINE ACTION HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/07/36/channels_71-5fce338777747.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "TELECINE PIPOCA HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/07/28/channels_73-5fce34d72626f.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "DISCOVERY ID HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/11/26/38/channels_12-5fbff472a43e5.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "ESPN 3",
+            "URL": "https://mw.yplay.com.br/assets/channels/2022/02/23/24/channels_120-62168c321134e.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "HBO FAMILY HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/11/27/41/channels_40-5fc0ff8ce2525.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "MPB",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/09/30/2/channels_513-6155d7cab562a.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "AMC HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/06/18/15/channels_339-60cce623ba28d.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "Globo News",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/09/23/14/channels_447-614c88f8409db.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "REDE VIDA HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/07/25/channels_77-5fce737a32404.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "HBO XTREME HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/11/27/31/channels_39-5fc0ff3c6f634.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "FOOD NETWORK",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/11/26/39/channels_19-5fbff7eaa4ee8.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "NICKELODEON HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/11/26/45/channels_23-5fc01854ba456.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "SEX PRIVE SD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/24/channels_106-5fd0d5f65f3d7.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "TELECINE FUN HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/07/35/channels_75-5fce3facacb04.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "SPACE HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/11/26/41/channels_24-5fc019325259c.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "BAND SPORTS HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/24/channels_109-5fd0d7071eb82.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Canal": "AXN HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/11/26/2/channels_14-5fbff5548d06f.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Canal": "GLOBO COSTA BRANCA",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/07/46/channels_101-5fce911a6e91c.png",
+            "QTD": 26
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Canal": "RECORD HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/41/channels_122-5fd0e6c529f59.png",
+            "QTD": 13
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Canal": "REDE TV HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/14/channels_141-5fd11b3c0f6f0.png",
+            "QTD": 3
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Canal": "PARAMOUNT HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/7/channels_114-5fd0d943111d3.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Canal": "SBT PONTA NEGRA",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/06/18/2/channels_61-60cce1f7a322c.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Canal": "Jovem Pan News",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/10/26/4/channels_563-61782d6ddb733.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Canal": "CNN Brasil",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/06/09/45/channels_203-60c11cf7bc72c.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Canal": "Band HD SP",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/04/16/34/channels_157-6079ece345a99.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Canal": "BAND RN",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/07/27/channels_79-5fce7468f1e74.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Canal": "NOSSA TV MOSSORO",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/04/37/channels_52-5fcaa24a5f485.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Canal": "TCM CANAL 10 HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/09/16/45/channels_139-6143a0293ce8b.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Canal": "CULTURA HD BSB",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/07/50/channels_81-5fce7be6762e3.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Canal": "MTV BRASIL HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/0/channels_115-5fd0d9ba55659.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Canal": "SBT NACIONAL",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/09/20/19/channels_439-614878108485a.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Canal": "DISCOVERY KIDS HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/11/26/5/channels_9-5fbfed6bf06ef.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Canal": "NICKELODEON HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/11/26/45/channels_23-5fc01854ba456.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Canal": "CANAL DO ASSINANTE TCM",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/8/channels_110-5fd0d75e16d43.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Canal": "RECORD TROPICAL RN",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/12/channels_111-5fd0d80a3b414.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Canal": "TV DIÁRIO HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/18/channels_131-5fd10a17dd971.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "TV Tapajós",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/19/27/channels_615-6197a699b37ab.png",
+            "QTD": 22
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "Megapix",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/30/20/channels_717-61a6350f93c6c.png",
+            "QTD": 4
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "Comedy Central",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/30/1/channels_706-61a62c764f7ef.png",
+            "QTD": 3
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "CNN Brasil",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/30/11/channels_681-61a619dc0e719.png",
+            "QTD": 3
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "Rede TV HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/29/34/channels_651-61a519d7a43f2.png",
+            "QTD": 3
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "TV Record",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/29/5/channels_652-61a51d684b541.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "Rede Amazônica",
+            "URL": "https://mw.yplay.com.br/assets/channels/2022/01/13/0/channels_859-61e068d0e72c5.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "Gloob",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/29/3/channels_667-61a52c0e24752.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "TNT",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/30/49/channels_716-61a63469ce7cc.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "ESPN 2",
+            "URL": "https://mw.yplay.com.br/assets/channels/2022/03/24/36/channels_684-623c6b5a9f71a.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "Universal Channel",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/30/29/channels_710-61a62f111e314.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "BBB",
+            "URL": "https://mw.yplay.com.br/assets/channels/2022/01/17/11/channels_867-61e5ba7de02d6.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "Space",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/30/37/channels_718-61a635f2a1d84.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "TBS",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/30/20/channels_712-61a63065d122f.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "SporTV",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/29/8/channels_656-61a521b9dabd6.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "Telecine Fun",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/30/49/channels_728-61a641208c3ef.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "Discovery ID",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/30/27/channels_709-61a62ebc748e9.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "RBA TV Santarém",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/19/40/channels_618-6197ab05993a6.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "Record News",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/29/25/channels_653-61a51f57c4ccf.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "Gloobinho",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/29/23/channels_664-61a529823f7fe.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "Nickelodeon",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/29/4/channels_668-61a52ca06ac9a.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "Premiere FC",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/30/37/channels_730-61a643c913802.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "MTV Live",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/30/18/channels_695-61a62449bb1db.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "Sportv 3",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/29/13/channels_658-61a5242f4ed44.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "TV Cultura",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/29/43/channels_634-61a509329bf88.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "Viva",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/29/8/channels_662-61a52854be720.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "GloboNews",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/29/40/channels_659-61a525503b4f1.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "Combate",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/30/40/channels_737-61a662d96502f.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Canal": "Band News",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/11/30/18/channels_682-61a61db437a54.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Canal": "Globo HD SP",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/04/16/49/channels_155-6079e7b34028f.png",
+            "QTD": 3
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Canal": "Band HD SP",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/04/16/34/channels_157-6079ece345a99.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Canal": "RECORD HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/41/channels_122-5fd0e6c529f59.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Canal": "RECORD HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/06/01/15/channels_325-60b6699838330.png",
+            "QTD": 2
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Canal": "PARAMOUNT HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/09/7/channels_114-5fd0d943111d3.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Canal": "TV GLOBO HD BSB",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/06/01/29/channels_317-60b6672046396.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Canal": "TRAVEL BOX HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/11/27/12/channels_47-5fc10277f0098.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Canal": "HISTORY HD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/11/26/7/channels_16-5fbff63ab4c74.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Canal": "CNN INTERNACIONAL SD",
+            "URL": "https://mw.yplay.com.br/assets/channels/2020/12/07/1/channels_84-5fce7f32a934e.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Canal": "Jovem Pan News",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/10/26/4/channels_563-61782d6ddb733.png",
+            "QTD": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Canal": "CNN Brasil",
+            "URL": "https://mw.yplay.com.br/assets/channels/2021/06/09/45/channels_203-60c11cf7bc72c.png",
+            "QTD": 1
+        }
+    ]
+}

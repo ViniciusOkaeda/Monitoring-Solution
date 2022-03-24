@@ -87,7 +87,7 @@ const data = [
 export default function SimpleChart() {
   return (
     <BarChart
-      width={1200}
+      width={400}
       height={400}
       data={data}
       margin={{

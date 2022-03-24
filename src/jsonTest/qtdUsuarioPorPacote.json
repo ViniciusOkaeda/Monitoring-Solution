@@ -1,0 +1,1667 @@
+{
+    "status": 1,
+    "response": [
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Pacote": "Adylnet - Pacote Premium",
+            "QTD_Clientes": 84
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Pacote": "Adylnet - Pacote Básico",
+            "QTD_Clientes": 83
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Pacote": "Adylnet - Pacote Plus",
+            "QTD_Clientes": 77
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Pacote": "Adylnet - Pacote Smart",
+            "QTD_Clientes": 38
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Pacote": "TCM - Diretoria",
+            "QTD_Clientes": 6
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Pacote": "moTV.eu internal remote",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Pacote": "YPlay Monitoring",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 16,
+            "Vendor": "Americanet",
+            "Pacote": "AmericaNet Play BL",
+            "QTD_Clientes": 11
+        },
+        {
+            "IDVendor": 16,
+            "Vendor": "Americanet",
+            "Pacote": "Americanet Demo Full",
+            "QTD_Clientes": 4
+        },
+        {
+            "IDVendor": 16,
+            "Vendor": "Americanet",
+            "Pacote": "SVOD Nacional",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 16,
+            "Vendor": "Americanet",
+            "Pacote": "SVOD Kids",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 16,
+            "Vendor": "Americanet",
+            "Pacote": "SVOD Studio",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 16,
+            "Vendor": "Americanet",
+            "Pacote": "TVOD",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 16,
+            "Vendor": "Americanet",
+            "Pacote": "Yplay - Não alterar",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 16,
+            "Vendor": "Americanet",
+            "Pacote": "moTV.eu internal remote",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 16,
+            "Vendor": "Americanet",
+            "Pacote": "test motv",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 16,
+            "Vendor": "Americanet",
+            "Pacote": "YPlay App",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 16,
+            "Vendor": "Americanet",
+            "Pacote": "YPlay Completo",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "SVOD Nacional",
+            "QTD_Clientes": 69
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "SVOD Kids",
+            "QTD_Clientes": 69
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "TVOD",
+            "QTD_Clientes": 67
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "SVOD Studio",
+            "QTD_Clientes": 62
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "Yplay Light",
+            "QTD_Clientes": 55
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "DNET - Compact",
+            "QTD_Clientes": 40
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "YPlay Completo",
+            "QTD_Clientes": 13
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "DNET - Full",
+            "QTD_Clientes": 10
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "DNET - Basic",
+            "QTD_Clientes": 5
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "Yplay - Não alterar",
+            "QTD_Clientes": 3
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "YPlay App",
+            "QTD_Clientes": 3
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "DNET - Premium",
+            "QTD_Clientes": 3
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "Yplay - Teste (Closed Caption)",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "Yplay - Não Alterar - demo clientes",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "TCM - Família Multicast",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "TCM - Telecine Unicast",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "TCM - Cinema Unicast",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "Adylnet - Pacote Premium",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "Adylnet - Pacote Plus",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "HSL - Pacote Básico (SP)",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "HSL - Pacote Completo (SP)",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "HSL - Pacote Full (SP)",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "HSL - Pacote Básico (BSB)",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "HSL - Pacote Full (BSB)",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "HSL - Pacote Premium (BSB)",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 13,
+            "Vendor": "D-Net",
+            "Pacote": "moTV.eu internal remote",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "Globosat Canais",
+            "QTD_Clientes": 903
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "Globosat Rádios",
+            "QTD_Clientes": 901
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "SVOD Studio",
+            "QTD_Clientes": 863
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "SVOD Nacional",
+            "QTD_Clientes": 862
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "SVOD Kids",
+            "QTD_Clientes": 862
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Bela Vista - INTERNACAO",
+            "QTD_Clientes": 413
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Bela Vista - INTERNACAO.CARDIO",
+            "QTD_Clientes": 105
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - BSB - INTERNACAO.BSBIV",
+            "QTD_Clientes": 75
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Pacote Completo (SP)",
+            "QTD_Clientes": 64
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Bela Vista - INTERNACAO.UTI",
+            "QTD_Clientes": 63
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Bela Vista - RECEPCAO",
+            "QTD_Clientes": 56
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Bela Vista - INTERNACAO.KIDS",
+            "QTD_Clientes": 35
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Bela Vista - BOX.ONCO",
+            "QTD_Clientes": 35
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Itaim - BOX",
+            "QTD_Clientes": 31
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Bela Vista - INTERNACAO.ORTO",
+            "QTD_Clientes": 30
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Bela Vista - CONFORTO",
+            "QTD_Clientes": 29
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Pacote Completo (Bela Vista - SP)",
+            "QTD_Clientes": 24
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - BSB - INTERNACAO.UTI.BSBIV",
+            "QTD_Clientes": 19
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Bela Vista - BOX.HEMO",
+            "QTD_Clientes": 17
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Pacote Informativo (SP)",
+            "QTD_Clientes": 17
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - BSB - RECEP.BSBIV",
+            "QTD_Clientes": 16
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - BSB - BOX.BSBI",
+            "QTD_Clientes": 12
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Recepção Travel (SP)",
+            "QTD_Clientes": 12
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Itaim - RECEPCAO",
+            "QTD_Clientes": 12
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - BSB - BOX.BSBII",
+            "QTD_Clientes": 12
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Bela Vista - INTERNACAO.TMO",
+            "QTD_Clientes": 10
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Pacote Completo (BSB)",
+            "QTD_Clientes": 9
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "YPlay Monitoring",
+            "QTD_Clientes": 9
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Pacote Informativo (BSB)",
+            "QTD_Clientes": 9
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Pacote Premium (SP)",
+            "QTD_Clientes": 9
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "Yplay Teste Midia",
+            "QTD_Clientes": 8
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - BSB - BOX.PA.BSBIV",
+            "QTD_Clientes": 8
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Pacote Full (SP)",
+            "QTD_Clientes": 6
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Itaim - CONFORTO",
+            "QTD_Clientes": 5
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - BSB - CONFORTO.BSBIV",
+            "QTD_Clientes": 4
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Bela Vista - RECEP.KIDS",
+            "QTD_Clientes": 4
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Jardins - RECEPCAO",
+            "QTD_Clientes": 3
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Pacote Premium (BSB)",
+            "QTD_Clientes": 3
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Recepção Travel (BSB)",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - BSB - RECEP.VITRIUM",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "Yplay - Teste (Closed Caption)",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Pacote Básico (SP)",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Itaim - BOX+18",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - Jardins - CONFORTO",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - BSB - CONFORTO.VITRIUM",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - BSB - CONFORTO.ASSEFAZ",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - BSB - RECEP.BSBII",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "TCM - Diretoria",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "Pacote LAB",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "TVOD",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "YPlay Completo",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "Teste_Mapa_HSL",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "YPlay Demo Hospitality",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "HSL - BSB - RECEP.BSBIII",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "Yplay - Não alterar",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "Hospital Youcare",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "TCM - HBO Unicast",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "moTV.eu internal remote",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Pacote": "Teste - HSL",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 14,
+            "Vendor": "NOVA NET",
+            "Pacote": "SVOD Nacional",
+            "QTD_Clientes": 58
+        },
+        {
+            "IDVendor": 14,
+            "Vendor": "NOVA NET",
+            "Pacote": "SVOD Kids",
+            "QTD_Clientes": 58
+        },
+        {
+            "IDVendor": 14,
+            "Vendor": "NOVA NET",
+            "Pacote": "SVOD Studio",
+            "QTD_Clientes": 58
+        },
+        {
+            "IDVendor": 14,
+            "Vendor": "NOVA NET",
+            "Pacote": "TVOD",
+            "QTD_Clientes": 55
+        },
+        {
+            "IDVendor": 14,
+            "Vendor": "NOVA NET",
+            "Pacote": "Yplay Light",
+            "QTD_Clientes": 4
+        },
+        {
+            "IDVendor": 14,
+            "Vendor": "NOVA NET",
+            "Pacote": "YPlay Completo",
+            "QTD_Clientes": 4
+        },
+        {
+            "IDVendor": 14,
+            "Vendor": "NOVA NET",
+            "Pacote": "Yplay - Não Alterar - demo clientes",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 14,
+            "Vendor": "NOVA NET",
+            "Pacote": "YPlay Monitoring",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 14,
+            "Vendor": "NOVA NET",
+            "Pacote": "moTV.eu internal remote",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "TCM - Lifeline Premium",
+            "QTD_Clientes": 613
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "TCM - Lifeline Life",
+            "QTD_Clientes": 58
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "TCM - Família Unicast",
+            "QTD_Clientes": 35
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "Yplay - Não alterar",
+            "QTD_Clientes": 6
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "Pacote LAB",
+            "QTD_Clientes": 5
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "YPlay Monitoring",
+            "QTD_Clientes": 4
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "TCM - Telecine Unicast",
+            "QTD_Clientes": 4
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "TCM - Diretoria",
+            "QTD_Clientes": 4
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "Yplay Teste Midia",
+            "QTD_Clientes": 3
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "TCM - HBO Unicast",
+            "QTD_Clientes": 3
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "YPlay App",
+            "QTD_Clientes": 3
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "Pacote ISP Youcast Unicast",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "Adylnet - Pacote Smart",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "Medialand",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "Adylnet - Pacote Básico",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "HSL - Pacote Básico (SP)",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "HSL - Pacote Completo (SP)",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "Default package",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "TCM - Compacto Unicast",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "TCM - Adulto Unicast",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "App mobile",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "Hospital Youcare",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "moTV.eu internal remote",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "Teste - HSL",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "HSL - Itaim - BOX",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "Globosat Canais",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "WSP - SANTAREM - ULTRA",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "WSP - Telecine Light",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Pacote": "Adylnet - Pacote Premium",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 9,
+            "Vendor": "Videocast",
+            "Pacote": "moTV.eu internal remote",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - SANTAREM - SUPER",
+            "QTD_Clientes": 113
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - A La Carte - Telecine",
+            "QTD_Clientes": 87
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - SANTAREM - ULTRA",
+            "QTD_Clientes": 76
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - SANTAREM - MEGA",
+            "QTD_Clientes": 72
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - A La Carte - Premiere",
+            "QTD_Clientes": 65
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - A La Carte - Combate",
+            "QTD_Clientes": 60
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - A La Carte - BBB",
+            "QTD_Clientes": 46
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - A La Carte - Playboy",
+            "QTD_Clientes": 43
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - A La Carte - Vênus",
+            "QTD_Clientes": 42
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - A La Carte - Sexy Hot",
+            "QTD_Clientes": 42
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - A La Carte - Sex Privê",
+            "QTD_Clientes": 41
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - A La Carte - Sextreme",
+            "QTD_Clientes": 39
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - MINI PLAY SANTAREM",
+            "QTD_Clientes": 35
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "SVOD Nacional",
+            "QTD_Clientes": 26
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "SVOD Kids",
+            "QTD_Clientes": 26
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "SVOD Studio",
+            "QTD_Clientes": 26
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "TVOD",
+            "QTD_Clientes": 24
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "Globosat + Locais Santarém - WSP",
+            "QTD_Clientes": 20
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - SAPEZAL-MT - SUPER",
+            "QTD_Clientes": 18
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - VILHENA - SUPER",
+            "QTD_Clientes": 17
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - VILHENA - MEGA",
+            "QTD_Clientes": 15
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - VILHENA - ULTRA",
+            "QTD_Clientes": 13
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - Pacote Lab",
+            "QTD_Clientes": 7
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - Telecine Light",
+            "QTD_Clientes": 7
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "Globosat + Locais Vilhena - WSP",
+            "QTD_Clientes": 7
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "Globosat + Locais Comodoro - WSP",
+            "QTD_Clientes": 5
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - SAPEZAL-MT - MEGA",
+            "QTD_Clientes": 4
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - ALTAMIRA-PA - ULTRA",
+            "QTD_Clientes": 4
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - ITAITUBA-PA - ULTRA",
+            "QTD_Clientes": 4
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "Globosat + Locais Altamira - WSP",
+            "QTD_Clientes": 4
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "Globosat + Locais Itaituba - WSP",
+            "QTD_Clientes": 3
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - ITAITUBA-PA - SUPER",
+            "QTD_Clientes": 3
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - MINI PLAY ITAITUBA",
+            "QTD_Clientes": 3
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "Globosat Canais - WSP",
+            "QTD_Clientes": 3
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - ALTAMIRA-PA - SUPER",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - ALTAMIRA-PA - MEGA",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "YPlay Monitoring",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - ITAITUBA-PA - MEGA",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - SANTAREM-PA",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - ITAITUBA-PA",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - COMODORO-MT - MEGA",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "WSP - COMODORO-MT - SUPER",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "TCM - Telecine Unicast",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "TCM - HBO Unicast",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "Globosat Canais",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "Medialand",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Pacote": "moTV.eu internal remote",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 17,
+            "Vendor": "youcast",
+            "Pacote": "moTV.eu internal remote",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "SVOD Kids",
+            "QTD_Clientes": 353
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "SVOD Nacional",
+            "QTD_Clientes": 350
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "TVOD",
+            "QTD_Clientes": 330
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "Yplay Light",
+            "QTD_Clientes": 207
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "YPlay Completo",
+            "QTD_Clientes": 192
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "SVOD Studio",
+            "QTD_Clientes": 185
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "INFOTEL ENG TELECOM - Basic",
+            "QTD_Clientes": 153
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "Yplay - Não Alterar - demo clientes",
+            "QTD_Clientes": 79
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "Rede D'or",
+            "QTD_Clientes": 73
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "Yplay UrbanTV",
+            "QTD_Clientes": 66
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "Yplay Viacom",
+            "QTD_Clientes": 47
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "Yplay - Não alterar",
+            "QTD_Clientes": 36
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "PAY USE - Full (CANCELADO)",
+            "QTD_Clientes": 31
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "YPlay Monitoring",
+            "QTD_Clientes": 28
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "Yplay -  não alterar - demo vendedores",
+            "QTD_Clientes": 27
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "IBW - Full",
+            "QTD_Clientes": 25
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "Yplay Teste Midia",
+            "QTD_Clientes": 16
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "SOFTXX - Full",
+            "QTD_Clientes": 16
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "Globosat Canais",
+            "QTD_Clientes": 14
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "Medialand",
+            "QTD_Clientes": 11
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "KERONET - Full",
+            "QTD_Clientes": 10
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "YPlay App",
+            "QTD_Clientes": 8
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "SOFTXX - Basic",
+            "QTD_Clientes": 7
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "CARIAP - Full",
+            "QTD_Clientes": 6
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "Globosat Rádios",
+            "QTD_Clientes": 6
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "BRISNET - Full",
+            "QTD_Clientes": 5
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "TCM - Diretoria",
+            "QTD_Clientes": 5
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "I9 CONECTA - Full",
+            "QTD_Clientes": 5
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "NET ANGRA - Basic",
+            "QTD_Clientes": 4
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "NET ANGRA - Full",
+            "QTD_Clientes": 4
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "TCM - Telecine Unicast",
+            "QTD_Clientes": 4
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "SOFTXX - Premium",
+            "QTD_Clientes": 4
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "SOFTXX - Compact",
+            "QTD_Clientes": 4
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "RNETT - Full",
+            "QTD_Clientes": 3
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "CARIAP.SUPERI - Full",
+            "QTD_Clientes": 3
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "YPlay Demo Hospitality",
+            "QTD_Clientes": 3
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "RAYNET - Full",
+            "QTD_Clientes": 3
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "TECH PIGNATON - Basic",
+            "QTD_Clientes": 3
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "SMARTTEC - Full",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "CONECTA AB - Full",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "CONECT TI - Full",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "CONECT TI - Compact",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "YPlay - Ubirajara Teste",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "IBW - Premium",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "Pacote LAB",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "Hospital Youcare",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "LBR - Premium",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "IBW - Compact",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "TECH PIGNATON - Full",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "PLUS INTERNET - Premium",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "Nova Fibra",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "Yplay Diretoria - Não alterar",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "TECH PIGNATON - Compact",
+            "QTD_Clientes": 2
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "RNETT - Premium",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "Demo - Ativa",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "TCM - Lifeline Premium",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "INFOTEL ENG TELECOM - Full",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "TCM - HBO Unicast",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "HSL - Pacote Completo (Bela Vista - SP)",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "Adylnet - Pacote Básico",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "Americanet Demo Full",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "Forme 2",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "HSL - Bela Vista - INTERNACAO",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "HSL - Bela Vista - CONFORTO",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "TCM - Adulto Unicast",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "Yplay - Não Alterar - demo intelbras",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "LBR - Full",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "ID CORP - Basic",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "NOVA NET - Basic",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "Sato company",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "Pacote NBS",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "HSL - Pacote Full (SP)",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "ZON NETWORKS - Full",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "BIGDOT - Full",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "TCM - Família Unicast",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "TCM - Cinema Unicast",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "Stenna",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "test motv",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "moTV.eu internal remote",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "BIGDOT - Premium",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "IP TELECOM - Premium",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "CARIAP - Compact",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "TECH PIGNATON - Premium",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "CANEJO ASSESSORIA - Basic",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "CANEJO ASSESSORIA - Full",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "Yplay WSP",
+            "QTD_Clientes": 1
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Pacote": "YPlay Demo - Master Cabo",
+            "QTD_Clientes": 1
+        }
+    ]
+}

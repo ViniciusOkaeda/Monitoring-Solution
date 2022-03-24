@@ -1,0 +1,95 @@
+{
+    "status": 1,
+    "response": [
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Tipo": "live",
+            "Total": 53
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Tipo": "timeshift",
+            "Total": 2
+        },
+        {
+            "IDVendor": 7,
+            "Vendor": "Adylnet",
+            "Tipo": "catchup",
+            "Total": 1
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Tipo": "live",
+            "Total": 448
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Tipo": "timeshift",
+            "Total": 33
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Tipo": "catchup",
+            "Total": 15
+        },
+        {
+            "IDVendor": 5,
+            "Vendor": "HSL",
+            "Tipo": "vod",
+            "Total": 4
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Tipo": "live",
+            "Total": 58
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Tipo": "timeshift",
+            "Total": 3
+        },
+        {
+            "IDVendor": 1,
+            "Vendor": "TCM",
+            "Tipo": "catchup",
+            "Total": 1
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Tipo": "live",
+            "Total": 58
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Tipo": "timeshift",
+            "Total": 4
+        },
+        {
+            "IDVendor": 3,
+            "Vendor": "WSP",
+            "Tipo": "catchup",
+            "Total": 2
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Tipo": "live",
+            "Total": 15
+        },
+        {
+            "IDVendor": 2,
+            "Vendor": "YPLAY",
+            "Tipo": "catchup",
+            "Total": 1
+        }
+    ]
+}
