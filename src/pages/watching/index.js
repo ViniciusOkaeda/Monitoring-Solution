@@ -7,7 +7,7 @@ import Gradient from '../../styles/theme/components/Gradient';
 
 import ThemeMenu from '../../components/themeMenu';
 import DrawerComponent from '../../components/drawer';
-import TesteHeader from '../../components/header/testeHeader';
+import Header from '../../components/header/index.js';
 import PermanentDrawerLeft from '../../components/drawer';
 import Chart from '../../components/charts/PieChart.tsx';
 import SimpleChart from '../../components/charts/SimpleChart.tsx';
@@ -27,7 +27,7 @@ const vendorsYc = [
   { label: 'Adylnet', id: 7},
 ]
 
-function Products() {
+function Watching() {
 
     const [codigo, setCodigo] = useState('');
     const [ filterId, setFilterId] = useState('');
@@ -109,7 +109,7 @@ function Products() {
             <PermanentDrawerLeft/>
           </div>
           <div style={{ width: '100%', height: 2000}}>
-            <TesteHeader />
+            <Header />
             {watchingQtdChannels.filter((item) => {
               if(item.IDVendor === 5) {
                 return console.log("achou", item);
@@ -153,4 +153,4 @@ function Products() {
     );
 }
 
-export default Products
+export default Watching;

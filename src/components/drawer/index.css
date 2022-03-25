@@ -12,6 +12,7 @@
 
 .linkEffect {
     display: none;
+    
 }
 
 .click:hover .icone {
@@ -25,11 +26,12 @@
     position: absolute;
     margin-left: -30px;
     font-weight: bold;
-    padding: 6px 30px 10px 80px;
+    padding: 6px 25px 10px 80px;
     background-color: rgb(255, 208, 0);
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    min-width: 100px;
+    min-width: 80px;
+    max-width: 200px;
 }
 
 

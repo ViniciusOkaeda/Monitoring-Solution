@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+
 import './index.css';
 
 import Button from '@material-ui/core/Button';
@@ -21,6 +22,7 @@ import 'swiper/css';
 import 'swiper/css/effect-creative'
 
 import LoginStyle from '../../styles/theme/components/LoginStyle';
+
 import Logo from '../../assets/logo_preto.png'
 
 import api from '../../services/api';

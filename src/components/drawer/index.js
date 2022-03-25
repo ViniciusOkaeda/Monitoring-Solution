@@ -1,22 +1,21 @@
-import React, {useEffect, useState} from 'react';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import AppBar from '@mui/material/AppBar';
+import React from 'react';
+
+import './index.css';
+
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import Container from '../../styles/theme/components/Container';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import Link from '@material-ui/core/Link';
-import Links from '../../styles/theme/components/Links';
-import NotificationAddIcon from '@mui/icons-material/NotificationAdd';
-import './index.css';
-import YplayLogo from '../../assets/yplay.png';
-import BackgroundLogo from '../../styles/theme/components/BackgroundLogo';
+import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
+import SummarizeIcon from '@mui/icons-material/Summarize';
 
+import Links from '../../styles/theme/components/Links';
+import BackgroundLogo from '../../styles/theme/components/BackgroundLogo';
+import Container from '../../styles/theme/components/Container';
 
 export default function PermanentDrawerLeft() {
 
@@ -37,54 +36,38 @@ export default function PermanentDrawerLeft() {
           <DashboardIcon />
           </Links>
         </ListItemIcon >
+        <Link href="/dashboard" className='linkEffect' underline="none" >
+        <Links >
+          <ListItemText primary="Home"   className='link' />
+        </Links>
+        </Link>
+      </ListItem>
+
+      <ListItem button className='click' >
+        <ListItemIcon className='icone'>
+          <Links>
+          <MonitorHeartIcon />
+          </Links>
+        </ListItemIcon >
+        <Link href="/watching" className='linkEffect' underline="none" >
+        <Links>
+          <ListItemText primary="Watching" className='link' />
+        </Links>
+        </Link>
+      </ListItem>
+
+      <ListItem button className='click' >
+        <ListItemIcon className='icone'>
+          <Links>
+          <SummarizeIcon />
+          </Links>
+        </ListItemIcon >
         <Link href="/" className='linkEffect' underline="none" >
         <Links >
-          <ListItemText   className='link'>Home a</ListItemText>
+          <ListItemText primary="Packages"  className='link'/>
         </Links>
         </Link>
       </ListItem>
-
-      <ListItem button className='click' >
-        <ListItemIcon className='icone'>
-          <Links>
-          <NotificationAddIcon />
-          </Links>
-        </ListItemIcon >
-        <Link href="/products" className='linkEffect' underline="none" >
-        <Links>
-          <ListItemText primary="New Product" className='link' />
-        </Links>
-        </Link>
-      </ListItem>
-
-      <ListItem button className='click' >
-        <ListItemIcon className='icone'>
-          <Links>
-          <DashboardIcon />
-          </Links>
-        </ListItemIcon >
-        <Link href="/" className='linkEffect' underline="none" >
-        <Links >
-          <ListItemText primary="Home"  className='link'/>
-        </Links>
-        </Link>
-      </ListItem>
-
-      <ListItem button className='click' >
-        <ListItemIcon className='icone'>
-          <Links>
-          <NotificationAddIcon />
-          </Links>
-        </ListItemIcon >
-        <Link href="/products" className='linkEffect' underline="none" >
-        <Links>
-          <ListItemText primary="New Product" className='link' />
-        </Links>
-        </Link>
-      </ListItem>
-
-
-
 
       </List>
 

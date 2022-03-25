@@ -1,19 +1,25 @@
 import React, {useEffect} from 'react';
+
 import {
     Routes,
     BrowserRouter,
-    Link,
     Route,
   } from "react-router-dom";
+
 import lightTheme from "./styles/theme/light";
 import darkTheme from "./styles/theme/dark";
+
 import { ThemeProvider } from "styled-components";
+
 import { darkModeAction } from './redux/actions/config_action';
 import { useSelector, useDispatch } from "react-redux";
+
 import LayoutBackground from './styles/theme/components/LayoutBackground';
-import Home from './pages/home/index';
-import Products from './pages/products';
+
+import Home from './pages/home';
+import Watching from './pages/watching';
 import Login from './pages/login';
+import Packages from './pages/packages';
 
 
 
@@ -38,7 +44,8 @@ function AllRoutes() {
                 <Routes >
                     <Route path="/" element={<Login />} />
                     <Route path="/dashboard" element={<Home />} />
-                    <Route path="/products" element={<Products />} />
+                    <Route path="/watching" element={<Watching />} />
+                    <Route path="/packages" element={<Packages />} />
                 </Routes>
             </BrowserRouter>
             </LayoutBackground>
