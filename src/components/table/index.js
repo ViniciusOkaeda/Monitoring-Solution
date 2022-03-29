@@ -8,8 +8,8 @@ export default function Table() {
 
 
     return(
-        <div>
             <table >
+                <tbody>
                 <thead >
                     <AlternativeTheadStyle style={{height: 60, margin: 'auto'}}>
                         <tr>
@@ -24,13 +24,11 @@ export default function Table() {
                     </AlternativeTheadStyle>
                 </thead>
 
-                <tbody>
                     <td>
                         a
                     </td>
                 </tbody>
             </table>
-        </div>
     );
 }
 

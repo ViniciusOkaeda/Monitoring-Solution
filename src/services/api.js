@@ -1,9 +1,9 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://10.10.150.136:3000/",
+  baseURL: "https://crm.youcast.tv.br/test/",
   headers: {
-    token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiMSIsImlhdCI6MTY0ODE0MDcyNiwiZXhwIjoxNjQ4MTUxNTI2fQ.gJHti77eKQ7ExDtcDz0o49Z_mPnjRtAhbsXYC8fmXlE',
+    token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiMSIsImlhdCI6MTY0ODU3NDU4NCwiZXhwIjoxNjQ4NTg1Mzg0fQ.kiZ7Y0155GmWGsTEQKT-TZVPmoNt2773I5cMmH2ETck',
   },
 
 });

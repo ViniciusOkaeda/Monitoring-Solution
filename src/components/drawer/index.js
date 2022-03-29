@@ -37,9 +37,7 @@ export default function PermanentDrawerLeft() {
           </Links>
         </ListItemIcon >
         <Link href="/dashboard" className='linkEffect' underline="none" >
-        <Links >
           <ListItemText primary="Home"   className='link' />
-        </Links>
         </Link>
       </ListItem>
 
@@ -50,9 +48,7 @@ export default function PermanentDrawerLeft() {
           </Links>
         </ListItemIcon >
         <Link href="/watching" className='linkEffect' underline="none" >
-        <Links>
           <ListItemText primary="Watching" className='link' />
-        </Links>
         </Link>
       </ListItem>
 
@@ -62,10 +58,8 @@ export default function PermanentDrawerLeft() {
           <SummarizeIcon />
           </Links>
         </ListItemIcon >
-        <Link href="/" className='linkEffect' underline="none" >
-        <Links >
+        <Link href="/packages" className='linkEffect' underline="none" >
           <ListItemText primary="Packages"  className='link'/>
-        </Links>
         </Link>
       </ListItem>
 

@@ -21,8 +21,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-creative'
 
-import LoginStyle from '../../styles/theme/components/LoginStyle';
-
 import Logo from '../../assets/logo_preto.png'
 
 import api from '../../services/api';
@@ -95,8 +93,7 @@ function Login() {
     }
     
     return(
-        <LoginStyle>
-            <div style={{width: '100%', minHeight: '100vh'}}>
+            <div style={{width: '100%', minHeight: '100vh', backgroundColor: '#fff'}}>
 
                 <Grid container component="main" sx={{ height: '100vh', display: 'flex' }}>
                     <Grid item xs={12} sm={12} md={4} elevation={6} square>
@@ -200,7 +197,6 @@ function Login() {
                     </Grid>
                 </Grid>
             </div>
-        </LoginStyle>
     )
 }
 

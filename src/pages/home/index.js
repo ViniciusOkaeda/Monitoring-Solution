@@ -51,8 +51,20 @@ function Home() {
     (async () => {
       const result = await api.get('monitoring/mw/customers/watching/qtd/channels')
       .then((result) => {
-        console.log("aq oe", result.data.response);
         setWatchingQtdChannels(result.data.response);
+
+  })
+      .catch((error) => {
+        // handle error
+          console.log(error);
+  })
+
+    })();
+    (async () => {
+      const result = await api.get('monitoring/mw/customers/packages/qtd')
+      .then((result) => {
+        console.log("aq oe", result.data.response);
+        //setWatchingQtdChannels(result.data.response);
 
   })
       .catch((error) => {
