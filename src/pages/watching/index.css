@@ -22,3 +22,9 @@
         #111
     );
 }
+
+.ctnConfig {
+    width: 100%;
+    min-height: 400;
+    border-radius: 10px;
+}
