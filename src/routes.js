@@ -4,6 +4,7 @@ import {
     Routes,
     BrowserRouter,
     Route,
+    Navigate,
   } from "react-router-dom";
 
 import lightTheme from "./styles/theme/light";
@@ -21,11 +22,18 @@ import Watching from './pages/watching';
 import Login from './pages/login';
 import Packages from './pages/packages';
 
+import { useNavigate } from "react-router-dom";
+
+import { isAuthenticated } from "./services/auth";
+
+
 
 
 function AllRoutes() {
   const dispatch = useDispatch();
   const config = useSelector(state => state.config)
+
+
   
   useEffect(() => {
 

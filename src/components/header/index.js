@@ -11,10 +11,13 @@ import Menu from '@mui/material/Menu';
 
 
 import './index.css';
+import { Navigate, useNavigate } from 'react-router-dom';
 
-function Header() {
+function Header(props) {
+    const navigate = useNavigate();
     const [auth, setAuth] = React.useState(true);
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorEl2, setAnchorEl2] = React.useState(null);
   
     const handleChange = (event) => {
       setAuth(event.target.checked);
@@ -27,6 +30,19 @@ function Header() {
     const handleClose = () => {
       setAnchorEl(null);
     };
+    const handleMenu2 = (event) => {
+      setAnchorEl2(event.currentTarget);
+    };
+  
+    const handleClose2 = () => {
+      setAnchorEl2(null);
+    };
+  
+    const logoutSystem = () => {
+      localStorage.clear();
+      navigate('/');
+
+    };
 
 
 
@@ -37,19 +53,46 @@ function Header() {
             <Container className='headerContent'>
                 <div className='headerJustify'>
                     <div className='responsiveMenu'>
-                        <IconButton>
+                        <IconButton
+                        aria-label="account of current user"
+                        aria-controls="menu-appbar"
+                        aria-haspopup="true"
+                        onClick={handleMenu2}
+                        >
                           <IconStyle>
                             <MenuIcon style={{width: 30, height: 30}} />
                           </IconStyle>
                         </IconButton>
+                        <Menu
+                            id="menu-appbar"
+                            anchorEl={anchorEl2}
+                            anchorOrigin={{
+                            vertical: 'bottom',
+                            horizontal: 'right',
+                            }}
+                            keepMounted
+                            transformOrigin={{
+                            vertical: 'top',
+                            horizontal: 'right',
+                            }}
+                            open={Boolean(anchorEl2)}
+                            onClose={handleClose2}
+                        > 
+                            <Container style={{width: '100%', height: '100%', padding: '20px 10px 20px 10px', marginTop: '-10px', marginBottom: '-10px'}}>
+
+                            <MenuItem >Home</MenuItem>
+                            <MenuItem >Watching</MenuItem>
+                            <MenuItem >Packages</MenuItem>
+                            </Container>
+                        </Menu>
                         
                     </div>
 
                     <div className='responsiveProfileMenu'>
 
                     <IconButton 
-                        aria-label="account of current user"
-                        aria-controls="menu-appbar"
+                        aria-label="navigation of current user"
+                        aria-controls="menu-appbar-navigation"
                         aria-haspopup="true"
                         onClick={handleMenu}
                         >
@@ -61,7 +104,7 @@ function Header() {
                             id="menu-appbar"
                             anchorEl={anchorEl}
                             anchorOrigin={{
-                            vertical: 'top',
+                            vertical: 'bottom',
                             horizontal: 'right',
                             }}
                             keepMounted
@@ -72,10 +115,10 @@ function Header() {
                             open={Boolean(anchorEl)}
                             onClose={handleClose}
                         > 
-                            <Container style={{width: '100%', height: '100%', padding: 10}}>
+                            <Container style={{width: '100%', height: '100%', padding: 10, marginTop: '-10px', marginBottom: '-10px'}}>
 
                             <MenuItem onClick={handleClose}>Profile</MenuItem>
-                            <MenuItem onClick={handleClose}>Logout</MenuItem>
+                            <MenuItem onClick={logoutSystem}>Logout</MenuItem>
                             </Container>
                         </Menu>
                     </div>

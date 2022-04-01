@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
+import { useNavigate } from "react-router-dom";
+
 import './index.css';
 
 import Button from '@material-ui/core/Button';
@@ -8,7 +10,6 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Grid from '@material-ui/core/Grid';
 import Link from '@mui/material/Link';
-import { useNavigate } from "react-router";
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
@@ -39,7 +40,7 @@ function Copyright(props) {
   }
 
 function Login() {
-    const navigate  = useNavigate ();
+    const navigate  = useNavigate();
 
 
     const [error, setError] = useState(null);
@@ -81,13 +82,15 @@ function Login() {
         })
         .then(function (response) {
             if(response.data.status === 1) {
-                localStorage.setItem("token", response.data.response)
-                navigate.push('/dashboard');
-            }
+                localStorage.setItem("TOKEN_KEY", response.data.response)
+                navigate('/dashboard');
+            } 
             console.log(response);
           })
           .catch(function (error) {
-            console.log(error);
+            
+            setError("Usuário e/ou senha inválidos")
+            setLoading(false);
           });
  
     }
@@ -104,7 +107,10 @@ function Login() {
 
                                     <form noValidate>
                                         <Box sx={{ width: '90%'}}>
-                                            <TextField label="Usuário" id="outlined-size-normal" 
+                                            <TextField 
+                                            label="Usuário" 
+                                            id="outlined-size-normal"
+                                            autoComplete='username' 
                                             onChange={e => setUsername(e.target.value)}
                                             style={{marginBottom: 10, width: '100%', borderColor: 'blue'}} />
                                             
@@ -112,6 +118,7 @@ function Login() {
                                                 <InputLabel htmlFor="outlined-adornment-password">Senha</InputLabel>
                                                 <OutlinedInput
                                                     id="outlined-adornment-password"
+                                                    autoComplete='current-password'
                                                     type={passwordValues.showPassword ? 'text' : 'password'}
                                                     value={passwordValues.password}
                                                     onChange={handleChange('password')}
