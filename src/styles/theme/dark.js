@@ -23,8 +23,13 @@ export default {
     },
 
     alternativeThead: {
+        backgroundColor: "rgba(17, 17, 17, 0.7)",
+        textColor: "#f2f2f2"
+    },
+
+    alternativeTbody: {
         backgroundColor: "rgba(104, 104, 104, 0.3)",
         textColor: "#c9c9c9"
-    }
+    },
 
 }
