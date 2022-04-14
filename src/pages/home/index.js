@@ -8,7 +8,6 @@ import Container from '../../styles/theme/components/Container';
 
 import ThemeMenu from '../../components/themeMenu';
 import Header from '../../components/header';
-import SimpleChart from '../../components/charts/SimpleChart.tsx';
 import PermanentDrawerLeft from '../../components/drawer';
 
 
@@ -96,7 +95,6 @@ function Home() {
                 <Table/>
             </Container>
             <Container style={{height: 450, marginTop: 40}}>
-            <SimpleChart style={{margin: 'auto'}} />
             </Container>
           </div>
 

@@ -1,16 +1,23 @@
 import React, {useState, useEffect} from 'react';
 
+import styled from "styled-components";
+
 import './index.css';
 
 import Container from '../../styles/theme/components/Container';
 import Gradient from '../../styles/theme/components/Gradient';
 import AlternativeTheadStyle from '../../styles/theme/components/AlternativeTheadStyle'
 import AlternativeTbodyStyle from '../../styles/theme/components/AlternativeTbodyStyle'
+import DropDownList from '../../styles/theme/components/DropDownList';
 
 import ThemeMenu from '../../components/themeMenu';
 import DrawerComponent from '../../components/drawer';
 import Header from '../../components/header/index.js';
 import PermanentDrawerLeft from '../../components/drawer';
+import DropDownHeader from '../../styles/theme/components/DropDownHeader';
+import IconStyle from '../../styles/theme/components/IconStyle';
+
+import { Pagination } from '@mui/material';
 
 import { Chart } from "react-google-charts";
 
@@ -21,11 +28,14 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import TablePagination from '@mui/material/TablePagination';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import Menu from '@mui/material/Menu';
 
 
 import api from '../../services/api';
-import Table from '../../components/table';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -53,12 +63,14 @@ const vendorsYc = [
   { label: 'YPLAY', id: 2},
 ];
 
+const DropDownListContainer = styled("div")``;
 
-export const options = {
-  title: "My Daily Activities",
-  pieHole: 0.4,
-  is3D: false,
-};
+const ListItem = styled("li")`
+  list-style: none;
+  margin-bottom: 0.8em;
+`;
+
+const options = ["Mangoes", "Apples", "Oranges"];
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", ];
 
 const RADIAN = Math.PI / 185;
@@ -79,9 +91,7 @@ function Watching() {
     const [codigo, setCodigo] = useState('');
     const [ filterId, setFilterId] = useState('');
     const [vendorNumber, setVendorNumber] = React.useState('');
-
-
-    
+  
     const [ watchingUsers, setWatchingUsers] = useState([ {
       Vendor: '',
       data: [{
@@ -134,15 +144,23 @@ function Watching() {
       setVendorNumber(event.target.value);
     };
 
+    const [itensPerPage, setItensPerPage] = useState(10);
+    const [currentPage, setCurrentPage] = useState(0);
+    const [pageNumberLimit, setPageNumberLimit] = useState(5);
+    const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
+    const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 
-    
-    function canaisEspecificos(canais) {
-      return canais.IDVendor === 7;
-    }
-    
-    function compararNumeros(a, b) {
-      return a - b;
-    }
+
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedOption, setSelectedOption] = useState(null);
+  
+    const toggling = () => setIsOpen(!isOpen);
+  
+    const onOptionClicked = value => () => {
+      setSelectedOption(value);
+      setIsOpen(false);
+      console.log(selectedOption);
+    };
 
     const [error, setError] = useState(null);
   
@@ -152,7 +170,7 @@ function Watching() {
 
       (async () => {
         const result = await api.get('monitoring/mw/customers/watching')
-        .then((result) => {
+        .then((result) =>  {
           //console.log("aq oe", result.data.response);
           setWatchingUsers(result.data.response);
     })
@@ -235,50 +253,149 @@ function Watching() {
                 </FormControl>
               </Box>
 
+              <div className='dropDownHeaderStyle'>
+                <DropDownHeader onClick={toggling}>
+                  <MoreHorizIcon></MoreHorizIcon>
+                </DropDownHeader>
+                {isOpen && (
+                  <DropDownListContainer>
+                    <DropDownList>
+                      {options.map(option => (
+                        <ListItem onClick={onOptionClicked(option)}>
+                          {option}
+                        </ListItem>
+                      ))}
+                    </DropDownList>
+                  </DropDownListContainer>
+                )}
+              </div>
+
               {/*parte dos graficos */}
               <Grid container component="main" sx={{  display: 'flex', }} spacing={2}>
               <Grid item xs={12} sm={12} md={12} elevation={4} square>
                 {watchingUsers.filter((item) =>
                   vendorNumber !== '' && item.Vendor === vendorNumber 
-                  ).map((item, index) => (
-                    <Container key={index} style={{width: '100%', maxWidth: 1200, height: 500, margin: 'auto', borderRadius: 10 }}>
+                  ).map((item, index) => {
+
+                    const pages = Math.ceil(item.data.length / itensPerPage)
+                    const startIndex = currentPage * itensPerPage; //indexOfLastItem
+                    const endIndex = startIndex + itensPerPage; //indexOfFirstItem
+                    const currentItens = item.data.slice(startIndex, endIndex)
+                    console.log("minhas pg", pages)
+                    console.log("pg atual", currentPage)
+
+                    const handleClickPage = (event) => {
+                      setCurrentPage(Number(event.target.id));
+                    };
+
+                    const handleNextbtn = () => {
+                      setCurrentPage(currentPage + 1);
+                      if(currentPage+1 > maxPageNumberLimit){
+                        setMaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit)
+                        setMinPageNumberLimit(minPageNumberLimit + pageNumberLimit)
+                      }
+                    }
+                    let pageIncrement = null;
+                    if(pages > maxPageNumberLimit) {
+                      pageIncrement = <li style={{cursor: 'default'}}> &hellip; </li>;
+                    }
+
+                    const handlePrevbtn = () => {
+                      setCurrentPage(currentPage - 1);
+                      if( (currentPage - 1) % pageNumberLimit == 0 ){
+                        setMaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit)
+                        setMinPageNumberLimit(minPageNumberLimit - pageNumberLimit)
+                      }
+                    }
+                    let pageDecrement = null;
+                    if(minPageNumberLimit >= 1) {
+                      pageDecrement = <li style={{cursor: 'default'}}> &hellip; </li>;
+                    }
+
+                    return(
+                    <Container key={index} style={{width: '100%', maxWidth: 1200, height: 650, margin: 'auto', borderRadius: 10 }}>
+
                       <table style={{ width: '95%', display: 'flex', flexDirection: 'column', margin: 'auto', paddingTop: 30, paddingBottom: 30, }}>
 
                         <AlternativeTheadStyle className="tHeadConfig">
                           <tr className="trConfig">
-                            <th style={{width: 200,paddingLeft: 10, }}>Login</th>
+                          <th style={{width: 200,paddingLeft: 10, }}>Login</th>
                             <th style={{width: 140, }}>Canal</th>
                             <th style={{width: 140, }}>VOD</th>
                             <th style={{width: 80, }}>T.D.S</th>
-                            <th style={{width: 120, }}>T.D.D</th>
+                            <th style={{width: 180, }}>T.D.D</th>
                             <th style={{width: 120, }}>Formato</th>
-                            <th style={{width: 120, backgroundColor: 'green', }}>
-
-
-                            </th>
                           </tr>
                         </AlternativeTheadStyle>
                         <tbody style={{overflowY: 'scroll', height: 350, marginTop: 20}}>
-
-                      {item.data.map((items, i) => (
+                          {currentItens.map((items, i) => (
                             <tr key={i} style={{width: '100%', fontSize: '14px'}}>
                               <td style={{width: 200, paddingLeft: 10, }}>{items.login}</td>
                               <td style={{width: 140, margin: 'auto', }}>{items.ChannelURL !== null ? <img src={items.ChannelURL} className="imgCEV" /> : <p style={{textAlign: 'center'}}>N/A</p>}</td>
                               <td style={{width: 140, margin: 'auto', }}>{items.VODURL !== null ? <img src={items.VODURL} className="imgCEV" /> : <p style={{textAlign: 'center'}}>N/A</p>}</td>
                               <td style={{width: 80, }}><p>{items.watching_now_stream_type.toUpperCase()}</p></td>
-                              <td style={{width: 120, }}><p>{items.watching_now_devices_type.toUpperCase()}</p></td>
+                              <td style={{width: 180, }}><p>{items.watching_now_devices_type.toUpperCase()}</p></td>
                               <td style={{width: 120, }}><p>{items.watching_now_type.toUpperCase()}</p></td>
-                              <td style={{width: 120, backgroundColor: 'green'}}></td>
                             </tr>
-
-
-                      ))}
-
-                        </tbody>
+                          ))}
+                        </tbody>                 
                       </table>
+
+                      <div style={{display: 'flex', justifyContent: 'space-between', margin: 'auto', width: '90%'}}>
+                        <ul className='pageNumbers'>
+                          <li>
+                            <button 
+                            onClick={handlePrevbtn}
+                            disabled={currentPage <= 1 }
+                            className={currentPage <= 1 ? 'disabled' : ''}
+                            >prev</button>
+                          </li>
+                          {pageDecrement}
+                          {Array.from(Array(pages), (pgs, index) => {
+                            if(index < maxPageNumberLimit+1 && index>minPageNumberLimit) {
+                              return (
+                                  <button 
+                                    key={index} 
+                                    id={index} 
+                                    onClick={handleClickPage}
+                                    className={currentPage == index ? "active" : null}
+                                  > <IconStyle>{index}</IconStyle> </button>
+                                )
+                            }else {
+                              return null;
+                            }
+                          })}
+                          {pageIncrement}
+
+                          <li className={currentPage == pages - 1 ? 'disabled' : ''}>
+                            <button 
+                            onClick={handleNextbtn}
+                            disabled={currentPage == pages - 1}
+                            className={currentPage == pages - 1 ? 'disabled' : ''}
+                            >next</button>
+                          </li>
+                        </ul>
+
+                        <div style={{ display: 'flex', width: 200, height: 80, justifyContent: 'space-around', alignItems: 'center'}}>
+
+                          <div style={{margin: 'auto'}}>
+                            <p style={{fontSize: '1rem', fontWeight: 'bold'}}>Itens p/ page:</p>
+                          </div>
+                          <div >
+                            <select style={{ height: 35, fontSize: '1rem', fontWeight: 'bold', margin: 'auto', borderRadius: 8}} value={itensPerPage} onChange={(e) => setItensPerPage(Number(e.target.value))}>
+                              <option value={10}>10</option>
+                              <option value={25}>25</option>
+                              <option value={50}>50</option>
+                            </select>
+                          </div>
+                        </div>
+
+                      </div>
+
+
                     </Container>
 
-                  )    
+                  )}  
                   )}
                 </Grid>
 
@@ -292,7 +409,6 @@ function Watching() {
                           "value": items.customers
                       }
                     ))
-
                     return(
                       <React.Fragment key={index}>
                         <Container style={{width: '100%', height: 'auto', margin: 'auto', borderRadius: 10}}>
@@ -415,8 +531,6 @@ function Watching() {
 
 
               </Grid>
-
-            
 
             </div>
 

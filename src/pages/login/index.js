@@ -82,7 +82,7 @@ function Login() {
         })
         .then(function (response) {
             if(response.data.status === 1) {
-                localStorage.setItem("TOKEN_KEY", response.data.response)
+                localStorage.setItem("token", response.data.response)
                 navigate('/dashboard');
             } 
             console.log(response);

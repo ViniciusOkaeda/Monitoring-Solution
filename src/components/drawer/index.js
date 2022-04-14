@@ -12,6 +12,7 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import Link from '@material-ui/core/Link';
 import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
 import SummarizeIcon from '@mui/icons-material/Summarize';
+import WorkIcon from '@mui/icons-material/Work';
 
 import Links from '../../styles/theme/components/Links';
 import BackgroundLogo from '../../styles/theme/components/BackgroundLogo';
@@ -60,6 +61,17 @@ export default function PermanentDrawerLeft() {
         </ListItemIcon >
         <Link href="/packages" className='linkEffect' underline="none" >
           <ListItemText primary="Packages"  className='link'/>
+        </Link>
+      </ListItem>
+
+      <ListItem button className='click' >
+        <ListItemIcon className='icone'>
+          <Links>
+          <WorkIcon />
+          </Links>
+        </ListItemIcon >
+        <Link href="/brands" className='linkEffect' underline="none" >
+          <ListItemText primary="Brands"  className='link'/>
         </Link>
       </ListItem>
 

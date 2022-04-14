@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 
 import Container from '../../styles/theme/components/Container';
 import IconStyle from '../../styles/theme/components/IconStyle';
+import AlternativeTheadStyle from '../../styles/theme/components/AlternativeTheadStyle'
+
 
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -12,6 +14,8 @@ import Menu from '@mui/material/Menu';
 
 import './index.css';
 import { Navigate, useNavigate } from 'react-router-dom';
+
+
 
 function Header(props) {
     const navigate = useNavigate();

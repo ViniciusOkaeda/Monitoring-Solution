@@ -21,10 +21,13 @@ import Home from './pages/home';
 import Watching from './pages/watching';
 import Login from './pages/login';
 import Packages from './pages/packages';
+import Brands from './pages/brands';
 
 import { useNavigate } from "react-router-dom";
 
 import { isAuthenticated } from "./services/auth";
+
+import PrivateRoute from './utils/privateRoute';
 
 
 
@@ -32,15 +35,17 @@ import { isAuthenticated } from "./services/auth";
 function AllRoutes() {
   const dispatch = useDispatch();
   const config = useSelector(state => state.config)
+  const checkRoutes = localStorage.getItem("token")
 
 
   
   useEffect(() => {
 
+
     if (!config.darkMode) {
       dispatch(darkModeAction(window.localStorage.getItem('theme')))
     }
-  }, [config.darkMode, dispatch])
+  }, [config.darkMode, dispatch, ])
   
 
 
@@ -50,10 +55,29 @@ function AllRoutes() {
 
             <BrowserRouter >
                 <Routes >
-                    <Route path="/" element={<Login />} />
-                    <Route path="/dashboard" element={<Home />} />
-                    <Route path="/watching" element={<Watching />} />
-                    <Route path="/packages" element={<Packages />} />
+
+                    
+                    <Route exact path="/" element={<Login />} />
+                    <Route path="/dashboard" element={
+                    <PrivateRoute>
+                      <Home />
+                    </PrivateRoute>  
+                    } />
+                    <Route path="/watching" element={
+                    <PrivateRoute>
+                      <Watching />
+                    </PrivateRoute>
+                    } />
+                    <Route path="/packages" element={
+                    <PrivateRoute>
+                      <Packages />
+                    </PrivateRoute>
+                    } />
+                    <Route path="/brands" element={
+                    <PrivateRoute>
+                      <Brands />
+                    </PrivateRoute>
+                    } />
                 </Routes>
             </BrowserRouter>
             </LayoutBackground>

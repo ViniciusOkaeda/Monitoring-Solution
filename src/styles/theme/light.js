@@ -21,12 +21,22 @@ export default {
     },
 
     alternativeThead: {
-        backgroundColor: "rgba(0, 136, 254, 1)",
+        backgroundColor: "rgba(17, 17, 17, 0.8)",
         textColor: "#f3f3f3"
     },
 
     alternativeTbody: {
         backgroundColor: "rgba(243, 246, 249, 1)",
+        textColor: "#2a2f34"
+    },
+
+    dropDownHeader: {
+        backgroundColor: "rgba(243, 246, 249, 1 )",
+        textColor: "#2a2f34"
+    },
+
+    dropDownList: {
+        backgroundColor: "rgba(243, 246, 249, 1 )",
         textColor: "#2a2f34"
     },
 
