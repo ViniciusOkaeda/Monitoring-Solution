@@ -87,7 +87,11 @@ function Packages() {
     useEffect (() => {
 
       (async () => {
-        const result = await api.get('monitoring/mw/customers/packages')
+        const result = await api.get('monitoring/mw/customers/packages', {
+          headers: {
+            token: localStorage.getItem("token")
+          }
+        })
         .then((result) => {
           console.log("aq oe", result.data.response);
           setPackagesUser(result.data.response);
@@ -101,7 +105,11 @@ function Packages() {
       })();
 
       (async () => {
-        const result = await api.get('monitoring/mw/customers/packages/qtd')
+        const result = await api.get('monitoring/mw/customers/packages/qtd', {
+          headers: {
+            token: localStorage.getItem("token")
+          }
+        })
         .then((result) => {
           console.log("aq oe", result.data.response);
           setPackagesQtd(result.data.response);
@@ -272,9 +280,18 @@ function Packages() {
                     const data = item.data.map((items) => (
                       {
                           "name": items.Pacote,
-                          "Quantidade de usuários": items.QTD_Clientes
+                          "Quantidade de usuários": items.QTD_Clientes,
                       }
                     ))
+
+                    const initialValue = 0;
+
+                    const somatoria = [{
+                      total: item.data.map(itens => itens.QTD_Clientes).reduce((total, numero) => total + numero, 0),
+
+                    }]
+
+                    console.log("minha dat", somatoria)
 
                     return(
                       <React.Fragment key={index}>

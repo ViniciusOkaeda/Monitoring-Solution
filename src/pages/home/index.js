@@ -24,33 +24,30 @@ function Home() {
   const [codigo, setCodigo] = useState('');
   const [ filterId, setFilterId] = useState('');
   const [vendorNumber, setVendorNumber] = React.useState(null);
-
-  const [ watchingQtdChannels, setWatchingQtdChannels] = useState([ {
-    IDVendor: '',
-    Vendor: '',
-    Canal: '',
-    URL: '',
-    QTD: '',
-  } ])
-  
-  function canaisEspecificos(canais) {
-    return canais.IDVendor === 7;
-  }
-  
-  function compararNumeros(a, b) {
-    return a - b;
-  }
-
+  const [watchingNumber, setWatchingNumber] = React.useState([]);
   const [error, setError] = useState(null);
-
   const [loading, setLoading] = useState(false);
 
-  useEffect (() => {
+
+  
+
+
+    useEffect (() => {
 
     (async () => {
-      const result = await api.get('monitoring/mw/customers/watching/qtd/channels')
+      const result = await api.get('monitoring/mw/customers/watching/qtd/channels', {
+        headers: {
+          token: localStorage.getItem("token")
+        }
+      })
       .then((result) => {
-        setWatchingQtdChannels(result.data.response);
+        console.log("o valor", result)
+        setWatchingNumber(result.data.response.map((e) => e.data.map((i) => i.QTD).reduce((total, numero) => total + numero, 0)).reduce((total, numero) => total + numero, 0) )
+        console.log("o map aqui", result.data.response.map((e) => 
+        e.data.map((i) => i.QTD).reduce((total, numero) => total + numero, 0)) );
+        console.log("o map aqui2", result.data.response.map((e) => 
+        e.data.map((i) => i.QTD)) );
+        console.log("o watching aq", watchingNumber)
 
   })
       .catch((error) => {
@@ -59,8 +56,13 @@ function Home() {
   })
 
     })();
+
     (async () => {
-      const result = await api.get('monitoring/mw/customers/packages/qtd')
+      const result = await api.get('monitoring/mw/customers/packages/qtd', {
+        headers: {
+          token: localStorage.getItem("token")
+        }
+      })
       .then((result) => {
         console.log("aq oe", result.data.response);
         //setWatchingQtdChannels(result.data.response);
@@ -80,6 +82,8 @@ function Home() {
   }, [])
 
 
+
+
   return(
       <div style={{width: '100%', height: '100%', display: 'flex',}}>
         <div style={{}}>
@@ -93,6 +97,7 @@ function Home() {
 
             <Container style={{height: 450, marginTop: 40}}>
                 <Table/>
+                <p>{watchingNumber}</p>
             </Container>
             <Container style={{height: 450, marginTop: 40}}>
             </Container>

@@ -1,9 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 
 import Container from '../../styles/theme/components/Container';
 import IconStyle from '../../styles/theme/components/IconStyle';
-import AlternativeTheadStyle from '../../styles/theme/components/AlternativeTheadStyle'
+import DropDownHeader from '../../styles/theme/components/DropDownHeader';
+import DropDownList from '../../styles/theme/components/DropDownList';
 
+import styled from "styled-components";
 
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -13,27 +15,45 @@ import Menu from '@mui/material/Menu';
 
 
 import './index.css';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
+const DropDownListContainer = styled("div")``;
 
+const ListItem = styled("li")`
+    list-style: none;
+    margin-bottom: 0.8em;
+  `;
+
+  let useClickOutside = (handler) => {
+    let domNode = useRef();
+  
+    useEffect(() => {
+      let maybeHandler = (event) => {
+        if (!domNode.current.contains(event.target)) {
+          handler();
+        }
+      };
+  
+      document.addEventListener("mousedown", maybeHandler);
+  
+      return () => {
+        document.removeEventListener("mousedown", maybeHandler);
+      };
+    });
+  
+    return domNode;
+  };
 
 function Header(props) {
     const navigate = useNavigate();
-    const [auth, setAuth] = React.useState(true);
-    const [anchorEl, setAnchorEl] = React.useState(null);
     const [anchorEl2, setAnchorEl2] = React.useState(null);
+    const [isOpen, setIsOpen] = useState(false);
+    
+    const toggling = () => setIsOpen(!isOpen);
+    let domNode = useClickOutside(() => {
+        setIsOpen(false);
+      });
   
-    const handleChange = (event) => {
-      setAuth(event.target.checked);
-    };
-  
-    const handleMenu = (event) => {
-      setAnchorEl(event.currentTarget);
-    };
-  
-    const handleClose = () => {
-      setAnchorEl(null);
-    };
     const handleMenu2 = (event) => {
       setAnchorEl2(event.currentTarget);
     };
@@ -93,38 +113,24 @@ function Header(props) {
                     </div>
 
                     <div className='responsiveProfileMenu'>
-
-                    <IconButton 
-                        aria-label="navigation of current user"
-                        aria-controls="menu-appbar-navigation"
-                        aria-haspopup="true"
-                        onClick={handleMenu}
-                        >
-                        <IconStyle>
-                          <AccountCircle style={{width: 30, height: 30}}/>
-                        </IconStyle>
-                    </IconButton>
-                        <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorEl}
-                            anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'right',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'right',
-                            }}
-                            open={Boolean(anchorEl)}
-                            onClose={handleClose}
-                        > 
-                            <Container style={{width: '100%', height: '100%', padding: 10, marginTop: '-10px', marginBottom: '-10px'}}>
-
-                            <MenuItem onClick={handleClose}>Profile</MenuItem>
-                            <MenuItem onClick={logoutSystem}>Logout</MenuItem>
-                            </Container>
-                        </Menu>
+                      <div ref={domNode} >
+                        <DropDownHeader className={isOpen === true ? 'openDropDown' : '' } onClick={toggling}>
+                          <AccountCircle/>
+                        </DropDownHeader>
+                        {isOpen && (
+                          <DropDownListContainer>
+                            <DropDownList>
+                              <ListItem >
+                                <div style={{fontSize: 14}}>
+                                  <p>Profile</p>
+                                  <p onClick={logoutSystem}>Logout</p>
+                                </div>
+                              </ListItem>
+                            </DropDownList>
+                          </DropDownListContainer>
+                        )}
+                      </div>
+                        
                     </div>
                 </div>
             </Container >

@@ -1,0 +1,143 @@
+.pageContent {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.pgn {
+    width: 500px;
+    height: 550px;
+    background-color: aquamarine;
+}
+
+
+.pagina--fadeBottom {
+    height: 7.5rem;
+    background-image: linear-gradient(
+        180deg,
+        transparent,
+        rgba(37, 37, 37, 0.61),
+        #111
+    );
+}
+
+.ctnConfig {
+    width: 100%;
+    min-height: 400;
+    border-radius: 10px;
+}
+
+.tBodyConfig {
+    width: 100%;
+    max-width: 1200px;
+    height: 580px;
+    overflow-x: scroll;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.tHeadConfig {
+    width: 100%;
+    height: 70px;
+    border-radius: 10px;
+}
+
+.trConfig {
+    margin: auto;
+    height: 70px;
+    width: 100%;
+}
+
+td {
+    height: 60px;
+    max-height: 100px;
+    text-align: center;
+    margin: 'auto'
+}
+
+th {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.imgCEV {
+    width: 100px;
+    object-fit: contain;
+    height: 50px;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.dropDownHeaderStyle {
+    max-width: 10.5em;
+    margin: auto;
+}
+
+
+.pageNumbers {
+    list-style: none;
+    display: flex;
+    font-weight: bold;
+    
+  }
+  
+  .pageNumbers li {
+    padding: 1px 3px;
+    cursor: pointer;
+  }
+
+  .pageNumbers button {
+    padding: 1px 14px;
+    margin: 0px 5px;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    border: none;
+  }
+
+  .pageNumbers button.active {
+    background-color: rgb(255, 208, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: default;
+  }  
+  
+  .pageNumbers li button {
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .pageNumbers button:hover {
+    background-color: rgb(255, 215, 58);
+    color: rgb(255, 255, 255);
+    border-radius: 8px;
+  }
+
+  .pageNumbers button.disabled {
+    cursor: default;
+    background-color: transparent;
+    color: rgb(70, 70, 70)
+  }
+
+  .pageNumbers button.inactiv {
+    cursor: default;
+  }
+
+  .pageNumbers li button:focus {
+    outline: none;
+  }
+
+
+
+@media screen and (max-width: 770px) {
+    .tBodyConfig{
+        max-width: 900px;
+    }
+    }

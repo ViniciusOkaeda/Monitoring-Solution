@@ -33,6 +33,11 @@ width: 100px;
 height: 80px;
 }
 
+.dropDownHeaderStyle {
+    max-width: 10.5em;
+    margin: auto;
+}
+
 .MuiSvgIcon-root {
     width: 40px;
     height: 40px;

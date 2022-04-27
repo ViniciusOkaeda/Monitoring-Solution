@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef } from 'react';
 
 import styled from "styled-components";
 
@@ -33,6 +33,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import Menu from '@mui/material/Menu';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 
 import api from '../../services/api';
@@ -86,11 +87,34 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
   );
 };
 
+let useClickOutside = (handler) => {
+  let domNode = useRef();
+
+  useEffect(() => {
+    let maybeHandler = (event) => {
+      if (!domNode.current.contains(event.target)) {
+        handler();
+      }
+    };
+
+    document.addEventListener("mousedown", maybeHandler);
+
+    return () => {
+      document.removeEventListener("mousedown", maybeHandler);
+    };
+  });
+
+  return domNode;
+};
+
 function Watching() {
+
+    const tableRef = useRef(null);
 
     const [codigo, setCodigo] = useState('');
     const [ filterId, setFilterId] = useState('');
     const [vendorNumber, setVendorNumber] = React.useState('');
+
   
     const [ watchingUsers, setWatchingUsers] = useState([ {
       Vendor: '',
@@ -166,10 +190,19 @@ function Watching() {
   
     const [loading, setLoading] = useState(false);
 
+    let domNode = useClickOutside(() => {
+      setIsOpen(false);
+    });
+
     useEffect (() => {
 
+
+
       (async () => {
-        const result = await api.get('monitoring/mw/customers/watching')
+        const result = await api.get('monitoring/mw/customers/watching', {        
+          headers: {
+          token: localStorage.getItem("token")
+        }})
         .then((result) =>  {
           //console.log("aq oe", result.data.response);
           setWatchingUsers(result.data.response);
@@ -182,7 +215,11 @@ function Watching() {
       })();
 
       (async () => {
-        const result = await api.get('monitoring/mw/customers/watching/qtd/channels')
+        const result = await api.get('monitoring/mw/customers/watching/qtd/channels', {
+          headers: {
+            token: localStorage.getItem("token")
+          }
+        })
         .then((result) => {
           //console.log("aq oe", result.data.response);
           setWatchingQtdChannels(result.data.response);
@@ -196,7 +233,11 @@ function Watching() {
       })();
 
       (async () => {
-        const result = await api.get('monitoring/mw/customers/watching/qtd/devices')
+        const result = await api.get('monitoring/mw/customers/watching/qtd/devices', {
+          headers: {
+            token: localStorage.getItem("token")
+          }
+        })
         .then((result) => {
           //console.log("aq oe", result.data.response);
           setWatchingQtdDevices(result.data.response);
@@ -210,7 +251,11 @@ function Watching() {
       })();
 
       (async () => {
-        const result = await api.get('monitoring/mw/customers/watching/qtd/types')
+        const result = await api.get('monitoring/mw/customers/watching/qtd/types', {
+          headers: {
+            token: localStorage.getItem("token")
+          }
+        })
         .then((result) => {
           //console.log("aq oe", result.data.response);
           setWatchingQtdTypes(result.data.response);
@@ -253,22 +298,7 @@ function Watching() {
                 </FormControl>
               </Box>
 
-              <div className='dropDownHeaderStyle'>
-                <DropDownHeader onClick={toggling}>
-                  <MoreHorizIcon></MoreHorizIcon>
-                </DropDownHeader>
-                {isOpen && (
-                  <DropDownListContainer>
-                    <DropDownList>
-                      {options.map(option => (
-                        <ListItem onClick={onOptionClicked(option)}>
-                          {option}
-                        </ListItem>
-                      ))}
-                    </DropDownList>
-                  </DropDownListContainer>
-                )}
-              </div>
+
 
               {/*parte dos graficos */}
               <Grid container component="main" sx={{  display: 'flex', }} spacing={2}>
@@ -313,9 +343,38 @@ function Watching() {
                     }
 
                     return(
-                    <Container key={index} style={{width: '100%', maxWidth: 1200, height: 650, margin: 'auto', borderRadius: 10 }}>
+                    <Container key={index} style={{width: '100%', maxWidth: 1200, height: 700, margin: 'auto', borderRadius: 10 }}>
+                      
+                        
 
-                      <table style={{ width: '95%', display: 'flex', flexDirection: 'column', margin: 'auto', paddingTop: 30, paddingBottom: 30, }}>
+                      <div style={{margin: 'auto', width: '90%',  display: 'flex', justifyContent: 'space-between', height: 70, alignItems: 'center', paddingTop: 30}}>
+                        <div style={{width: '20%',  height: 'auto'}}>
+                          <h3>Watching Now</h3>
+                        </div>
+                        <div style={{width: '10%', height: 45,  display: 'flex', justifyContent: 'flex-end'}}>
+                        <div ref={domNode} className='dropDownHeaderStyle'>
+                          <DropDownHeader className={isOpen === true ? 'openDropDown' : '' } onClick={toggling}>
+                            <MoreVertIcon></MoreVertIcon>
+                          </DropDownHeader>
+                          {isOpen && (
+                            <DropDownListContainer>
+                              <DropDownList>
+                                  <ListItem >
+                                    <div style={{fontSize: 14}}>
+                                      <p>Export to XLS</p>
+                                      <p>Export to PDF</p>
+                                      <p>Export to CSV</p>
+
+                                    </div>
+                                  </ListItem>
+                              </DropDownList>
+                            </DropDownListContainer>
+                          )}
+                        </div>
+                        </div>
+                      </div>
+
+                      <table ref={tableRef} style={{ width: '95%', display: 'flex', flexDirection: 'column', margin: 'auto', paddingTop: 30, paddingBottom: 30, }}>
 
                         <AlternativeTheadStyle className="tHeadConfig">
                           <tr className="trConfig">
