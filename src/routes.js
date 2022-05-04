@@ -21,7 +21,7 @@ import Home from './pages/home';
 import Watching from './pages/watching';
 import Login from './pages/login';
 import Packages from './pages/packages';
-import Brands from './pages/brands';
+import Dealers from './pages/dealers';
 
 import { useNavigate } from "react-router-dom";
 
@@ -73,9 +73,9 @@ function AllRoutes() {
                       <Packages />
                     </PrivateRoute>
                     } />
-                    <Route path="/brands" element={
+                    <Route path="/dealers" element={
                     <PrivateRoute>
-                      <Brands />
+                      <Dealers />
                     </PrivateRoute>
                     } />
                 </Routes>

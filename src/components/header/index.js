@@ -118,7 +118,7 @@ function Header(props) {
                           <AccountCircle/>
                         </DropDownHeader>
                         {isOpen && (
-                          <DropDownListContainer>
+                          <DropDownListContainer style={{position: 'absolute', zIndex: 1}}>
                             <DropDownList>
                               <ListItem >
                                 <div style={{fontSize: 14}}>

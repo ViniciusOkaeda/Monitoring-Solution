@@ -70,8 +70,8 @@ export default function PermanentDrawerLeft() {
           <WorkIcon />
           </Links>
         </ListItemIcon >
-        <Link href="/brands" className='linkEffect' underline="none" >
-          <ListItemText primary="Brands"  className='link'/>
+        <Link href="/dealers" className='linkEffect' underline="none" >
+          <ListItemText primary="Dealers"  className='link'/>
         </Link>
       </ListItem>
 

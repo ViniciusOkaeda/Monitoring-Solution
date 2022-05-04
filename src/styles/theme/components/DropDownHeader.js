@@ -9,7 +9,7 @@ export default styled.div`
     font-size: 1.3rem;
     cursor: pointer;
     &:hover {
-        background: #0088FE;
+        background: #FFC500;
         color: white;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 1);
       }

@@ -1,10 +1,14 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 
 import './index.css';
+
+import styled from "styled-components";
 
 import Container from '../../styles/theme/components/Container';
 import IconStyle from '../../styles/theme/components/IconStyle';
 import AlternativeTheadStyle from '../../styles/theme/components/AlternativeTheadStyle'
+import DropDownHeader from '../../styles/theme/components/DropDownHeader';
+import DropDownList from '../../styles/theme/components/DropDownList';
 
 import ThemeMenu from '../../components/themeMenu';
 import DrawerComponent from '../../components/drawer';
@@ -17,6 +21,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import MenuItem from '@mui/material/MenuItem';
 
 import api from '../../services/api';
@@ -38,6 +43,34 @@ const vendorsYc = [
   { label: 'youcast', id: 17},
   { label: 'YPLAY', id: 2},
 ];
+
+const DropDownListContainer = styled("div")``;
+
+
+const ListItem = styled("li")`
+    list-style: none;
+    margin-bottom: 0.8em;
+  `;
+
+  let useClickOutside = (handler) => {
+    let domNode = useRef();
+  
+    useEffect(() => {
+      let maybeHandler = (event) => {
+        if (!domNode.current.contains(event.target)) {
+          handler();
+        }
+      };
+  
+      document.addEventListener("mousedown", maybeHandler);
+  
+      return () => {
+        document.removeEventListener("mousedown", maybeHandler);
+      };
+    });
+  
+    return domNode;
+  };
 
 function Packages() {
 
@@ -83,6 +116,13 @@ function Packages() {
     const [pageNumberLimit, setPageNumberLimit] = useState(5);
     const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
     const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggling = () => setIsOpen(!isOpen);
+    let domNode = useClickOutside(() => {
+        setIsOpen(false);
+      });
+
 
     useEffect (() => {
 
@@ -125,11 +165,11 @@ function Packages() {
     }, [])
 
     return(
-        <div style={{width: '100%', height: '100%', display: 'flex',}}>
+        <div style={{width: '100%', height: 'auto', display: 'flex',}}>
           <div style={{}}>
             <PermanentDrawerLeft/>
           </div>
-          <div style={{ width: '100%', height: 6000}}>
+          <div style={{ width: '100%', height: 'auto'}}>
             <Header />
 
             {/*parte do input vendor */}
@@ -194,27 +234,57 @@ function Packages() {
                         pageDecrement = <li style={{cursor: 'default'}}> &hellip; </li>;
                       }
                       return(
-                        <Container key={index} style={{width: '100%', maxWidth: 1200, height: 650, margin: 'auto', borderRadius: 10 }}>
-                          <table style={{ width: '95%', display: 'flex', flexDirection: 'column', margin: 'auto', paddingTop: 30, paddingBottom: 30, }}>
+                        <Container key={index} style={{width: '100%', maxWidth: 1200, height: 'auto', margin: 'auto', borderRadius: 10 }}>
 
-                            <AlternativeTheadStyle className="tHeadConfig">
-                              <tr className="trConfig">
-                                <th style={{width: 350,paddingLeft: 10, }}>Login Cliente</th>
-                                <th style={{width: 600, }}>Pacotes Cadastrados</th>
+                          <div style={{margin: 'auto', width: '90%',  display: 'flex', justifyContent: 'space-between', height: 70, alignItems: 'center', paddingTop: 30}}>
+                            <div style={{width: '20%',  height: 'auto'}}>
+                              <h3>Users and Packages</h3>
+                            </div>
+                            <div style={{width: '10%', height: 45,  display: 'flex', justifyContent: 'flex-end'}}>
+                            <div ref={domNode} className='dropDownHeaderStyle'>
+                              <DropDownHeader className={isOpen === true ? 'openDropDown' : '' } onClick={toggling}>
+                                <MoreVertIcon></MoreVertIcon>
+                              </DropDownHeader>
+                              {isOpen && (
+                                <DropDownListContainer>
+                                  <DropDownList>
+                                      <ListItem >
+                                        <div style={{fontSize: 14}}>
+                                          <p>Export to XLS</p>
+                                          <p>Export to PDF</p>
+                                          <p>Export to CSV</p>
+  
+                                        </div>
+                                      </ListItem>
+                                  </DropDownList>
+                                </DropDownListContainer>
+                              )}
+                            </div>
+                            </div>
+                          </div>
 
-                              </tr>
-                            </AlternativeTheadStyle>
-                            <tbody style={{overflowY: 'scroll', height: 350, marginTop: 20}}>
+                          <div style={{ width: '95%', height: 'auto', margin: 'auto', marginBottom: 30}}>
+                            <table style={{ width: '100%', height: '100%', paddingTop: 30, paddingBottom: 30, }}>
 
-                          {currentItens.map((items, i) => (
-                                <tr key={i} style={{width: '100%', fontSize: '14px'}}>
-                                  <td style={{width: 350, paddingLeft: 10, }}>{items.Cliente}</td>
-                                  <td style={{width: 600, }}><p style={{margin: 5}}> {items.pacotes.map((pct, o) => ( pct.Pacote+", " ))} </p></td>
+                              <AlternativeTheadStyle style={{width: '100%', height: 60, }}>
+                                <tr>
+                                  <th className='tbrc tbr1 fontTH'>Customer Login</th>
+                                  <th className='tbrc tbr1 fontTH'>Registered Packages</th>
+
                                 </tr>
-                          ))}
+                              </AlternativeTheadStyle>
+                              <tbody style={{overflowY: 'scroll', width: '100%', height: 'auto', marginTop: 20,}}>
 
-                            </tbody>
-                          </table>
+                            {currentItens.map((items, i) => (
+                                  <tr key={i} >
+                                    <td className='tbrc tbr1 fontTH'>{items.Cliente}</td>
+                                    <td className='tbrc tbr1 fontTH'><p style={{margin: 5}}> {items.pacotes.map((pct, o) => ( pct.Pacote+", " ))} </p></td>
+                                  </tr>
+                            ))}
+
+                              </tbody>
+                            </table>
+                          </div>
 
                           <div style={{display: 'flex', justifyContent: 'space-between', margin: 'auto', width: '90%'}}>
                             <ul className='pageNumbers'>
@@ -297,21 +367,21 @@ function Packages() {
                       <React.Fragment key={index}>
                         <Container style={{width: '100%', height: 'auto', margin: 'auto', borderRadius: 10}}>
                         <div style={{margin: 'auto', width: '100%', paddingTop: 1}}>
-                        <h3 style={{textAlign: 'center',}}>Quantidade Usuários por Pacote</h3>
+                        <h3 style={{textAlign: 'center',}}>Number of Users per Package</h3>
                         <ComposedChart
                           layout="vertical"
-                          width={900}
+                          width={1200}
                           height={5000}
                           data={data}
                           margin={{
                             top: 20,
-                            right: 20,
+                            right: 30,
                             bottom: 10,
-                            left: 130
+                            left: 150
                           }}
                         >
                           <XAxis type="number" />
-                          <YAxis dataKey="name" minTickGap={20} type="category" tick={{fontSize: 16,}} scale="band" />
+                          <YAxis dataKey="name" minTickGap={10} type="category" tick={{fontSize: 16,}} scale="band" width={150}/>
                           <Tooltip />
                           <Legend />
                           <Bar dataKey="Quantidade de usuários" barSize={40} fill="#0088FE" />

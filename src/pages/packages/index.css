@@ -8,16 +8,3 @@
     margin: auto;
     height: 70px;
 }
-
-td {
-    height: 60px;
-    max-height: 100px;
-    text-align: center;
-}
-
-th {
-    text-align: center;
-    padding-top: 20px;
-    font-size: 20px;
-    font-weight: bold;
-}

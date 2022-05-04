@@ -26,8 +26,101 @@ code {
 }
 
 .openDropDown {
-  background: #0088FE;
+  background: #FFC500;
   color: white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 1);
 }
+
+
+  /*  table configs css */
+
+  td {
+    max-height: 100px;
+    text-align: center;
+    margin: 'auto'
+}
+
+  .fontTH {
+    text-align: center;
+    padding-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.tbrc {
+  height: auto;
+  word-wrap: break-word;
+  min-height: 40px;
+
+}
+
+.tbr1 {
+  width: 15%;
+  max-width: 200px;
+  height: 60px;
+  max-height: 100px;
+}
+
+.tbr1r {
+  width: 15%;
+  background-color: rgb(255, 0, 0);
+  max-width: 200px;
+  height: 60px;
+
+}
+
+.tbr2 {
+  width: 20%;
+  max-width: 130px;
+  height: 60px;
+
+
+}
+
+.tbr3 {
+  width: 10%;
+  max-width: 100px;
+  height: 60px;
+
+}
+
+.tbr4 {
+  width: 8%;
+  max-width: 80px;
+  height: 60px;
+
+}
+
+.fontS {
+  font-size: 14px;
+}
+
+
+@media screen and (max-width: 770px) {
+  .fontTH {
+    font-size: 12px;
+}
+
+.fontS {
+  font-size: 10px;
+}
+
+}
+@media screen and (max-width: 620px) {
+  .tbr1 {
+    width: 10%;
+    max-width: 150px;
+    max-height: 100px;
+  }
+    
+  .tbr2 {
+    width: 15%;
+    max-width: 130px;
+  
+  
+  }
+}
+
+
+
 

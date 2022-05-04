@@ -33,7 +33,7 @@ import api from '../../services/api';
 
 import { PieChart, Pie, Legend, Tooltip, Sector, Cell, BarChart, XAxis, YAxis, Bar, Brush, CartesianGrid, ComposedChart  } from "recharts";
 
-const brandsYc = [
+const dealersYc = [
     { label: 'JACON dealer'},
     { label: 'a2-telecom'},
     { label: 'ADMIN-YOUCAST'},
@@ -131,6 +131,10 @@ const brandsYc = [
     { label: 'zon-networks'},
   ];
 
+  const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", ];
+
+
+
 const DropDownListContainer = styled("div")``;
 
 const ListItem = styled("li")`
@@ -158,15 +162,15 @@ const ListItem = styled("li")`
     return domNode;
   };
 
-function Brands() {
+function Dealers() {
 
-    const [brandName, setbrandName] = React.useState('');
+    const [dealerName, setDealerName] = React.useState('');
 
     const [ packagesUserBrand, setPackagesUserBrand] = useState([ {
         dealer: '',
         data: [{
-            login: '',
-            pacotes: [{
+          login: '',
+          pacotes: [{
                 idsms: '',
                 idmw: '',
                 login: '',
@@ -177,17 +181,24 @@ function Brands() {
                 activation: '',
                 cancelled: '',
           }],
+          pacoteYplayStatus: '',
+          pacoteYplay: '',
         }],
+        basicCount: '',
+        fullCount: '',
+        compactCount: '',
+        premiumCount: '',
+        urbanTv: '',
       } ])
 
-    const [itensPerPage, setItensPerPage] = useState(10);
+    const [itensPerPage, setItensPerPage] = useState(25);
     const [currentPage, setCurrentPage] = useState(0);
     const [pageNumberLimit, setPageNumberLimit] = useState(5);
     const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
     const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 
     const handleChange = (event) => {
-        setbrandName(event.target.value);
+        setDealerName(event.target.value);
       };
 
       const [selectedOption, setSelectedOption] = useState(null);
@@ -235,15 +246,15 @@ function Brands() {
             <div style={{width: '95%', margin: 'auto',  borderRadius: 15}}>
                 <Box sx={{ minWidth: 220, marginBottom: 5 }}>
                 <FormControl sx={{ width: 180 }}>
-                    <InputLabel id="outlined-select-label">Brands</InputLabel>
+                    <InputLabel id="outlined-select-label">Dealers</InputLabel>
                     <Select
                     labelId="outlined-select-label"
                     id="outlined-select-currency"
-                    value={brandName === '' ? '' : brandName}
-                    label="brandName"
+                    value={dealerName === '' ? '' : dealerName}
+                    label="dealerName"
                     onChange={handleChange}
                     >
-                    {brandsYc.map((option, w) => (
+                    {dealersYc.map((option, w) => (
                     <MenuItem key={w} value={option.label}>
                     {option.label}
                     </MenuItem>
@@ -254,9 +265,107 @@ function Brands() {
 
                 {/*parte dos graficos */}
                 <Grid container component="main" sx={{  display: 'flex', }} spacing={2}>
+                      {packagesUserBrand.filter((item) =>
+                      dealerName !== '' && item.dealer === dealerName
+                      ).map((item, index) => {
+                        console.log("meu item", item)
+                        const dataGraf = [{
+                          "name": "Básico",
+                          "Quantidade": item.basicCount,
+                        },
+                        {
+                          "name":  "Compacto",
+                          "Quantidade": item.compactCount,
+                        },
+                        {
+                          "name":  "Premium",
+                          "Quantidade": item.premiumCount,
+                        },
+                        {
+                          "name":  "Full",
+                          "Quantidade": item.fullCount,
+                        
+                        },
+                        {
+                          "name":  "Urban",
+                          "Quantidade": item.urbanTv,
+                        }                    
+                      ]
+                      //items.pacotes.filter(i => i.product === 'Yplay Light').map(item => item.product)
+                        const packsCheck = [{
+                          correct: item.data.filter(i => i.pacoteYplayStatus === 'OK').map(item => item.pacoteYplayStatus),
+                          incorrect: item.data.filter(i => i.pacoteYplayStatus === 'ERRO').map(item => item.pacoteYplayStatus),
+                        }]
+
+                        const packGrafic = [{
+                          "pack": packsCheck.map( i => i.correct.length),
+                          "name": 'Pacotes Corretos'
+                        },
+                        {
+                          "incorrect": packsCheck.map( i => i.incorrect.length),
+                          "name": 'Pacotes Incorretos',
+
+                        }
+                      ]
+
+                        console.log("check", packsCheck)
+                        return(
+                          <Grid key={index} item xs={12} sm={12} md={12} elevation={4} square style={{display: 'flex',}} container spacing={2}>
+
+                            <Grid item xs={12} sm={8} md={8} elevation={4} square>
+                              <Container style={{width: '100%', height: 'auto', margin: 'auto', borderRadius: 10}}>
+                                <div style={{margin: 'auto', width: '100%', paddingTop: 1}}>
+                                <h3 style={{textAlign: 'center',}}>Active packages</h3>
+                                <ComposedChart
+                                  layout="vertical"
+                                  width={450}
+                                  height={350}
+                                  data={dataGraf}
+                                  margin={{
+                                    top: 20,
+                                    right: 20,
+                                    bottom: 20,
+                                    left: 50
+                                  }}
+                                >
+                                  <XAxis type="number" dataKey={"Quantidade"} />
+                                  <YAxis dataKey="name" type="category" tick={{fontSize: 16}} scale="band" />
+                                  <Tooltip />
+                                  <Legend />
+                                  <Bar dataKey="Quantidade" barSize={40} fill="#0088FE" />
+                                </ComposedChart>
+                                </div>
+                              </Container>
+                            </Grid>
+
+                            <Grid item xs={12} sm={4} md={4} elevation={4} square container >
+                              <Grid item xs={12} sm={12} md={12} elevation={4} square>
+                                <Container style={{width: '100%', height: 80, borderRadius: 10}}>
+                                  <h2 style={{fontSize: 26, padding: '20px 0px 0px 10px'}}>Active Users: {packsCheck.map((i) => i.correct.length)}</h2>
+
+                                </Container>
+                              </Grid>
+                              <Grid  item xs={12} sm={12} md={12} elevation={4} square>
+                                <Container style={{width: '100%', height: 80, borderRadius: 10,}}>
+                                  <h2 style={{fontSize: 26, padding: '20px 0px 0px 10px'}}>Incorrect packages: {packsCheck.map((i) => i.incorrect.length)}</h2>
+
+                                </Container>
+
+                              </Grid>
+                            </Grid>
+
+
+                        </Grid>
+                        )
+                      }
+                      
+                      )}
+                
+
+
                 <Grid item xs={12} sm={12} md={12} elevation={4} square>
                     {packagesUserBrand.filter((item) =>
-                    brandName !== '' && item.dealer === brandName 
+                    dealerName !== '' && item.dealer === dealerName 
                     ).map((item, index) => {
                         const pages = Math.ceil(item.data.length / itensPerPage)
                         const startIndex = currentPage * itensPerPage; //indexOfLastItem
@@ -295,7 +404,7 @@ function Brands() {
                         }
     
                         return(
-                        <Container key={index} style={{width: '100%', maxWidth: 1200, height: 700, margin: 'auto', borderRadius: 10 }}>
+                        <Container key={index} style={{width: '100%', maxWidth: 1200, height: 'auto', margin: 'auto', borderRadius: 10 }}>
                           
                             
     
@@ -325,23 +434,25 @@ function Brands() {
                             </div>
                             </div>
                           </div>
-    
-                          <table style={{ width: '95%', display: 'flex', flexDirection: 'column', margin: 'auto', paddingTop: 30, paddingBottom: 30, }}>
-    
-                            <AlternativeTheadStyle className="tHeadConfig">
-                              <tr className="trConfig">
-                                <th style={{width: 300,}}>Login</th>
-                                <th style={{width: 250,  }}>Identificador</th>
-                                <th style={{width: 100,  }}>Y.Completo</th>
-                                <th style={{width: 100, }}>Y.Light</th>
-                                <th style={{width: 70,}}>Kids</th>
-                                <th style={{width: 90,}}>Nacional</th>
-                                <th style={{width: 90,}}>Studios</th>
-                                <th style={{width: 70,}}>TVOD</th>
-                                <th style={{width: 100,}}>Urban</th>
+
+
+
+                          <div style={{ width: '95%', height: 'auto', margin: 'auto', marginBottom: 30}}>
+                          <table style={{ width: '100%', height: '100%', paddingTop: 30, paddingBottom: 30, }}>
+                            <AlternativeTheadStyle style={{width: '100%', height: 60, }}>
+                              <tr>
+                                <th className='tbrc tbr1 fontTH'>Login</th>
+                                <th className='tbrc tbr2 fontTH'>identifier</th>
+                                <th className='tbrc tbr3 fontTH'>Y.Completo</th>
+                                <th className='tbrc tbr3 fontTH'>Y.Light</th>
+                                <th className='tbrc tbr4 fontTH'>Kids</th>
+                                <th className='tbrc tbr4 fontTH'>Nacional</th>
+                                <th className='tbrc tbr4 fontTH'>Studios</th>
+                                <th className='tbrc tbr4 fontTH'>TVOD</th>
+                                <th className='tbrc tbr4 fontTH'>Urban</th>
                               </tr>
                             </AlternativeTheadStyle>
-                            <tbody style={{overflowY: 'scroll', height: 350, marginTop: 20, }}>
+                            <tbody style={{overflowY: 'scroll', width: '100%', height: 'auto', marginTop: 20,}} >
                               {currentItens.map((items, i) => {
 
                                   const dealerPackages = [{
@@ -352,8 +463,8 @@ function Brands() {
                                       packSVODNacional: items.pacotes.filter(i => i.product === 'SVOD Nacional').map(item => item.product),
                                       packSVODStudio: items.pacotes.filter(i => i.product === 'SVOD Studio').map(item => item.product),
                                       packTVOD: items.pacotes.filter(i => i.product === 'TVOD').map(item => item.product),
-                                      packYPlayUrban: items.pacotes.filter(i => i.product === 'YPlay Urban').map(item => item.product),
-                                      packIdentifier: items.pacotes.filter(i => i.product !== 'YPlay Urban' 
+                                      packYPlayUrban: items.pacotes.filter(i => i.product === 'Yplay UrbanTV').map(item => item.product),
+                                      packIdentifier: items.pacotes.filter(i => i.product !== 'Yplay UrbanTV' 
                                       && i.product !== 'YPlay Completo' 
                                       && i.product !== 'Yplay Light' 
                                       && i.product !== 'SVOD Kids' 
@@ -363,27 +474,27 @@ function Brands() {
                                   }]
 
                                   console.log("teset aqui", dealerPackages)
-                                 return(
-                                    <tr key={i} style={{width: '100%', fontSize: '14px', margin: 'auto' }}>
+                                return(
+                                    <tr key={i} >
                                         {dealerPackages.map((dealer) => {                                          
                                             return(
                                                 <>
                                                   {dealer.packIdentifier.length == 1 ? 
                                                     <>
-                                                    <td style={{width: 200, margin: 'auto', textAlign: 'center', }}>{dealer.login}</td>
-                                                    <td style={{width: 150, margin: 'auto', textAlign: 'center', }}>{dealer.packIdentifier}</td>
-                                                    <td style={{width: 100, margin: 'auto', textAlign: 'center',  }}>{dealer.packYPlayCompleto == 'YPlay Completo' ? <Check style={{color: '#00ff1d'}}/> : 'n/a'}</td>
-                                                    <td style={{width: 100, margin: 'auto', textAlign: 'center', }}>{dealer.packYPlayLight == 'Yplay Light' ? <Check style={{color: '#00ff1d'}}/> : 'n/a'}</td>
-                                                    <td style={{width: 70, margin: 'auto', textAlign: 'center',  }}>{dealer.packSVODKids == 'SVOD Kids' ? <Check style={{color: '#00ff1d'}}/> : 'n/a'}</td>
-                                                    <td style={{width: 90, margin: 'auto', textAlign: 'center',  }}>{dealer.packSVODNacional == 'SVOD Nacional' ? <Check style={{color: '#00ff1d'}}/> : 'n/a'}</td>
-                                                    <td style={{width: 90, margin: 'auto', textAlign: 'center',  }}>{dealer.packSVODStudio == 'SVOD Studio' ? <Check style={{color: '#00ff1d'}}/> : 'n/a'}</td>
-                                                    <td style={{width: 70, margin: 'auto', textAlign: 'center',  }}>{dealer.packTVOD == 'TVOD' ? <Check style={{color: '#00ff1d'}}/> : 'n/a'}</td>
-                                                    <td style={{width: 100, margin: 'auto', textAlign: 'center', }}>{dealer.packYPlayUrban == 'YPlay Urban' ? <Check style={{color: '#00ff1d'}}/> : 'n/a'}</td>
+                                                    <td className='tbrc tbr1 fontS'>{dealer.login}</td>
+                                                    <td className='tbrc tbr2 fontS'>{dealer.packIdentifier}</td>
+                                                    <td className='tbrc tbr3 fontS'>{dealer.packYPlayCompleto == 'YPlay Completo' ? <Check style={{color: '#00ff1d'}}/> : 'n/a'}</td>
+                                                    <td className='tbrc tbr3 fontS'>{dealer.packYPlayLight == 'Yplay Light' ? <Check style={{color: '#00ff1d'}}/> : 'n/a'}</td>
+                                                    <td className='tbrc tbr4 fontS'>{dealer.packSVODKids == 'SVOD Kids' ? <Check style={{color: '#00ff1d'}}/> : 'n/a'}</td>
+                                                    <td className='tbrc tbr4 fontS'>{dealer.packSVODNacional == 'SVOD Nacional' ? <Check style={{color: '#00ff1d'}}/> : 'n/a'}</td>
+                                                    <td className='tbrc tbr4 fontS'>{dealer.packSVODStudio == 'SVOD Studio' ? <Check style={{color: '#00ff1d'}}/> : 'n/a'}</td>
+                                                    <td className='tbrc tbr4 fontS'>{dealer.packTVOD == 'TVOD' ? <Check style={{color: '#00ff1d'}}/> : 'n/a'}</td>
+                                                    <td className='tbrc tbr4 fontS'>{dealer.packYPlayUrban == 'YPlay Urban' ? <Check style={{color: '#00ff1d'}}/> : 'n/a'}</td>
                                                     </> 
                                                   :
                                                     <>
-                                                    <td style={{width: 300, margin: 'auto', textAlign: 'center', backgroundColor: 'red'}}>{dealer.login}</td>
-                                                    <td style={{width: 300, margin: 'auto', textAlign: 'center', backgroundColor: 'red'}}>Há algo de errado com este usuário</td>
+                                                    <td className='tbrc tbr1r fontS'>{dealer.login}</td>
+                                                    <td className='tbrc tbr1r fontS'>Há algo de errado com este usuário</td>
                                                     </>
                                                   }
                                                 </>
@@ -392,12 +503,13 @@ function Brands() {
                                         })}
                                     </tr>
 
-                                 ) 
-})}
+                                ) 
+                        })}
                             </tbody>                 
                           </table>
+                          </div>
     
-                          <div style={{display: 'flex', justifyContent: 'space-between', margin: 'auto', width: '90%'}}>
+                          <div style={{display: 'flex', justifyContent: 'space-between', margin: 'auto', width: '90%', marginTop: 50, paddingBottom: 30}}>
                             <ul className='pageNumbers'>
                               <li>
                                 <button 
@@ -448,7 +560,6 @@ function Brands() {
     
                           </div>
     
-    
                         </Container>
                         )}
                     )}
@@ -467,4 +578,4 @@ function Brands() {
     )
 }
 
-export default Brands;
+export default Dealers;

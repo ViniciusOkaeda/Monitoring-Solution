@@ -5,17 +5,16 @@ import styled from "styled-components";
 import './index.css';
 
 import Container from '../../styles/theme/components/Container';
-import Gradient from '../../styles/theme/components/Gradient';
 import AlternativeTheadStyle from '../../styles/theme/components/AlternativeTheadStyle'
 import AlternativeTbodyStyle from '../../styles/theme/components/AlternativeTbodyStyle'
 import DropDownList from '../../styles/theme/components/DropDownList';
+import DropDownHeader from '../../styles/theme/components/DropDownHeader';
+import IconStyle from '../../styles/theme/components/IconStyle';
 
 import ThemeMenu from '../../components/themeMenu';
 import DrawerComponent from '../../components/drawer';
 import Header from '../../components/header/index.js';
 import PermanentDrawerLeft from '../../components/drawer';
-import DropDownHeader from '../../styles/theme/components/DropDownHeader';
-import IconStyle from '../../styles/theme/components/IconStyle';
 
 import { Pagination } from '@mui/material';
 
@@ -71,7 +70,6 @@ const ListItem = styled("li")`
   margin-bottom: 0.8em;
 `;
 
-const options = ["Mangoes", "Apples", "Oranges"];
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", ];
 
 const RADIAN = Math.PI / 185;
@@ -274,7 +272,7 @@ function Watching() {
           <div style={{}}>
             <PermanentDrawerLeft/>
           </div>
-          <div style={{ width: '100%', height: 3000}}>
+          <div style={{ width: '100%', height: 'auto'}}>
             <Header />
 
             {/*parte do input vendor */}
@@ -343,7 +341,7 @@ function Watching() {
                     }
 
                     return(
-                    <Container key={index} style={{width: '100%', maxWidth: 1200, height: 700, margin: 'auto', borderRadius: 10 }}>
+                    <Container key={index} style={{width: '100%', maxWidth: 1200, height: 'auto', margin: 'auto', borderRadius: 10 }}>
                       
                         
 
@@ -373,32 +371,34 @@ function Watching() {
                         </div>
                         </div>
                       </div>
+                      
+                      <div style={{ width: '95%', height: 'auto', margin: 'auto', marginBottom: 30}}>
+                        <table ref={tableRef} style={{ width: '100%', height: '100%', paddingTop: 30, paddingBottom: 30, }}>
 
-                      <table ref={tableRef} style={{ width: '95%', display: 'flex', flexDirection: 'column', margin: 'auto', paddingTop: 30, paddingBottom: 30, }}>
-
-                        <AlternativeTheadStyle className="tHeadConfig">
-                          <tr className="trConfig">
-                          <th style={{width: 200,paddingLeft: 10, }}>Login</th>
-                            <th style={{width: 140, }}>Canal</th>
-                            <th style={{width: 140, }}>VOD</th>
-                            <th style={{width: 80, }}>T.D.S</th>
-                            <th style={{width: 180, }}>T.D.D</th>
-                            <th style={{width: 120, }}>Formato</th>
-                          </tr>
-                        </AlternativeTheadStyle>
-                        <tbody style={{overflowY: 'scroll', height: 350, marginTop: 20}}>
-                          {currentItens.map((items, i) => (
-                            <tr key={i} style={{width: '100%', fontSize: '14px'}}>
-                              <td style={{width: 200, paddingLeft: 10, }}>{items.login}</td>
-                              <td style={{width: 140, margin: 'auto', }}>{items.ChannelURL !== null ? <img src={items.ChannelURL} className="imgCEV" /> : <p style={{textAlign: 'center'}}>N/A</p>}</td>
-                              <td style={{width: 140, margin: 'auto', }}>{items.VODURL !== null ? <img src={items.VODURL} className="imgCEV" /> : <p style={{textAlign: 'center'}}>N/A</p>}</td>
-                              <td style={{width: 80, }}><p>{items.watching_now_stream_type.toUpperCase()}</p></td>
-                              <td style={{width: 180, }}><p>{items.watching_now_devices_type.toUpperCase()}</p></td>
-                              <td style={{width: 120, }}><p>{items.watching_now_type.toUpperCase()}</p></td>
+                          <AlternativeTheadStyle style={{width: '100%', height: 60, }}>
+                            <tr>
+                            <th className='tbrc tbr1 fontTH'>Login</th>
+                              <th className='tbrc tbr2 fontTH'>Channel</th>
+                              <th className='tbrc tbr2 fontTH'>VOD</th>
+                              <th className='tbrc tbr3 fontTH'>T.D.S</th>
+                              <th className='tbrc tbr3 fontTH'>T.D.D</th>
+                              <th className='tbrc tbr3 fontTH'>Format</th>
                             </tr>
-                          ))}
-                        </tbody>                 
-                      </table>
+                          </AlternativeTheadStyle>
+                          <tbody style={{overflowY: 'scroll', width: '100%', height: 'auto', marginTop: 20,}}>
+                            {currentItens.map((items, i) => (
+                              <tr key={i} >
+                                <td className='tbrc tbr1 fontTH'>{items.login}</td>
+                                <td className='tbrc tbr2 fontTH'>{items.ChannelURL !== null ? <img src={items.ChannelURL} className="imgCEV" /> : <p style={{textAlign: 'center'}}>N/A</p>}</td>
+                                <td className='tbrc tbr2 fontTH'>{items.VODURL !== null ? <img src={items.VODURL} className="imgCEV" /> : <p style={{textAlign: 'center'}}>N/A</p>}</td>
+                                <td className='tbrc tbr3 fontTH'><p>{items.watching_now_stream_type.toUpperCase()}</p></td>
+                                <td className='tbrc tbr3 fontTH'><p>{items.watching_now_devices_type.toUpperCase()}</p></td>
+                                <td className='tbrc tbr3 fontTH'><p>{items.watching_now_type.toUpperCase()}</p></td>
+                              </tr>
+                            ))}
+                          </tbody>                 
+                        </table>
+                      </div>
 
                       <div style={{display: 'flex', justifyContent: 'space-between', margin: 'auto', width: '90%'}}>
                         <ul className='pageNumbers'>
@@ -472,7 +472,7 @@ function Watching() {
                       <React.Fragment key={index}>
                         <Container style={{width: '100%', height: 'auto', margin: 'auto', borderRadius: 10}}>
                         <div style={{margin: 'auto', width: '100%', paddingTop: 1}}>
-                        <h3 style={{textAlign: 'center',}}>Dispositivos Utilizados</h3>
+                        <h3 style={{textAlign: 'center',}}>Devices Used</h3>
                         <PieChart width={520} height={280}>
                         <Pie
                           data={data}
@@ -515,7 +515,7 @@ function Watching() {
                       <React.Fragment key={index}>
                         <Container style={{width: '100%', height: 'auto', margin: 'auto', borderRadius: 10}}>
                         <div style={{margin: 'auto', width: '100%', paddingTop: 1}}>
-                        <h3 style={{textAlign: 'center',}}>Tipos de Stream</h3>
+                        <h3 style={{textAlign: 'center',}}>Stream Types</h3>
                         <PieChart width={450} height={280}>
                         <Pie
                           data={data}
@@ -558,21 +558,21 @@ function Watching() {
                       <React.Fragment key={index}>
                         <Container style={{width: '100%', height: 'auto', margin: 'auto', borderRadius: 10}}>
                         <div style={{margin: 'auto', width: '100%', paddingTop: 1}}>
-                        <h3 style={{textAlign: 'center',}}>Canais Sendo Assistidos</h3>
+                        <h3 style={{textAlign: 'center',}}>Channels Being Watched</h3>
                         <ComposedChart
                           layout="vertical"
                           width={500}
-                          height={1200}
+                          height={2200}
                           data={data}
                           margin={{
                             top: 20,
                             right: 20,
                             bottom: 10,
-                            left: 120
+                            left: 80
                           }}
                         >
                           <XAxis type="number" />
-                          <YAxis dataKey="name" type="category" tick={{fontSize: 16}} scale="band" />
+                          <YAxis dataKey="name" type="category" tick={{fontSize: 16}} scale="band" width={150} />
                           <Tooltip />
                           <Legend />
                           <Bar dataKey="Quantidade de usuários" barSize={40} fill="#0088FE" />

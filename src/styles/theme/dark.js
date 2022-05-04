@@ -14,10 +14,6 @@ export default {
         textColor: "#fff",
     },
 
-    backgroundGradient: {
-        backgroundImage: "linear-gradient(180deg, transparent, rgba(37,37,37, 0.61), #222)"
-    },
-
     logoImage: {
         backgroundImage: `url(${LogoYplay})`
     },
@@ -41,5 +37,13 @@ export default {
         backgroundColor: "#333",
         textColor: "#c9c9c9"
     },
+
+    clipForm1: {
+        backgroundColor: " rgb(15, 15, 15)",
+    },
+
+    clipForm2: {
+        backgroundColor: " rgba(15, 15, 15, 0.6)",
+    }
 
 }

@@ -48,19 +48,9 @@
     width: 100%;
 }
 
-td {
-    height: 60px;
-    max-height: 100px;
-    text-align: center;
-    margin: 'auto'
-}
 
-th {
-    text-align: center;
-    padding-top: 20px;
-    font-size: 14px;
-    font-weight: bold;
-}
+
+
 
 .imgCEV {
     width: 100px;
@@ -134,10 +124,3 @@ th {
     outline: none;
   }
 
-
-
-@media screen and (max-width: 770px) {
-    .tBodyConfig{
-        max-width: 900px;
-    }
-    }
