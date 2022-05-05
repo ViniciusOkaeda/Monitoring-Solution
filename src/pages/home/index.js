@@ -6,6 +6,9 @@ import styled from "styled-components";
 
 import api from '../../services/api';
 
+import { CSVLink } from "react-csv";
+import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+
 import Container from '../../styles/theme/components/Container';
 import ClipForm1 from '../../styles/theme/components/ClipForm1';
 import ClipForm2 from '../../styles/theme/components/ClipForm2';
@@ -60,6 +63,8 @@ function Home() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [qtdDealer, setQtdDealer] = React.useState(null);
+  const [qtdVendor, setQtdVendor] = React.useState(null);
 
 
   const [ packagesUser, setPackagesUser] = useState([ {
@@ -68,7 +73,7 @@ function Home() {
     Pacote: '',
     QTD_Clientes: '',
   } ]);
-  console.log("meu users", packagesUser)
+  //console.log("meu users", packagesUser)
 
   const [ packagesUserBrand, setPackagesUserBrand] = useState([ {
     dealer: '',
@@ -99,6 +104,39 @@ function Home() {
   let domNode = useClickOutside(() => {
       setIsOpen(false);
     });
+
+    const [ dealerReports, setDealerReports] = useState ([{
+      dealer: '',
+      basicCount: '',
+      compactCount: '',
+      fullCount: '',
+      premiumCount: '',
+      urbanTv: '',
+      total:  '',
+    }])
+    console.log(dealerReports)
+
+    const headers3 = [
+      { label: "Brand Name", key: "dealer" },
+      { label: "Basic", key: "basicCount" },
+      { label: "Compact", key: "compactCount" },
+      { label: "Full", key: "fullCount" },
+      { label: "Premium", key: "premiumCount" },
+      { label: "Urban", key: "urbanTv" },
+      { label: "Total", key: "total" },
+    ];
+
+    const headers = [
+      { label: "Brand", key: "brandName" },
+      { label: "Basic", key: "packBasic" },
+      { label: "Compact", key: "packCompact" },
+      { label: "Full", key: "packFull" },
+      { label: "Premium", key: "packPremium" },
+      { label: "Urban", key: "packUrban" },
+
+    ];
+
+
 
 
     useEffect (() => {
@@ -134,8 +172,11 @@ function Home() {
       })
       .then((result) => {
 
-        console.log("device oe", result.data.response.map((e) => e.data.map((i) => i.Tipo) ));
-        console.log("device oe2", result.data.response.map((e) => e.data.map((i) => i.customers) ));
+        setQtdVendor(result.data.response.length)
+
+        //console.log("device oe", result.data.response.map((e) => e.data.map((i) => i.Tipo) ));
+        //console.log("device oe2", result.data.response.map((e) => e.data.map((i) => i.customers) ));
+        //console.log("device oe3", result.data.response);
         //setWatchingQtdChannels(result.data.response);
 
   })
@@ -154,8 +195,8 @@ function Home() {
       })
       .then((result) => {
         setPackagesUser(result.data.response.map((e) => e.data.map((u) => u) ))
-        console.log("aq oe", result.data.response.map((e) => e.data.map((i) => i.QTD_Clientes).sort(function(a,b) {return b- a;})[0]) );
-        console.log("aq oe2", result.data.response.map((e) => e.data.map((u) => u.QTD_Clientes) ));
+        //console.log("aq oe", result.data.response.map((e) => e.data.map((i) => i.QTD_Clientes).sort(function(a,b) {return b- a;})[0]) );
+        //console.log("aq oe2", result.data.response.map((e) => e.data.map((u) => u.QTD_Clientes) ));
         //setWatchingQtdChannels(result.data.response);
 
   })
@@ -173,8 +214,10 @@ function Home() {
         }
       })
       .then((result) => {
-        //console.log("aq oe", result.data.response);
         setPackagesUserBrand(result.data.response);
+        setQtdDealer(result.data.response.length)
+        setDealerReports(result.data.response.map((e) => e))
+        //console.log("o meu teste", result.data.response.map((e) => e))
 
   })
       .catch((error) => {
@@ -183,10 +226,6 @@ function Home() {
   })
 
     })();
-
-
-
-
 
   }, [])
 
@@ -260,9 +299,9 @@ function Home() {
                     </div>
 
                     <h2 className='defaultStyleCard gridCardH3'>Monitoring</h2>
-                    <h2 className='defaultStyleCard gridCardH3-2'>10</h2>
+                    <h2 className='defaultStyleCard gridCardH3-2'>{qtdVendor}</h2>
                     <p className='defaultStyleCard gridCardP3'>Vendors</p>
-                    <h2 className='defaultStyleCard gridCardH3-3'>94</h2>
+                    <h2 className='defaultStyleCard gridCardH3-3'>{qtdDealer}</h2>
                     <p className='defaultStyleCard gridCardP3-2'>Dealers</p>
                 </Container>
 
@@ -301,7 +340,7 @@ function Home() {
               <Container style={{width: '100%', maxWidth: 1200, height: 'auto', margin: 'auto', borderRadius: 10,}}>
                 <div style={{margin: 'auto', width: '90%',  display: 'flex', justifyContent: 'space-between', height: 70, alignItems: 'center', paddingTop: 30}}>
                   <div style={{width: '20%',  height: 'auto'}}>
-                    <h3>Overview - Brands</h3>
+                    <h3>Overview - Brands </h3>
                   </div>
                   <div style={{width: '10%', height: 45,  display: 'flex', justifyContent: 'flex-end'}}>
                     <div ref={domNode} className='dropDownHeaderStyle'>
@@ -316,6 +355,19 @@ function Home() {
                                 <p>Export to XLS</p>
                                 <p>Export to PDF</p>
                                 <p>Export to CSV</p>
+
+                                <CSVLink filename={"dealer-report.csv"} data={dealerReports} headers={headers3} separator={","}>
+                                  Download mw33
+                                </CSVLink>;
+
+                                <ReactHTMLTableToExcel
+                                id="test-table-xls-button"
+                                className="download-table-xls-button"
+                                table="table-to-xls"
+                                filename="dealer-reportxls"
+                                sheet="dealer-reportxls"
+                                buttonText="Download as XLS"/>
+
                               </div>
                             </ListItem>
                           </DropDownList>
@@ -326,7 +378,7 @@ function Home() {
                 </div>
 
                 <div style={{ width: '95%', height: 'auto', margin: 'auto', marginBottom: 30}}>
-                  <table style={{ width: '100%', height: '100%', paddingTop: 30, paddingBottom: 30, }}>
+                  <table id="table-to-xls" style={{ width: '100%', height: '100%', paddingTop: 30, paddingBottom: 30, }}>
                     <AlternativeTheadStyle style={{width: '100%', height: 60, }}>
                       <tr >
                         <th className='tbrc tbr1 fontTH'>Brand</th>
@@ -361,7 +413,7 @@ function Home() {
                         let x = a.dealer.toUpperCase(), y = b.dealer.toUpperCase();
                         return x == y ? 0 : x > y ? 1 : -1;
                       }).map((items, i) => {
-                          console.log("aqui o resultado mna", items.dealer)
+                          //console.log("aqui o resultado mna", items.dealer)
                           const brandReport = [{
                             brandName: '',
                           }]

@@ -33,107 +33,7 @@ import api from '../../services/api';
 
 import { PieChart, Pie, Legend, Tooltip, Sector, Cell, BarChart, XAxis, YAxis, Bar, Brush, CartesianGrid, ComposedChart  } from "recharts";
 
-const dealersYc = [
-    { label: 'JACON dealer'},
-    { label: 'a2-telecom'},
-    { label: 'ADMIN-YOUCAST'},
-    { label: 'ADYLNET'},
-    { label: 'AMERICANET'},
-    { label: 'apx-net'},
-    { label: 'ativa'},
-    { label: 'axion3'},
-    { label: 'bigdot'},
-    { label: 'brisnet'},
-    { label: 'canejo-assessoria'},
-    { label: 'CARIAP'},
-    { label: 'cariap-superi'},
-    { label: 'conect-ti'},
-    { label: 'conecta-ab'},
-    { label: 'conexao-ativa'},
-    { label: 'cyber-net'},
-    { label: 'dap'},
-    { label: 'DNET'},
-    { label: 'flash-meganet'},
-    { label: 'fnovanet'},
-    { label: 'g.henrique'},
-    { label: 'g4-telecom'},
-    { label: 'giganet'},
-    { label: 'go-net'},
-    { label: 'HSL'},
-    { label: 'i9-conecta'},
-    { label: 'IBW'},
-    { label: 'id-corp'},
-    { label: 'ifast'},
-    { label: 'inforcenter'},
-    { label: 'infotel-eng-telecom'},
-    { label: 'inter-home'},
-    { label: 'ip-telecom'},
-    { label: 'itanet'},
-    { label: 'jump'},
-    { label: 'k9-telecom'},
-    { label: 'kanet'},
-    { label: 'keronet'},
-    { label: 'LBR'},
-    { label: 'ldt'},
-    { label: 'lifetech'},
-    { label: 'linknet'},
-    { label: 'linkpro'},
-    { label: 'linkse'},
-    { label: 'live-connect'},
-    { label: 'load-net'},
-    { label: 'logiclink'},
-    { label: 'mais-net'},
-    { label: 'meganet'},
-    { label: 'moriah.net'},
-    { label: 'mrc'},
-    { label: 'nbs'},
-    { label: 'net-angra'},
-    { label: 'net-silva'},
-    { label: 'nethope'},
-    { label: 'netmais'},
-    { label: 'netmaster'},
-    { label: 'nova-net'},
-    { label: 'NOVANET'},
-    { label: 'pay-use'},
-    { label: 'planoweb'},
-    { label: 'plugar'},
-    { label: 'plus-internet'},
-    { label: 'power-net'},
-    { label: 'pw-fibra'},
-    { label: 'raynet'},
-    { label: 'rb-soluções'},
-    { label: 'rede-mais-net'},
-    { label: 'rlnet'},
-    { label: 'rnett'},
-    { label: 'smarttec'},
-    { label: 'softxx'},
-    { label: 'TCM'},
-    { label: 'TCM Telecom'},
-    { label: 'tec-solutions'},
-    { label: 'tech-net'},
-    { label: 'tech-pignaton'},
-    { label: 'teleplix'},
-    { label: 'Tester'},
-    { label: 'th-comunicações'},
-    { label: 'top-net'},
-    { label: 'turbo-caires'},
-    { label: 'turbo-net'},
-    { label: 'ubernet'},
-    { label: 'upbytes'},
-    { label: 'viva-tecnologia'},
-    { label: 'wmv-net'},
-    { label: 'womp-telecom'},
-    { label: 'WSP'},
-    { label: 'Youcast CSMS'},
-    { label: 'YPLAY'},
-    { label: 'Z-Não-usar'},
-    { label: 'Z-Não-usar-'},
-    { label: 'zon-networks'},
-  ];
-
-  const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", ];
-
-
+const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", ];
 
 const DropDownListContainer = styled("div")``;
 
@@ -165,7 +65,12 @@ const ListItem = styled("li")`
 function Dealers() {
 
     const [dealerName, setDealerName] = React.useState('');
-
+    const [dealerName2, setDealerName2] = React.useState([{}]);
+    console.log("os nomes", dealerName2.sort(function (a, b) {
+      let x = a.toUpperCase(),
+          y = b.toUpperCase();
+          return x == y ? 0 : x > y ? 1 : -1;
+    }))
     const [ packagesUserBrand, setPackagesUserBrand] = useState([ {
         dealer: '',
         data: [{
@@ -218,7 +123,8 @@ function Dealers() {
             }
           })
           .then((result) => {
-            //console.log("aq oe", result.data.response);
+            //console.log("aq oe", result.data.response.map( i => i.dealer));
+            setDealerName2(result.data.response.map( i => i.dealer))
             setPackagesUserBrand(result.data.response);
     
       })
@@ -254,9 +160,9 @@ function Dealers() {
                     label="dealerName"
                     onChange={handleChange}
                     >
-                    {dealersYc.map((option, w) => (
-                    <MenuItem key={w} value={option.label}>
-                    {option.label}
+                    {dealerName2.map((option, w) => (
+                    <MenuItem key={w} value={option}>
+                    {option}
                     </MenuItem>
                 ))}
                     </Select>
