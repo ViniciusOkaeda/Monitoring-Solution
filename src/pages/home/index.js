@@ -8,6 +8,7 @@ import api from '../../services/api';
 
 import { CSVLink } from "react-csv";
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+import Pdf from "react-to-pdf";
 
 import Container from '../../styles/theme/components/Container';
 import ClipForm1 from '../../styles/theme/components/ClipForm1';
@@ -25,6 +26,7 @@ import SummarizeIcon from '@mui/icons-material/Summarize';
 import AnalyticsIcon from '@mui/icons-material/Analytics';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import AlternativeTheadStyle from '../../styles/theme/components/AlternativeTheadStyle';
+import ExcelExport from '../../components/excel/ExcelExport';
 
 const DropDownListContainer = styled("div")``;
 
@@ -52,6 +54,8 @@ const ListItem = styled("li")`
   
     return domNode;
   };
+
+const ref = React.createRef();
 
 
 function Home() {
@@ -352,21 +356,20 @@ function Home() {
                           <DropDownList>
                             <ListItem >
                               <div style={{fontSize: 14}}>
-                                <p>Export to XLS</p>
-                                <p>Export to PDF</p>
-                                <p>Export to CSV</p>
+                              <ExcelExport data={dealerReports}/>
+
+                                <Pdf targetRef={ref} filename="code-example.pdf">
+                                  {({ toPdf }) => <p onClick={toPdf} style={{cursor: 'pointer'}}>Export to PDF</p>}
+                                </Pdf>
 
                                 <CSVLink filename={"dealer-report.csv"} data={dealerReports} headers={headers3} separator={","}>
-                                  Download mw33
+                                  Export to CSV
                                 </CSVLink>;
 
-                                <ReactHTMLTableToExcel
-                                id="test-table-xls-button"
-                                className="download-table-xls-button"
-                                table="table-to-xls"
-                                filename="dealer-reportxls"
-                                sheet="dealer-reportxls"
-                                buttonText="Download as XLS"/>
+
+
+
+
 
                               </div>
                             </ListItem>
@@ -378,7 +381,7 @@ function Home() {
                 </div>
 
                 <div style={{ width: '95%', height: 'auto', margin: 'auto', marginBottom: 30}}>
-                  <table id="table-to-xls" style={{ width: '100%', height: '100%', paddingTop: 30, paddingBottom: 30, }}>
+                  <table  id="table-to-xls" style={{ width: '100%', height: '100%', paddingTop: 30, paddingBottom: 30, }}>
                     <AlternativeTheadStyle style={{width: '100%', height: 60, }}>
                       <tr >
                         <th className='tbrc tbr1 fontTH'>Brand</th>
@@ -392,7 +395,7 @@ function Home() {
                       </tr>
                     </AlternativeTheadStyle>
 
-                    <tbody style={{ width: '100%', height: 'auto', marginTop: 20,}}>
+                    <tbody  style={{ width: '100%', height: 'auto', marginTop: 20,}}>
                       {packagesUserBrand
                         .filter((item) =>
                         item.dealer !== 'JACON dealer' && 
@@ -418,7 +421,7 @@ function Home() {
                             brandName: '',
                           }]
                           return(
-                          <tr key={i}>
+                          <tr ref={ref} key={i}>
                             <td className='tbrc tbr1 fontS'>{items.dealer}</td>
                             <td className='tbrc tbr4 fontS'>{items.basicCount}</td>
                             <td className='tbrc tbr4 fontS'>{items.compactCount}</td>
