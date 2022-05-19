@@ -4,6 +4,7 @@ import {
     Routes,
     BrowserRouter,
     Route,
+    Link,
     Navigate,
   } from "react-router-dom";
 
@@ -30,14 +31,30 @@ import { isAuthenticated } from "./services/auth";
 import PrivateRoute from './utils/privateRoute';
 
 
+const PrivateRoutes = ({ element: Component, ...rest}) => (
+  <Route
+    {...rest}
+    render={props => 
+      isAuthenticated() ? (
+        <Component {...props} />
+      ) : (
+        <Link to={{ pathname: "/", state: { from: props.location } }} />
+      )
+    }
+
+
+
+  />
+);
+
 
 
 function AllRoutes() {
   const dispatch = useDispatch();
   const config = useSelector(state => state.config)
   const checkRoutes = localStorage.getItem("token")
-
-
+  
+  
   
   useEffect(() => {
 
@@ -56,12 +73,8 @@ function AllRoutes() {
             <BrowserRouter >
                 <Routes >
 
-                    {checkRoutes === '' || checkRoutes === null || !checkRoutes
-                    ?
-                      <Route exact path="/" element={<Login />} />
-                    :
-                      ''
-                    } 
+                  <Route exact path="/" element={<Login />} />
+
                   <Route path="/dashboard" element={
                   <PrivateRoute>
                     <Home />
@@ -85,7 +98,6 @@ function AllRoutes() {
 
 
 
-                    
                 </Routes>
             </BrowserRouter>
             </LayoutBackground>

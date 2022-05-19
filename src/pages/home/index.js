@@ -331,10 +331,8 @@ function Home() {
                             item.dealer !== 'Z-Não-usar' &&
                             item.dealer !== 'Z-Não-usar-'
                             ).map(e => e.data.map(i => {
-                              const activeUsers = [{
-                                expected: i.pacoteYplayStatus ,
-                              }]
-                              console.log("ativos", activeUsers.map(i => i.expected))
+                              const activeUsers = i.pacoteYplayStatus;
+                              console.log("ativos", activeUsers)
 
 
                             }))}
