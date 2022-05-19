@@ -56,28 +56,36 @@ function AllRoutes() {
             <BrowserRouter >
                 <Routes >
 
+                    {checkRoutes === '' || checkRoutes === null || !checkRoutes
+                    ?
+                      <Route exact path="/" element={<Login />} />
+                    :
+                      ''
+                    } 
+                  <Route path="/dashboard" element={
+                  <PrivateRoute>
+                    <Home />
+                  </PrivateRoute>  
+                  } />
+                  <Route path="/watching" element={
+                  <PrivateRoute>
+                    <Watching />
+                  </PrivateRoute>
+                  } />
+                  <Route path="/packages" element={
+                  <PrivateRoute>
+                    <Packages />
+                  </PrivateRoute>
+                  } />
+                  <Route path="/dealers" element={
+                  <PrivateRoute>
+                    <Dealers />
+                  </PrivateRoute>
+                  } />
+
+
+
                     
-                    <Route exact path="/" element={<Login />} />
-                    <Route path="/dashboard" element={
-                    <PrivateRoute>
-                      <Home />
-                    </PrivateRoute>  
-                    } />
-                    <Route path="/watching" element={
-                    <PrivateRoute>
-                      <Watching />
-                    </PrivateRoute>
-                    } />
-                    <Route path="/packages" element={
-                    <PrivateRoute>
-                      <Packages />
-                    </PrivateRoute>
-                    } />
-                    <Route path="/dealers" element={
-                    <PrivateRoute>
-                      <Dealers />
-                    </PrivateRoute>
-                    } />
                 </Routes>
             </BrowserRouter>
             </LayoutBackground>

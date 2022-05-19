@@ -31,190 +31,95 @@
 }
 
 /*          cards config                        */
+.defConfigCard {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.gridDefCardC1 {
+width: 70%;
+height: 100%;
+}
 
-.gridDefCard {
+.gridCardC1C1 {
+width: 90%;
+height: 30%;
+display: flex;
+margin: 25px 0 auto auto;
+}
+
+.gridCardC1C1D1 {
   width: 50px;
   height: 50px;
-  position: absolute;
   border-radius: 5px;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5) ;
-}
-.gridCard {
-  background: #0088FE;
-  left: 12%;
-  top: 29%;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
+  margin-top: auto;
 }
 
-.gridCard2 {
-  background: #ff7f00;
-  left: 42%;
-  top: 29%;
+.gridColor1 {
+  background-color: #e100ff;
+}
+.gridColor2 {
+  background-color: #00ffd0;
+}
+.gridColor3 {
+  background-color: #0088fe;
+}
+.gridColor4 {
+  background-color: #ff7f00;
 }
 
-.gridCard3 {
-  background: #e100ff;
-  left: 12%;
-  top: 70%;
+.gridCardC1C1D2 {
+width: auto;
+min-width: 50%;
+max-width: 90%;
+height: 100%;
 }
 
-.gridCard4 {
-  background: #00ff61;
-  left: 72.5%;
-  top: 70%;
+
+.gridCardC1C2 {
+width: 90%;
+height: 50%;
+margin: 0 0 0 auto;
+}
+.gridCardC1C2D1 {
+  width: 30%;
+  height: 100%;
+}
+
+
+.gridDefCardC2 {
+  width: 30%;
+  height: 100%;
+  display: flex;
 }
 
 .gridCardIcon {
   color: #fff;
   width: 32px;
   height: 32px;
-  padding: 13px 0px 0px 13px;
+  object-fit: contain;
+  margin-left: 12px;
+  margin-top: 12px;
 }
 
-.gridCardClip {
-  width: 100%;
-  height: 100%;
-  display: flex;
-}
-
-.gridCardH {
-  left: 12%;
-  top: 38%;
-}
-
-.gridCardH2 {
-  left: 48%;
-  top: 25%;
-}
-
-.gridCardH3 {
-  left: 18%;
-  top: 66%;
-}
-
-.gridCardH4 {
-  left: 79%;
-  top: 66%;
-}
-
-.gridCardH2-2 {
-  left: 42%;
-  top: 38%;
-}
-
-.gridCardH3-2 {
-  left: 12%;
-  top: 82%;
-}
-
-.gridCardH3-3 {
-  left: 25%;
-  top: 82%;
-}
-
-.gridCardP {
-  left: 12%;
-  top: 48%;
-  font-size: 16px;
-}
-
-.gridCardP2 {
-  left: 42%;
-  top: 48%;
-  font-size: 16px;
-}
-
-.gridCardP3 {
-  left: 12%;
-  top: 82%;
-  font-size: 16px;
-}
-
-.gridCardP3-2 {
-  left: 25%;
-  top: 82%;
-  font-size: 16px;
-}
-
-.gridCardP4 {
-  left: 72.5%;
-  top: 82%;
-  font-size: 16px;
-}
-
-.defaultStyleCard {
-  position: absolute;
+.gridH2 {
   font-weight: bold;
+  font-size: 28px;
 }
 
+.gridSub {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.gridMargin {
+  margin-left: 10%;
+}
+/* ------------------------------------------------------------*/
 
 @media screen and (max-width: 770px) {
-.gridCard2 {
-  left: 12%;
-  top: 75%;
-}
 
-.gridCard3 {
-  left: 12%;
-  top: 116%;
-}
-
-.gridCard4 {
-  left: 12%;
-  top: 157%;
-}
-
-  .gridCardH2 {
-  left: 25%;
-  top: 69%;
-}
-
-.gridCardH3 {
-  left: 25%;
-  top: 110%;
-}
-
-.gridCardH4 {
-  left: 25%;
-  top: 150%;
-}
-
-
-
-.gridCardH2-2 {
-  left: 12%;
-  top: 85%;
-}
-
-.gridCardH3-2 {
-  left: 12%;
-  top: 125%;
-}
-
-.gridCardH3-3 {
-  left: 35%;
-  top: 125%;
-}
-
-.gridCardP2 {
-  left: 12%;
-  top: 94%;
-}
-
-.gridCardP3 {
-  left: 12%;
-  top: 135%;
-  font-size: 16px;
-}
-
-.gridCardP3-2 {
-  left: 35%;
-  top: 135%;
-}
-
-.gridCardP4 {
-  left: 12%;
-  top: 170%;
-}
 }
 
 

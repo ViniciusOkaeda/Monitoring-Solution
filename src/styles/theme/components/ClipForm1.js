@@ -2,9 +2,8 @@ import styled from "styled-components";
 
 export default styled.div`
     background: ${props => props.theme.clipForm1.backgroundColor};
-    clip-path: circle(45% at 100% 20%);
+    clip-path: circle(50% at 95% 21%);
     width: 100%;
-    position: relative;
+    height: 60%;
     border-radius: 10px;
-    height: 100%;
 `

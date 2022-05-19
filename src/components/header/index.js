@@ -12,12 +12,24 @@ import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import Link from '@material-ui/core/Link';
+import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
+import SummarizeIcon from '@mui/icons-material/Summarize';
+import WorkIcon from '@mui/icons-material/Work';
+
+import Links from '../../styles/theme/components/Links';
 
 
 import './index.css';
 import { useNavigate } from 'react-router-dom';
 
-const DropDownListContainer = styled("div")``;
+const DropDownListContainer = styled("div")`
+`;
 
 const ListItem = styled("li")`
     list-style: none;
@@ -109,12 +121,11 @@ function Header(props) {
                         {isOpen2 && (
                           <DropDownListContainer style={{position: 'absolute', zIndex: 1}}>
                             <DropDownList>
-                              <ListItem >
-                                <div style={{fontSize: 14}}>
-                                  <p>Profile</p>
-                                  <p>Profile</p>
-                                  <p onClick={logoutSystem}>Logout</p>
-                                </div>
+                              <ListItem style={{display: 'flex', flexDirection: 'column', cursor: 'pointer', margin: '5px 5px 10px 5px'}}>
+                                <a href="/dashboard">Home</a>
+                                <a href="/watching">watching</a>
+                                <a href="/packages">Packages</a>
+                                <a href="/dealers">Dealers</a>
                               </ListItem>
                             </DropDownList>
                           </DropDownListContainer>
@@ -134,7 +145,7 @@ function Header(props) {
                               <ListItem >
                                 <div style={{fontSize: 14}}>
                                   <p>Profile</p>
-                                  <p onClick={logoutSystem}>Logout</p>
+                                  <p onClick={logoutSystem} >Logout</p>
                                 </div>
                               </ListItem>
                             </DropDownList>

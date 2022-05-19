@@ -30,7 +30,7 @@ export default {
 
     dropDownHeader: {
         backgroundColor: "rgba(104, 104, 104, 0.3)",
-        textColor: "#c9c9c9"
+        textColor: "#fff"
     },
 
     dropDownList: {

@@ -1,6 +1,12 @@
 import React, {useState, useEffect, useRef} from 'react';
 
+import { useNavigate } from "react-router-dom";
+
 import './index.css';
+
+import { ExcelExportDealers } from '../../components/excel/ExcelExport';
+
+import { CSVLink } from "react-csv";
 
 import styled from "styled-components";
 
@@ -27,15 +33,20 @@ import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Check from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
-
+import CircularProgress from '@mui/material/CircularProgress';
+import CancelIcon from '@mui/icons-material/Cancel';
+import Tooltips from '@mui/material/Tooltip';
 
 import api from '../../services/api';
 
 import { PieChart, Pie, Legend, Tooltip, Sector, Cell, BarChart, XAxis, YAxis, Bar, Brush, CartesianGrid, ComposedChart  } from "recharts";
 
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", ];
 
 const DropDownListContainer = styled("div")``;
+
+const style = {
+  fontSize: 18,
+};
 
 const ListItem = styled("li")`
     list-style: none;
@@ -64,8 +75,15 @@ const ListItem = styled("li")`
 
 function Dealers() {
 
+  const navigate  = useNavigate();
+
     const [dealerName, setDealerName] = React.useState('');
     const [dealerName2, setDealerName2] = React.useState([{}]);
+
+    const [error, setError] = useState('');
+  
+    const [loading, setLoading] = useState(false);
+
     console.log("os nomes", dealerName2.sort(function (a, b) {
       let x = a.toUpperCase(),
           y = b.toUpperCase();
@@ -114,6 +132,13 @@ function Dealers() {
         setIsOpen(false);
       });
 
+    const headers = [
+      { label: "Customer Login", key: "Cliente" },
+      { label: "Basic", key: "Pacote" },
+      { label: "Compact", key: "compactCount" },
+      { label: "Full", key: "fullCount" },
+    ];
+
     useEffect (() => {
 
         (async () => {
@@ -126,11 +151,15 @@ function Dealers() {
             //console.log("aq oe", result.data.response.map( i => i.dealer));
             setDealerName2(result.data.response.map( i => i.dealer))
             setPackagesUserBrand(result.data.response);
+            setLoading(true);
     
       })
           .catch((error) => {
-            // handle error
-              console.log(error);
+            if(error) {
+              setError("Token Expirado, faça login novamente!")
+              window.localStorage.clear()
+              navigate('/');
+            }
       })
   
         })();
@@ -150,7 +179,10 @@ function Dealers() {
 
             {/*parte do input vendor */}
             <div style={{width: '95%', margin: 'auto',  borderRadius: 15}}>
-                <Box sx={{ minWidth: 220, marginBottom: 5 }}>
+            {loading === true 
+              ?
+              <div style={{display: 'flex'}}>
+                <Box className='paddT' sx={{ minWidth: 220, marginBottom: 5 }}>
                 <FormControl sx={{ width: 180 }}>
                     <InputLabel id="outlined-select-label">Dealers</InputLabel>
                     <Select
@@ -158,6 +190,7 @@ function Dealers() {
                     id="outlined-select-currency"
                     value={dealerName === '' ? '' : dealerName}
                     label="dealerName"
+                    disabled={dealerName !== ''}
                     onChange={handleChange}
                     >
                     {dealerName2.map((option, w) => (
@@ -168,6 +201,28 @@ function Dealers() {
                     </Select>
                 </FormControl>
                 </Box>
+                {dealerName !== null && dealerName !== '' ?
+                  <Tooltips title="Remover Dealer" placement="right">
+                    <button className='btnS' onClick={(e => {
+                      window.location.reload()
+                    })}><CancelIcon /></button>
+                  </Tooltips>
+                  :
+                  ''
+                  
+                }                
+                </div>
+
+            :
+              error === '' ?
+              <Box className='paddT' sx={{ display: 'flex', margin: 'auto' }}>
+              <CircularProgress />
+              </Box>
+    
+              :
+    
+              <p>{error}</p>
+            }
 
                 {/*parte dos graficos */}
                 <Grid container component="main" sx={{  display: 'flex', }} spacing={2}>
@@ -197,6 +252,7 @@ function Dealers() {
                           "Quantidade": item.urbanTv,
                         }                    
                       ]
+
                       //items.pacotes.filter(i => i.product === 'Yplay Light').map(item => item.product)
                         const packsCheck = [{
                           correct: item.data.filter(i => i.pacoteYplayStatus === 'OK').map(item => item.pacoteYplayStatus),
@@ -221,7 +277,7 @@ function Dealers() {
                             <Grid item xs={12} sm={8} md={8} elevation={4} square>
                               <Container style={{width: '100%', height: 'auto', margin: 'auto', borderRadius: 10}}>
                                 <div style={{margin: 'auto', width: '100%', paddingTop: 1}}>
-                                <h3 style={{textAlign: 'center',}}>Active packages</h3>
+                                <h2 className='gridH2 alignCenter'>Active packages</h2>
                                 <ComposedChart
                                   layout="vertical"
                                   width={450}
@@ -230,14 +286,14 @@ function Dealers() {
                                   margin={{
                                     top: 20,
                                     right: 20,
-                                    bottom: 20,
+                                    bottom: 40,
                                     left: 50
                                   }}
                                 >
-                                  <XAxis type="number" dataKey={"Quantidade"} />
-                                  <YAxis dataKey="name" type="category" tick={{fontSize: 16}} scale="band" />
+                                  <XAxis type="number" dataKey={"Quantidade"} tick={{fontSize: 18,}}/>
+                                  <YAxis dataKey="name" type="category" tick={{fontSize: 18}} scale="band" />
                                   <Tooltip />
-                                  <Legend />
+                                  <Legend wrapperStyle={style}/>
                                   <Bar dataKey="Quantidade" barSize={40} fill="#0088FE" />
                                 </ComposedChart>
                                 </div>
@@ -247,13 +303,13 @@ function Dealers() {
                             <Grid item xs={12} sm={4} md={4} elevation={4} square container >
                               <Grid item xs={12} sm={12} md={12} elevation={4} square>
                                 <Container style={{width: '100%', height: 80, borderRadius: 10}}>
-                                  <h2 style={{fontSize: 26, padding: '20px 0px 0px 10px'}}>Active Users: {packsCheck.map((i) => i.correct.length)}</h2>
+                                  <h2 style={{fontSize: 28, padding: '20px 0px 0px 10px'}}>Active Users: {packsCheck.map((i) => i.correct.length)}</h2>
 
                                 </Container>
                               </Grid>
                               <Grid  item xs={12} sm={12} md={12} elevation={4} square>
-                                <Container style={{width: '100%', height: 80, borderRadius: 10,}}>
-                                  <h2 style={{fontSize: 26, padding: '20px 0px 0px 10px'}}>Incorrect packages: {packsCheck.map((i) => i.incorrect.length)}</h2>
+                                <Container style={{width: '100%', height: 80, borderRadius: 10, }}>
+                                  <h2 style={{fontSize: 28, padding: '20px 0px 0px 10px'}}>Incorrect packages: {packsCheck.map((i) => i.incorrect.length)}</h2>
 
                                 </Container>
 
@@ -310,13 +366,13 @@ function Dealers() {
                         }
     
                         return(
-                        <Container key={index} style={{width: '100%', maxWidth: 1200, height: 'auto', margin: 'auto', borderRadius: 10 }}>
+                        <Container key={index} style={{width: '100%', height: 'auto', margin: 'auto', borderRadius: 10 }}>
                           
                             
     
                           <div style={{margin: 'auto', width: '90%',  display: 'flex', justifyContent: 'space-between', height: 70, alignItems: 'center', paddingTop: 30}}>
                             <div style={{width: '20%',  height: 'auto'}}>
-                              <h3>Active Users and Packages</h3>
+                              <h2 className='gridH2'>Active Users and Packages</h2>
                             </div>
                             <div style={{width: '10%', height: 45,  display: 'flex', justifyContent: 'flex-end'}}>
                             <div ref={domNode} className='dropDownHeaderStyle'>
@@ -328,9 +384,12 @@ function Dealers() {
                                   <DropDownList>
                                       <ListItem >
                                         <div style={{fontSize: 14}}>
-                                          <p>Export to XLS</p>
+                                          <ExcelExportDealers data={currentItens} />
                                           <p>Export to PDF</p>
-                                          <p>Export to CSV</p>
+
+                                          <CSVLink className='csvStyleP' filename={"dealer-report.csv"} data={currentItens} headers={headers} separator={","}>
+                                            <p className='menuAction'>Export to CSV</p>
+                                          </CSVLink>
   
                                         </div>
                                       </ListItem>
@@ -360,7 +419,7 @@ function Dealers() {
                             </AlternativeTheadStyle>
                             <tbody style={{overflowY: 'scroll', width: '100%', height: 'auto', marginTop: 20,}} >
                               {currentItens.map((items, i) => {
-
+                                  console.log("o meu current", items)
                                   const dealerPackages = [{
                                       login: items.login,
                                       packYPlayCompleto: items.pacotes.filter(i => i.product === 'YPlay Completo').map(item => item.product),
@@ -395,7 +454,7 @@ function Dealers() {
                                                     <td className='tbrc tbr4 fontS'>{dealer.packSVODNacional == 'SVOD Nacional' ? <Check style={{color: '#00ff1d'}}/> : 'n/a'}</td>
                                                     <td className='tbrc tbr4 fontS'>{dealer.packSVODStudio == 'SVOD Studio' ? <Check style={{color: '#00ff1d'}}/> : 'n/a'}</td>
                                                     <td className='tbrc tbr4 fontS'>{dealer.packTVOD == 'TVOD' ? <Check style={{color: '#00ff1d'}}/> : 'n/a'}</td>
-                                                    <td className='tbrc tbr4 fontS'>{dealer.packYPlayUrban == 'YPlay Urban' ? <Check style={{color: '#00ff1d'}}/> : 'n/a'}</td>
+                                                    <td className='tbrc tbr4 fontS'>{dealer.packYPlayUrban == 'Yplay UrbanTV' ? <Check style={{color: '#00ff1d'}}/> : 'n/a'}</td>
                                                     </> 
                                                   :
                                                     <>
@@ -420,8 +479,8 @@ function Dealers() {
                               <li>
                                 <button 
                                 onClick={handlePrevbtn}
-                                disabled={currentPage <= 1 }
-                                className={currentPage <= 1 ? 'disabled' : ''}
+                                disabled={currentPage == 0 }
+                                className={currentPage == 0 ? 'disabled' : ''}
                                 >prev</button>
                               </li>
                               {pageDecrement}
