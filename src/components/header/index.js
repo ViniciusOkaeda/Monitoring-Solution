@@ -102,6 +102,7 @@ function Header(props) {
     const logoutSystem = () => {
       localStorage.clear();
       navigate('/');
+      window.location.reload();
 
     };
 

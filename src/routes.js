@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState,} from 'react';
 
 import {
     Routes,
@@ -52,17 +52,18 @@ const PrivateRoutes = ({ element: Component, ...rest}) => (
 function AllRoutes() {
   const dispatch = useDispatch();
   const config = useSelector(state => state.config)
+
+  const [autenticated, setAutenticated] = useState(false);
   const checkRoutes = localStorage.getItem("token")
   
   
   
   useEffect(() => {
 
-
     if (!config.darkMode) {
       dispatch(darkModeAction(window.localStorage.getItem('theme')))
     }
-  }, [config.darkMode, dispatch, ])
+  }, [config.darkMode, dispatch, checkRoutes])
   
 
 
@@ -73,28 +74,32 @@ function AllRoutes() {
             <BrowserRouter >
                 <Routes >
 
-                  <Route exact path="/" element={<Login />} />
+                  {!checkRoutes && (
+                  <Route exact path="/" element={<Login />} />)}
 
                   <Route path="/dashboard" element={
-                  <PrivateRoute>
-                    <Home />
-                  </PrivateRoute>  
-                  } />
-                  <Route path="/watching" element={
-                  <PrivateRoute>
-                    <Watching />
-                  </PrivateRoute>
-                  } />
-                  <Route path="/packages" element={
-                  <PrivateRoute>
-                    <Packages />
-                  </PrivateRoute>
-                  } />
-                  <Route path="/dealers" element={
-                  <PrivateRoute>
-                    <Dealers />
-                  </PrivateRoute>
-                  } />
+                        <PrivateRoute>
+                          <Home />
+                        </PrivateRoute>  
+                        } />
+                        <Route path="/watching" element={
+                        <PrivateRoute>
+                          <Watching />
+                        </PrivateRoute>
+                        } />
+                        <Route path="/packages" element={
+                        <PrivateRoute>
+                          <Packages />
+                        </PrivateRoute>
+                        } />
+                        <Route path="/dealers" element={
+                        <PrivateRoute>
+                          <Dealers />
+                        </PrivateRoute>
+                        } />
+                  
+
+                  <Route path="*" element={<Navigate to ={checkRoutes ? "/dashboard" : "/"} />} />
 
 
 
