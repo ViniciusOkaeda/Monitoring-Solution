@@ -111,10 +111,15 @@ margin: 0 0 0 auto;
 .gridSub {
   font-weight: bold;
   font-size: 18px;
+  margin-top: -15px;
 }
 
 .gridMargin {
   margin-left: 10%;
+}
+
+.gridMarginTop {
+  margin-top: 20px;
 }
 /* ------------------------------------------------------------*/
 

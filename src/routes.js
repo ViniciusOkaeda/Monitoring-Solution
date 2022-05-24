@@ -1,10 +1,9 @@
-import React, {useEffect, useState,} from 'react';
+import React, {useEffect, } from 'react';
 
 import {
     Routes,
     BrowserRouter,
     Route,
-    Link,
     Navigate,
   } from "react-router-dom";
 
@@ -24,36 +23,12 @@ import Login from './pages/login';
 import Packages from './pages/packages';
 import Dealers from './pages/dealers';
 
-import { useNavigate } from "react-router-dom";
-
-import { isAuthenticated } from "./services/auth";
-
 import PrivateRoute from './utils/privateRoute';
-
-
-const PrivateRoutes = ({ element: Component, ...rest}) => (
-  <Route
-    {...rest}
-    render={props => 
-      isAuthenticated() ? (
-        <Component {...props} />
-      ) : (
-        <Link to={{ pathname: "/", state: { from: props.location } }} />
-      )
-    }
-
-
-
-  />
-);
-
-
 
 function AllRoutes() {
   const dispatch = useDispatch();
   const config = useSelector(state => state.config)
 
-  const [autenticated, setAutenticated] = useState(false);
   const checkRoutes = localStorage.getItem("token")
   
   
@@ -96,12 +71,9 @@ function AllRoutes() {
                         <PrivateRoute>
                           <Dealers />
                         </PrivateRoute>
-                        } />
-                  
+                        } />                  
 
                   <Route path="*" element={<Navigate to ={checkRoutes ? "/dashboard" : "/"} />} />
-
-
 
                 </Routes>
             </BrowserRouter>

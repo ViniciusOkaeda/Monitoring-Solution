@@ -1,29 +1,13 @@
 import React, {useEffect, useState, useRef} from 'react';
 
 import Container from '../../styles/theme/components/Container';
-import IconStyle from '../../styles/theme/components/IconStyle';
 import DropDownHeader from '../../styles/theme/components/DropDownHeader';
 import DropDownList from '../../styles/theme/components/DropDownList';
 
 import styled from "styled-components";
 
-import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import Link from '@material-ui/core/Link';
-import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
-import SummarizeIcon from '@mui/icons-material/Summarize';
-import WorkIcon from '@mui/icons-material/Work';
-
-import Links from '../../styles/theme/components/Links';
-
 
 import './index.css';
 import { useNavigate } from 'react-router-dom';
@@ -100,11 +84,15 @@ function Header(props) {
     };
   
     const logoutSystem = () => {
-      localStorage.clear();
-      navigate('/');
-      window.location.reload();
+      localStorage.removeItem("token");
+      clSystem();
 
     };
+
+    const clSystem = () => {
+      navigate('/');
+      window.location.reload();
+    }
 
 
 
@@ -144,9 +132,8 @@ function Header(props) {
                           <DropDownListContainer style={{position: 'absolute', zIndex: 1}}>
                             <DropDownList>
                               <ListItem >
-                                <div style={{fontSize: 14}}>
-                                  <p>Profile</p>
-                                  <p onClick={logoutSystem} >Logout</p>
+                                <div style={{fontSize: 14, cursor: 'pointer'}}>
+                                  <p  onClick={logoutSystem} >Logout</p>
                                 </div>
                               </ListItem>
                             </DropDownList>

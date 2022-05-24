@@ -74,10 +74,17 @@ function Home() {
   const [loading2, setLoading2] = useState(false);
   const [loading3, setLoading3] = useState(false);
   const [loading4, setLoading4] = useState(false);
+  const [loading5, setLoading5] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [qtdDealer, setQtdDealer] = React.useState(null);
   const [qtdVendor, setQtdVendor] = React.useState(null);
-
+  const [expectedUsersBrand, setExpectedUsersBrand] = React.useState(null);
+  const [activeUsersBrand, setActiveUsersBrand] = React.useState(null);
+  const [needAjustUsersBrand, setNeedAjustUsersBrand] = React.useState(null);
+  const [watchingATV, setWatchingATV] = React.useState(null);
+  const [watchingAndroid, setWatchingAndroid] = React.useState(null);
+  const [watchingIos, setWatchingIos] = React.useState(null);
+  const [watchingWeb, setWatchingWeb] = React.useState(null);
 
   const [ packagesUser, setPackagesUser] = useState([ {
     IDVendor: '',
@@ -127,7 +134,7 @@ function Home() {
       total:  '',
       data: [{}],
     }])
-    console.log("ca esta", dealerReports)
+    //console.log("ca esta", dealerReports)
 
     const headers = [
       { label: "Brand Name", key: "dealer" },
@@ -151,8 +158,8 @@ function Home() {
         //console.log("o valor", result)
         setWatchingNumber(result.data.response.map((e) => e.data.map((i) => i.QTD).reduce((total, numero) => total + numero, 0)).reduce((total, numero) => total + numero, 0) )
         setLoading(true);
-        console.log("o map aqui", result.data.response.map((e) => 
-        e.data.map((i) => i.QTD).reduce((total, numero) => total + numero, 0)) );
+        //console.log("o map aqui", result.data.response.map((e) => 
+       // e.data.map((i) => i.QTD).reduce((total, numero) => total + numero, 0)) );
         //console.log("o map aqui2", result.data.response.map((e) => 
         //e.data.map((i) => i.QTD)) );
         //console.log("o watching aq", watchingNumber)
@@ -228,18 +235,95 @@ function Home() {
         setPackagesUserBrand(result.data.response);
         setQtdDealer(result.data.response.length)
         setDealerReports(result.data.response.map((e) => e))
-        setLoading4(true);
-        console.log("o meu teste", result.data.response.map((e) => e))
+        setExpectedUsersBrand(result.data.response                        
+          .filter((item) =>
+          item.dealer !== 'JACON dealer' && 
+          item.dealer !== 'ADMIN-YOUCAST' && 
+          item.dealer !== 'ADYLNET' && 
+          item.dealer !== 'AMERICANET' && 
+          item.dealer !== 'DNET' && 
+          item.dealer !== 'HSL' && 
+          item.dealer !== 'NOVANET' && 
+          item.dealer !== 'TCM' &&
+          item.dealer !== 'TCM Telecom' && 
+          item.dealer !== 'WSP' && 
+          item.dealer !== 'Youcast CSMS' && 
+          item.dealer !== 'YPLAY' && 
+          item.dealer !== 'Z-Não-usar' &&
+          item.dealer !== 'Z-Não-usar-'
+          ).map((e) => e.data.length).reduce((total, numero) => total + numero, 0));
+        setNeedAjustUsersBrand(result.data.response.filter((item) =>
+          item.dealer !== 'JACON dealer' && 
+          item.dealer !== 'ADMIN-YOUCAST' && 
+          item.dealer !== 'ADYLNET' && 
+          item.dealer !== 'AMERICANET' && 
+          item.dealer !== 'DNET' && 
+          item.dealer !== 'HSL' && 
+          item.dealer !== 'NOVANET' && 
+          item.dealer !== 'TCM' &&
+          item.dealer !== 'TCM Telecom' && 
+          item.dealer !== 'WSP' && 
+          item.dealer !== 'Youcast CSMS' && 
+          item.dealer !== 'YPLAY' && 
+          item.dealer !== 'Z-Não-usar' &&
+          item.dealer !== 'Z-Não-usar-'
+          ).map((e) => e.data.filter((i) => i.pacoteYplayStatus !== 'OK' ).length).reduce((total, numero) => total + numero, 0));
+          setActiveUsersBrand(result.data.response                        
+            .filter((item) =>
+            item.dealer !== 'JACON dealer' && 
+            item.dealer !== 'ADMIN-YOUCAST' && 
+            item.dealer !== 'ADYLNET' && 
+            item.dealer !== 'AMERICANET' && 
+            item.dealer !== 'DNET' && 
+            item.dealer !== 'HSL' && 
+            item.dealer !== 'NOVANET' && 
+            item.dealer !== 'TCM' &&
+            item.dealer !== 'TCM Telecom' && 
+            item.dealer !== 'WSP' && 
+            item.dealer !== 'Youcast CSMS' && 
+            item.dealer !== 'YPLAY' && 
+            item.dealer !== 'Z-Não-usar' &&
+            item.dealer !== 'Z-Não-usar-'
+            ).map((e) => e.data.filter((i) => i.pacoteYplayStatus === 'OK').length).reduce((total, numero) => total + numero, 0))
+          setLoading4(true);
 
   })
       .catch((error) => {
         if(error) {
-          console.log("expirado")
+          //console.log("expirado")
           setError("Token Expirado, faça login novamente!")
           //window.localStorage.clear()
           //navigate('/');
       } 
         //console.log("errado");
+  })
+
+    })();
+
+    (async () => {
+      const result = await api.get('monitoring/mw/customers/watching', {
+        headers: {
+          token: localStorage.getItem("token")
+        }
+      })
+      .then((result) => {
+        setPackagesUser(result.data.response.map((e) => e.data.map((u) => u) ))
+        setWatchingATV(result.data.response.map((e) => e.data.filter(a => a.watching_now_devices_type === 'android tv').map(v => v.watching_now_devices_type).length).reduce((total, numero) => total + numero, 0));
+        setWatchingAndroid(result.data.response.map((e) => e.data.filter(a => a.watching_now_devices_type === 'android').map(v => v.watching_now_devices_type).length).reduce((total, numero) => total + numero, 0));
+        setWatchingIos(result.data.response.map((e) => e.data.filter(a => a.watching_now_devices_type === 'ios').map(v => v.watching_now_devices_type).length).reduce((total, numero) => total + numero, 0));
+        setWatchingWeb(result.data.response.map((e) => e.data.filter(a => a.watching_now_devices_type === 'web player').map(v => v.watching_now_devices_type).length).reduce((total, numero) => total + numero, 0));
+        setLoading5(true);
+        console.log("aq oe", result.data.response.map((e) => e.data.filter(a => a.watching_now_devices_type !== 'android tv').map(v => v.watching_now_devices_type)));
+        //console.log("aq oe2", result.data.response.map((e) => e.data.map((u) => u.QTD_Clientes) ));
+        //setWatchingQtdChannels(result.data.response);
+  })
+      .catch((error) => {
+        if(error) {
+          setError("Token Expirado, faça login novamente!");
+          //window.localStorage.clear()
+          //navigate('/');
+      }
+          //console.log(error);
   })
 
     })();
@@ -280,7 +364,7 @@ function Home() {
 
                       <div className='gridCardC1C2'>
                         <h2 className='gridH2'>{watchingNumber}</h2>
-                        <p className='gridSub'>Users watching now!</p>
+                        <p className='gridSub'>Users watching now! - Vendor</p>
                       </div>  
                     </div>
 
@@ -309,36 +393,27 @@ function Home() {
                             <SummarizeIcon className='gridCardIcon'/>
                           </div>
                           <div className='gridCardC1C1D2'>
-                            <h2 className='gridH2 gridMargin'>Active Users - Brands</h2>
+                            <h2 className='gridH2 gridMargin'>Watching by Devices - Vendor</h2>
                           </div>
                         </div>
 
-                        <div className='gridCardC1C2'>
-                        {dealerReports
-                        .filter((item) =>
-                            item.dealer !== 'JACON dealer' && 
-                            item.dealer !== 'ADMIN-YOUCAST' && 
-                            item.dealer !== 'ADYLNET' && 
-                            item.dealer !== 'AMERICANET' && 
-                            item.dealer !== 'DNET' && 
-                            item.dealer !== 'HSL' && 
-                            item.dealer !== 'NOVANET' && 
-                            item.dealer !== 'TCM' &&
-                            item.dealer !== 'TCM Telecom' && 
-                            item.dealer !== 'WSP' && 
-                            item.dealer !== 'Youcast CSMS' && 
-                            item.dealer !== 'YPLAY' && 
-                            item.dealer !== 'Z-Não-usar' &&
-                            item.dealer !== 'Z-Não-usar-'
-                            ).map(e => e.data.map(i => {
-                              const activeUsers = i.pacoteYplayStatus;
-                              console.log("ativos", activeUsers)
-
-
-                            }))}
-                        <h2 className='gridH2'>9999</h2>
-                        <p className='gridSub'>Expected</p>
-
+                        <div className='gridCardC1C2 gridMarginTop' style={{display: 'flex'}}>
+                          <div className='gridCardC1C2D1 '>
+                            <h2 className='gridH2'>{watchingATV}</h2>
+                            <p className='gridSub'>Android TV</p>
+                          </div>
+                          <div className='gridCardC1C2D1'>
+                            <h2 className='gridH2'>{watchingAndroid}</h2>
+                            <p className='gridSub'>Android</p>
+                          </div>
+                          <div className='gridCardC1C2D1'>
+                            <h2 className='gridH2'>{watchingIos}</h2>
+                            <p className='gridSub'>IOS</p>
+                          </div>
+                          <div className='gridCardC1C2D1'>
+                            <h2 className='gridH2'>{watchingWeb}</h2>
+                            <p className='gridSub'>Web</p>
+                          </div>
                         </div>
                       </div>
 
@@ -352,7 +427,7 @@ function Home() {
 
             </Grid>
 
-            <Grid item xs={12} sm={12} md={8} elevation={4} square>
+            <Grid item xs={12} sm={12} md={5} elevation={4} square>
               <Container  style={{
                   height: 250, 
                   borderRadius: 10, 
@@ -369,7 +444,7 @@ function Home() {
                         </div>
 
 
-                        <div className='gridCardC1C2' style={{display: 'flex'}}>
+                        <div className='gridCardC1C2 gridMarginTop' style={{display: 'flex'}}>
                           <div className='gridCardC1C2D1'>
                             <h2 className='gridH2'>{qtdVendor}</h2>
                             <p className='gridSub'>Vendors</p>
@@ -390,7 +465,7 @@ function Home() {
 
             </Grid>
 
-            <Grid item xs={12} sm={12} md={4} elevation={4} square>
+            <Grid item xs={12} sm={12} md={7} elevation={4} square>
               <Container  style={{
                 height: 250, 
                 borderRadius: 10, 
@@ -402,22 +477,23 @@ function Home() {
                           <MonitorHeartIcon className='gridCardIcon'/>
                         </div>
                         <div className='gridCardC1C1D2'>
-                          <h2 className='gridH2 gridMargin'>------</h2>
+                          <h2 className='gridH2 gridMargin'>Active Users - Brand</h2>
                         </div>
                       </div>
-                      <div className='gridCardC1C2'>
-                        {packagesUser.map((e, index) => {
-                          const packTotal = [{
-                            numero: e.length,
-                          }]
-                          var soma = packTotal.map(i => i.numero).reduce(function(soma, i) {
-                            return soma + i
-                          }) 
-                            //console.log("aqui m", soma)
-                        })}
-                        <h2 className='gridH2'>----</h2>
-                        <p className='gridSub'>--------</p>
-                      </div>
+                      <div className='gridCardC1C2 gridMarginTop' style={{display: 'flex'}}>
+                          <div className='gridCardC1C2D1 '>
+                            <h2 className='gridH2'>{expectedUsersBrand}</h2>
+                            <p className='gridSub'>Expected</p>
+                          </div>
+                          <div className='gridCardC1C2D1'>
+                            <h2 className='gridH2'>{activeUsersBrand}</h2>
+                            <p className='gridSub'>Active</p>
+                          </div>
+                          <div className='gridCardC1C2D1'>
+                            <h2 className='gridH2'>{needAjustUsersBrand}</h2>
+                            <p className='gridSub'>Need to Adjust</p>
+                          </div>
+                        </div>
                     </div>
 
                     <div className='gridDefCardC2'>
