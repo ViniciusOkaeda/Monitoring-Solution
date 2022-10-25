@@ -108,13 +108,19 @@ function Header(props) {
                           <MenuIcon/>
                         </DropDownHeader>
                         {isOpen2 && (
-                          <DropDownListContainer style={{position: 'absolute', zIndex: 1}}>
+                          <DropDownListContainer style={{position: 'absolute', zIndex: 3}}>
                             <DropDownList>
-                              <ListItem style={{display: 'flex', flexDirection: 'column', cursor: 'pointer', margin: '5px 5px 10px 5px'}}>
-                                <a href="/dashboard">Home</a>
-                                <a href="/watching">watching</a>
-                                <a href="/packages">Packages</a>
-                                <a href="/dealers">Dealers</a>
+                              <ListItem className='listConfig'>
+                                <ul>
+                                  <li ><a href="/dashboard">Home</a></li>
+                                  <li><a href="/watching">Watching</a></li>
+                                  <li><a href="/packages">Packages</a></li>
+                                  <li><a href="/dealers">Dealers</a></li>
+                                </ul>
+                                
+                                
+                                
+                                
                               </ListItem>
                             </DropDownList>
                           </DropDownListContainer>
@@ -129,11 +135,11 @@ function Header(props) {
                           <AccountCircle/>
                         </DropDownHeader>
                         {isOpen && (
-                          <DropDownListContainer style={{position: 'absolute', zIndex: 1}}>
+                          <DropDownListContainer className='dropDownList'>
                             <DropDownList>
                               <ListItem >
                                 <div style={{fontSize: 14, cursor: 'pointer'}}>
-                                  <p  onClick={logoutSystem} >Logout</p>
+                                  <p   onClick={logoutSystem} >Logout</p>
                                 </div>
                               </ListItem>
                             </DropDownList>

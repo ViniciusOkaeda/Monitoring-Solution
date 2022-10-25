@@ -1,5 +1,5 @@
 {
-  "name": "linear-test",
+  "name": "monitoring-node",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,6 +12,7 @@
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
     "@testing-library/user-event": "^13.5.0",
+    "animate.css": "^4.1.1",
     "axios": "^0.26.0",
     "file-saver": "^2.0.5",
     "polyfills": "^2.1.1",

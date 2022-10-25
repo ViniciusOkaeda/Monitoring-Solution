@@ -1,3 +1,64 @@
+.buttonEventConfig {
+    width: 40px;
+    height: 35px;
+    background-color: rgb(255, 208, 0);
+    cursor: pointer;
+    box-shadow: 2px 2px 2px black;
+    border-radius: 70% 70% 0 70%;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.buttonEventConfigIcon {
+    color: #efefef;
+    width: 25px;
+    height: 25px;
+    padding-top: 7px;
+    padding-left: 9px;
+    display: flex;
+    margin: auto;
+    align-items: center;
+}
+
+.modeContainer {
+    width: 100%;
+    height: 40px;
+}
+
+.modeConfig {
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.modeConfigP {
+    font-weight: bold;
+    margin: auto;
+}
+
+.modeConfigColor {
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-color: #333333;
+    border-width: 1px;
+    border-radius: 50%;
+}
+
+.modeColorLight {
+background-color: white;
+}
+
+.modeColorDark {
+    background-color: black;
+}
+
+
+
 .effect{
     transition-property: transform;
     transition-duration: 1s;

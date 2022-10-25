@@ -10,6 +10,7 @@ import {
 import lightTheme from "./styles/theme/light";
 import darkTheme from "./styles/theme/dark";
 
+
 import { ThemeProvider } from "styled-components";
 
 import { darkModeAction } from './redux/actions/config_action';
@@ -38,6 +39,7 @@ function AllRoutes() {
     if (!config.darkMode) {
       dispatch(darkModeAction(window.localStorage.getItem('theme')))
     }
+
   }, [config.darkMode, dispatch, checkRoutes])
   
 

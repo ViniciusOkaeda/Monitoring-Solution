@@ -147,6 +147,11 @@ code {
   color:#e40000;
 }
 
+.wWrap {
+  word-wrap: break-word;
+  line-break: auto;
+}
+
 @keyframes go-back {
 	from {
 		transform: translateX(100px);
@@ -176,20 +181,63 @@ code {
   font-size: 10px;
 }
 
+.gridH2 {
+  font-size: 22px;
+}
+
+.gridSub {
+  font-size: 16px;
+}
+
+.pageBNP-Config{
+  width: 95%;
+  height: auto;
+  margin-bottom: 20px;
+  margin:auto;
+  display: flex;
+}
+
+.pageBNP-P1 {
+    width: 70%;
+    height: 50px;
+}
+.pageBNP-P2 {
+  width: 30%;
+  height: 50px;
+}
+
 }
 @media screen and (max-width: 620px) {
   .tbr1 {
-    width: 10%;
-    max-width: 150px;
+    width: 8%;
+    max-width: 100px;
     max-height: 100px;
   }
     
   .tbr2 {
-    width: 15%;
-    max-width: 130px;
-  
-  
+    width: 10%;
+    max-width: 80px;
   }
+
+  .pageBNP-Config{
+    flex-direction: column;
+    
+  }
+
+  .pageBNP-P1 {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .pageBNP-P2 {
+    width: 100%;
+
+  }
+}
+@media screen and (max-width: 600px) {
+  .scrX {
+    overflow-x: scroll;
+  }
+
 }
 
 

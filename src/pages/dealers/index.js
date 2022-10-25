@@ -84,11 +84,7 @@ function Dealers() {
   
     const [loading, setLoading] = useState(false);
 
-    console.log("os nomes", dealerName2.sort(function (a, b) {
-      let x = a.toUpperCase(),
-          y = b.toUpperCase();
-          return x == y ? 0 : x > y ? 1 : -1;
-    }))
+
     const [ packagesUserBrand, setPackagesUserBrand] = useState([ {
         dealer: '',
         data: [{
@@ -116,15 +112,14 @@ function Dealers() {
 
     const [itensPerPage, setItensPerPage] = useState(25);
     const [currentPage, setCurrentPage] = useState(0);
-    const [pageNumberLimit, setPageNumberLimit] = useState(5);
-    const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
+    const [pageNumberLimit, setPageNumberLimit] = useState(3);
+    const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(3);
     const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 
     const handleChange = (event) => {
         setDealerName(event.target.value);
       };
 
-      const [selectedOption, setSelectedOption] = useState(null);
       const [isOpen, setIsOpen] = useState(false);
     
     const toggling = () => setIsOpen(!isOpen);
@@ -148,7 +143,6 @@ function Dealers() {
             }
           })
           .then((result) => {
-            //console.log("aq oe", result.data.response.map( i => i.dealer));
             setDealerName2(result.data.response.map( i => i.dealer))
             setPackagesUserBrand(result.data.response);
             setLoading(true);
@@ -181,7 +175,7 @@ function Dealers() {
             <div style={{width: '95%', margin: 'auto',  borderRadius: 15}}>
             {loading === true 
               ?
-              <div style={{display: 'flex'}}>
+              <div style={{display: 'flex', position: 'relative', zIndex: 0}}>
                 <Box className='paddT' sx={{ minWidth: 220, marginBottom: 5 }}>
                 <FormControl sx={{ width: 180 }}>
                     <InputLabel id="outlined-select-label">Dealers</InputLabel>
@@ -229,7 +223,6 @@ function Dealers() {
                       {packagesUserBrand.filter((item) =>
                       dealerName !== '' && item.dealer === dealerName
                       ).map((item, index) => {
-                        console.log("meu item", item)
                         const dataGraf = [{
                           "name": "Básico",
                           "Quantidade": item.basicCount,
@@ -253,34 +246,21 @@ function Dealers() {
                         }                    
                       ]
 
-                      //items.pacotes.filter(i => i.product === 'Yplay Light').map(item => item.product)
                         const packsCheck = [{
                           correct: item.data.filter(i => i.pacoteYplayStatus === 'OK').map(item => item.pacoteYplayStatus),
                           incorrect: item.data.filter(i => i.pacoteYplayStatus === 'ERRO').map(item => item.pacoteYplayStatus),
                         }]
 
-                        const packGrafic = [{
-                          "pack": packsCheck.map( i => i.correct.length),
-                          "name": 'Pacotes Corretos'
-                        },
-                        {
-                          "incorrect": packsCheck.map( i => i.incorrect.length),
-                          "name": 'Pacotes Incorretos',
-
-                        }
-                      ]
-
-                        console.log("check", packsCheck)
                         return(
                           <Grid key={index} item xs={12} sm={12} md={12} elevation={4} square style={{display: 'flex',}} container spacing={2}>
 
                             <Grid item xs={12} sm={8} md={8} elevation={4} square>
-                              <Container style={{width: '100%', height: 'auto', margin: 'auto', borderRadius: 10}}>
+                              <Container style={{width: '100%', height: 'auto', margin: 'auto', borderRadius: 10, paddingBottom: 40}}>
                                 <div style={{margin: 'auto', width: '100%', paddingTop: 1}}>
-                                <h2 className='gridH2 alignCenter'>Active packages</h2>
+                                <h2 className='gridH2 alignCenter '>Active packages</h2>
                                 <ComposedChart
                                   layout="vertical"
-                                  width={450}
+                                  width={380}
                                   height={350}
                                   data={dataGraf}
                                   margin={{
@@ -290,8 +270,8 @@ function Dealers() {
                                     left: 50
                                   }}
                                 >
-                                  <XAxis type="number" dataKey={"Quantidade"} tick={{fontSize: 18,}}/>
-                                  <YAxis dataKey="name" type="category" tick={{fontSize: 18}} scale="band" />
+                                  <XAxis type="number" dataKey={"Quantidade"} tick={{fontSize: 14,}}/>
+                                  <YAxis dataKey="name" type="category" tick={{fontSize: 14}} scale="band" />
                                   <Tooltip />
                                   <Legend wrapperStyle={style}/>
                                   <Bar dataKey="Quantidade" barSize={40} fill="#0088FE" />
@@ -302,15 +282,18 @@ function Dealers() {
 
                             <Grid item xs={12} sm={4} md={4} elevation={4} square container >
                               <Grid item xs={12} sm={12} md={12} elevation={4} square>
-                                <Container style={{width: '100%', height: 80, borderRadius: 10}}>
-                                  <h2 style={{fontSize: 28, padding: '20px 0px 0px 10px'}}>Active Users: {packsCheck.map((i) => i.correct.length)}</h2>
+                                <Container style={{width: '100%', height: 80, borderRadius: 10, marginBottom: 10}}>
+                                  <div className='pckConfig'>
+                                    <h2 className='gridH2 alignCenter '>Active Users: {packsCheck.map((i) => i.correct.length)}</h2>
+                                  </div>
 
                                 </Container>
                               </Grid>
                               <Grid  item xs={12} sm={12} md={12} elevation={4} square>
-                                <Container style={{width: '100%', height: 80, borderRadius: 10, }}>
-                                  <h2 style={{fontSize: 28, padding: '20px 0px 0px 10px'}}>Incorrect packages: {packsCheck.map((i) => i.incorrect.length)}</h2>
-
+                                <Container style={{width: '100%', height: 80, borderRadius: 10, marginTop: 10}}>
+                                  <div className='pckConfig'>
+                                    <h2 className='gridH2 alignCenter '>Incorrect packages: {packsCheck.map((i) => i.incorrect.length)}</h2>
+                                  </div>
                                 </Container>
 
                               </Grid>
@@ -333,9 +316,6 @@ function Dealers() {
                         const startIndex = currentPage * itensPerPage; //indexOfLastItem
                         const endIndex = startIndex + itensPerPage; //indexOfFirstItem
                         const currentItens = item.data.slice(startIndex, endIndex)
-                        console.log("o array atual", item)
-                        console.log("minhas pg", pages)
-                        console.log("pg atual", currentPage)
     
                         const handleClickPage = (event) => {
                           setCurrentPage(Number(event.target.id));
@@ -366,7 +346,7 @@ function Dealers() {
                         }
     
                         return(
-                        <Container key={index} style={{width: '100%', height: 'auto', margin: 'auto', borderRadius: 10 }}>
+                        <Container key={index} style={{width: '100%', height: 'auto', margin: 'auto', borderRadius: 10, paddingBottom: 40 }}>
                           
                             
     
@@ -374,30 +354,7 @@ function Dealers() {
                             <div style={{width: '20%',  height: 'auto'}}>
                               <h2 className='gridH2'>Active Users and Packages</h2>
                             </div>
-                            <div style={{width: '10%', height: 45,  display: 'flex', justifyContent: 'flex-end'}}>
-                            <div ref={domNode} className='dropDownHeaderStyle'>
-                              <DropDownHeader className={isOpen === true ? 'openDropDown' : '' } onClick={toggling}>
-                                <MoreVertIcon></MoreVertIcon>
-                              </DropDownHeader>
-                              {isOpen && (
-                                <DropDownListContainer>
-                                  <DropDownList>
-                                      <ListItem >
-                                        <div style={{fontSize: 14}}>
-                                          <ExcelExportDealers data={currentItens} />
-                                          <p>Export to PDF</p>
 
-                                          <CSVLink className='csvStyleP' filename={"dealer-report.csv"} data={currentItens} headers={headers} separator={","}>
-                                            <p className='menuAction'>Export to CSV</p>
-                                          </CSVLink>
-  
-                                        </div>
-                                      </ListItem>
-                                  </DropDownList>
-                                </DropDownListContainer>
-                              )}
-                            </div>
-                            </div>
                           </div>
 
 
@@ -419,7 +376,6 @@ function Dealers() {
                             </AlternativeTheadStyle>
                             <tbody style={{overflowY: 'scroll', width: '100%', height: 'auto', marginTop: 20,}} >
                               {currentItens.map((items, i) => {
-                                  console.log("o meu current", items)
                                   const dealerPackages = [{
                                       login: items.login,
                                       packYPlayCompleto: items.pacotes.filter(i => i.product === 'YPlay Completo').map(item => item.product),
@@ -438,7 +394,6 @@ function Dealers() {
                                       && i.product !== 'TVOD' ).map(item => item.product),
                                   }]
 
-                                  console.log("teset aqui", dealerPackages)
                                 return(
                                     <tr key={i} >
                                         {dealerPackages.map((dealer) => {                                          
@@ -474,55 +429,57 @@ function Dealers() {
                           </table>
                           </div>
     
-                          <div style={{display: 'flex', justifyContent: 'space-between', margin: 'auto', width: '90%', marginTop: 50, paddingBottom: 30}}>
-                            <ul className='pageNumbers'>
-                              <li>
-                                <button 
-                                onClick={handlePrevbtn}
-                                disabled={currentPage == 0 }
-                                className={currentPage == 0 ? 'disabled' : ''}
-                                >prev</button>
-                              </li>
-                              {pageDecrement}
-                              {Array.from(Array(pages), (pgs, index) => {
-                                if(index < maxPageNumberLimit+1 && index>minPageNumberLimit) {
-                                  return (
-                                      <button 
-                                        key={index} 
-                                        id={index} 
-                                        onClick={handleClickPage}
-                                        className={currentPage == index ? "active" : null}
-                                      > <IconStyle>{index}</IconStyle> </button>
-                                    )
-                                }else {
-                                  return null;
-                                }
-                              })}
-                              {pageIncrement}
-    
-                              <li className={currentPage == pages - 1 ? 'disabled' : ''}>
-                                <button 
-                                onClick={handleNextbtn}
-                                disabled={currentPage == pages - 1}
-                                className={currentPage == pages - 1 ? 'disabled' : ''}
-                                >next</button>
-                              </li>
-                            </ul>
-    
-                            <div style={{ display: 'flex', width: 200, height: 80, justifyContent: 'space-around', alignItems: 'center'}}>
-    
-                              <div style={{margin: 'auto'}}>
+                          <div className='pageBNP-Config'>
+                            <div className='pageBNP-P1'>
+                              <ul className='pageNumbers'>
+                                <li>
+                                  <button 
+                                  onClick={handlePrevbtn}
+                                  disabled={currentPage == 0 }
+                                  className={currentPage == 0 ? 'disabled' : ''}
+                                  >prev</button>
+                                </li>
+                                {pageDecrement}
+                                {Array.from(Array(pages), (pgs, index) => {
+                                  if(index < maxPageNumberLimit+1 && index>minPageNumberLimit) {
+                                    return (
+                                        <button 
+                                          key={index} 
+                                          id={index} 
+                                          onClick={handleClickPage}
+                                          className={currentPage == index ? "active" : null}
+                                        > <IconStyle>{index}</IconStyle> </button>
+                                      )
+                                  }else {
+                                    return null;
+                                  }
+                                })}
+                                {pageIncrement}
+
+                                <li className={currentPage == pages - 1 ? 'disabled' : ''}>
+                                  <button 
+                                  onClick={handleNextbtn}
+                                  disabled={currentPage == pages - 1}
+                                  className={currentPage == pages - 1 ? 'disabled' : ''}
+                                  >next</button>
+                                </li>
+                              </ul>
+                            </div>
+                            <div className='pageBNP-P2'>
+                            <div style={{ display: 'flex', alignItems: 'center'}}>
+
+                              <div style={{margin: 'auto 10px auto auto'}}>
                                 <p style={{fontSize: '1rem', fontWeight: 'bold'}}>Itens p/ page:</p>
                               </div>
                               <div >
-                                <select style={{ height: 35, fontSize: '1rem', fontWeight: 'bold', margin: 'auto', borderRadius: 8}} value={itensPerPage} onChange={(e) => setItensPerPage(Number(e.target.value))}>
+                                <select style={{ height: 35, fontSize: '1rem', fontWeight: 'bold', margin: 'auto 20px auto auto', borderRadius: 8}} value={itensPerPage} onChange={(e) => setItensPerPage(Number(e.target.value))}>
                                   <option value={10}>10</option>
                                   <option value={25}>25</option>
                                   <option value={50}>50</option>
                                 </select>
                               </div>
+                              </div>
                             </div>
-    
                           </div>
     
                         </Container>

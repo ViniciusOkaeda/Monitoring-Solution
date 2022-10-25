@@ -10,6 +10,15 @@
     background-color: aquamarine;
 }
 
+.pckConfig {
+  width: 80%;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  margin: auto;
+
+}
+
 
 .pagina--fadeBottom {
     height: 7.5rem;

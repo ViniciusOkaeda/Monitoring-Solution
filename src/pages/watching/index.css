@@ -69,6 +69,7 @@
 .pageNumbers {
     list-style: none;
     display: flex;
+    width: 80%;
     font-weight: bold;
     
   }

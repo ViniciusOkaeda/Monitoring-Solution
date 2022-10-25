@@ -18,9 +18,10 @@ import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import OutlinedInput from '@mui/material/OutlinedInput';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/effect-creative'
+import Yvideo from "../../movies/videoplayback.mp4";
+
+import 'animate.css';
+
 
 import Logo from '../../assets/logo_preto.png'
 
@@ -85,7 +86,6 @@ function Login() {
                 localStorage.setItem("token", response.data.response)
                 navigate('/dashboard');
             } 
-            console.log(response);
           })
           .catch(function (error) {
             
@@ -99,14 +99,38 @@ function Login() {
             <div style={{width: '100%', minHeight: '100vh', backgroundColor: '#fff'}}>
 
                 <Grid container component="main" sx={{ height: '100vh', display: 'flex' }}>
-                    <Grid item xs={12} sm={12} md={4} elevation={6} square>
-                        <div className='container '>
+                  <Grid item xs={12} sm={12} md={8} elevation={6} square="true" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+                    <div className="banner">
+                    <video autoPlay loop muted style={{
+                    }}>
+                      <source src={Yvideo} type="video/mp4"/>
+                    </video>
+
+                    <div className="content ">
+                      <div className="emphasis animate__slideInLeft">
+
+                        <div className="emphasisContent">
+
+                          <h1>Resolver seus problemas nunca foi tão fácil!</h1>
+                        </div>
+                      </div>
+
+                      <div  className="geometric geometricContent" >
+                        <h2>Acesse já nosso portal</h2>
+                      </div>
+                    </div>
+
+                    </div>
+                  </Grid>
+
+                    <Grid item xs={12} sm={12} md={4} elevation={6} square="true" style={{display: 'flex', zIndex: 1}}>
+                        <div style={{display: 'flex', flexDirection: 'column', backgroundColor: 'white', width: "100%", height: '100%', margin: "auto"}}>
                             <div className='centralize'>
-                                <img src={Logo} className='logo'/>
+                                <img src={Logo} className='logo' alt="logo"/>
                                 <div className='form'>
 
                                     <form noValidate>
-                                        <Box sx={{ width: '90%'}}>
+                                        <Box sx={{ width: '100%'}}>
                                             <TextField 
                                             label="Usuário" 
                                             id="outlined-size-normal"
@@ -151,7 +175,7 @@ function Login() {
 
                                         style={{
                                             background: '#FFD100',
-                                            width: '90%',
+                                            width: '100%',
                                             color: '#FFF',
                                             fontWeight: 'bold',
                                             "&:hover": {
@@ -174,34 +198,7 @@ function Login() {
                         </div>
                     </Grid>
 
-                    <Grid item xs={12} sm={12} md={8} elevation={6} square style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
-                        <div style={{width: '99%', height: '98%', backgroundColor: 'red', margin: 'auto', borderRadius: 10, }}>
-                            <Swiper
-                            
-                            spaceBetween={50}
-                            slidesPerView={1}
-                            onSlideChange={() => console.log('slide change')}
-                            onSwiper={(swiper) => console.log(swiper)}
-                            style={{width: '100%', height: '100%'}}
-                            >
-                            <SwiperSlide className='slideconf1'>
-                                    <div className='slidecontent1'>
-                                        <h2>Quer saber quantos usuários estão assistindo seus canais?</h2>
-                                    </div>
-                                    <div className='slidecontent2'>
-                                        <h4>Acesse Já nosso portal!</h4>
-                                    </div>
-                            
-                            </SwiperSlide>
 
-
-                            <SwiperSlide>Slide 2</SwiperSlide>
-                            <SwiperSlide>Slide 3</SwiperSlide>
-                            <SwiperSlide>Slide 4</SwiperSlide>
-                            ...
-                            </Swiper>
-                        </div>
-                    </Grid>
                 </Grid>
             </div>
     )

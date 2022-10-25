@@ -111,8 +111,8 @@ function Packages() {
 
     const [itensPerPage, setItensPerPage] = useState(25);
     const [currentPage, setCurrentPage] = useState(0);
-    const [pageNumberLimit, setPageNumberLimit] = useState(5);
-    const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
+    const [pageNumberLimit, setPageNumberLimit] = useState(3);
+    const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(3);
     const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
 
@@ -137,7 +137,6 @@ function Packages() {
           }
         })
         .then((result) => {
-          //console.log("aq oe", result.data.response);
           setVendorName2(result.data.response.map( i => i.Vendor));
           setPackagesUser(result.data.response);
           setLoading(true);
@@ -160,7 +159,6 @@ function Packages() {
           }
         })
         .then((result) => {
-          //console.log("aq oe", result.data.response);
           setPackagesQtd(result.data.response);
           setLoading2(true);
     })
@@ -188,7 +186,7 @@ function Packages() {
             <div style={{width: '95%', margin: 'auto',  borderRadius: 15}}>
             {loading === true && loading2 === true
             ?
-            <div style={{display: 'flex'}}>
+            <div style={{display: 'flex', position: 'relative', zIndex: 0}}>
               <Box className='paddT' sx={{ minWidth: 220, marginBottom: 5 }}>
                 <FormControl sx={{ width: 180 }}>
                   <InputLabel id="outlined-select-label">Vendor</InputLabel>
@@ -247,8 +245,6 @@ function Packages() {
                         const startIndex = currentPage * itensPerPage; //indexOfLastItem
                         const endIndex = startIndex + itensPerPage; //indexOfFirstItem
                         const currentItens = item.data.slice(startIndex, endIndex)
-                        console.log("minhas pg", pages)
-                        console.log("pg atual", currentPage)
     
                         const handleClickPage = (event) => {
                           setCurrentPage(Number(event.target.id));
@@ -278,37 +274,13 @@ function Packages() {
                           pageDecrement = <li style={{cursor: 'default'}}> &hellip; </li>;
                         }
                         return(
-                          <Container key={index} style={{width: '100%', height: 'auto', margin: 'auto', borderRadius: 10 }}>
+                          <Container key={index} style={{width: '100%', height: 'auto', margin: 'auto', borderRadius: 10, paddingBottom: 40 }}>
 
                             <div style={{margin: 'auto', width: '90%',  display: 'flex', justifyContent: 'space-between', height: 70, alignItems: 'center', paddingTop: 30}}>
                               <div style={{width: '20%',  height: 'auto'}}>
                                 <h2 className='gridH2'>Users and Packages</h2>
                               </div>
-                              <div style={{width: '10%', height: 45,  display: 'flex', justifyContent: 'flex-end'}}>
-                              <div ref={domNode} className='dropDownHeaderStyle'>
-                                <DropDownHeader className={isOpen === true ? 'openDropDown' : '' } onClick={toggling}>
-                                  <MoreVertIcon></MoreVertIcon>
-                                </DropDownHeader>
-                                {isOpen && (
-                                  <DropDownListContainer>
-                                    <DropDownList>
-                                        <ListItem >
-                                          <div style={{fontSize: 14}}>
-                                            <p>Export to PDF</p>
 
-                                            <ExcelExportPackages data={currentItens}/>
-
-                                            <CSVLink className='csvStyleP' filename={"dealer-report.csv"} data={currentItens} headers={headers} separator={","}>
-                                              <p className='menuAction'>Export to CSV</p>
-                                            </CSVLink>
-    
-                                          </div>
-                                        </ListItem>
-                                    </DropDownList>
-                                  </DropDownListContainer>
-                                )}
-                              </div>
-                              </div>
                             </div>
 
                             <div style={{ width: '95%', height: 'auto', margin: 'auto', marginBottom: 30}}>
@@ -325,7 +297,6 @@ function Packages() {
 
                               {currentItens.map((items, i) => (
                                     <tr key={i} >
-                                      {console.log("current aq", items)}
                                       <td className='tbrc tbr1 fontS'>{items.Cliente}</td>
                                       <td className='tbrc tbr1 fontS'><p style={{margin: 5}}> {items.pacotes.map((pct, o) => ( pct.Pacote+", " ))} </p></td>
                                     </tr>
@@ -335,55 +306,57 @@ function Packages() {
                               </table>
                             </div>
 
-                            <div style={{display: 'flex', justifyContent: 'space-between', margin: 'auto', width: '90%'}}>
-                              <ul className='pageNumbers'>
-                                <li>
-                                  <button 
-                                  onClick={handlePrevbtn}
-                                  disabled={currentPage == 0 }
-                                  className={currentPage == 0 ? 'disabled' : ''}
-                                  >prev</button>
-                                </li>
-                                {pageDecrement}
-                                {Array.from(Array(pages), (pgs, index) => {
-                                  if(index < maxPageNumberLimit+1 && index>minPageNumberLimit) {
-                                    return (
-                                        <button 
-                                          key={index} 
-                                          id={index} 
-                                          onClick={handleClickPage}
-                                          className={currentPage == index ? "active" : null}
-                                        > <IconStyle>{index}</IconStyle> </button>
-                                      )
-                                  }else {
-                                    return null;
-                                  }
-                                })}
-                                {pageIncrement}
+                            <div className='pageBNP-Config'>
+                              <div className='pageBNP-P1'>
+                                <ul className='pageNumbers'>
+                                  <li>
+                                    <button 
+                                    onClick={handlePrevbtn}
+                                    disabled={currentPage == 0 }
+                                    className={currentPage == 0 ? 'disabled' : ''}
+                                    >prev</button>
+                                  </li>
+                                  {pageDecrement}
+                                  {Array.from(Array(pages), (pgs, index) => {
+                                    if(index < maxPageNumberLimit+1 && index>minPageNumberLimit) {
+                                      return (
+                                          <button 
+                                            key={index} 
+                                            id={index} 
+                                            onClick={handleClickPage}
+                                            className={currentPage == index ? "active" : null}
+                                          > <IconStyle>{index}</IconStyle> </button>
+                                        )
+                                    }else {
+                                      return null;
+                                    }
+                                  })}
+                                  {pageIncrement}
 
-                                <li className={currentPage == pages - 1 ? 'disabled' : ''}>
-                                  <button 
-                                  onClick={handleNextbtn}
-                                  disabled={currentPage == pages - 1}
-                                  className={currentPage == pages - 1 ? 'disabled' : ''}
-                                  >next</button>
-                                </li>
-                              </ul>
+                                  <li className={currentPage == pages - 1 ? 'disabled' : ''}>
+                                    <button 
+                                    onClick={handleNextbtn}
+                                    disabled={currentPage == pages - 1}
+                                    className={currentPage == pages - 1 ? 'disabled' : ''}
+                                    >next</button>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div className='pageBNP-P2'>
+                              <div style={{ display: 'flex', alignItems: 'center'}}>
 
-                              <div style={{ display: 'flex', width: 200, height: 80, justifyContent: 'space-around', alignItems: 'center'}}>
-
-                                <div style={{margin: 'auto'}}>
+                                <div style={{margin: 'auto 10px auto auto'}}>
                                   <p style={{fontSize: '1rem', fontWeight: 'bold'}}>Itens p/ page:</p>
                                 </div>
                                 <div >
-                                  <select style={{ height: 35, fontSize: '1rem', fontWeight: 'bold', margin: 'auto', borderRadius: 8}} value={itensPerPage} onChange={(e) => setItensPerPage(Number(e.target.value))}>
+                                  <select style={{ height: 35, fontSize: '1rem', fontWeight: 'bold', margin: 'auto 20px auto auto', borderRadius: 8}} value={itensPerPage} onChange={(e) => setItensPerPage(Number(e.target.value))}>
                                     <option value={10}>10</option>
                                     <option value={25}>25</option>
                                     <option value={50}>50</option>
                                   </select>
                                 </div>
+                                </div>
                               </div>
-
                             </div>
                           </Container>
 
@@ -410,8 +383,6 @@ function Packages() {
 
                       }]
 
-                      console.log("minha dat", somatoria)
-
                       return(
                         <React.Fragment key={index}>
                           <Container style={{width: '100%', height: 'auto', margin: 'auto', borderRadius: 10}}>
@@ -419,18 +390,18 @@ function Packages() {
                           <h2 className='gridH2 alignCenter'>Number of Users per Package</h2>
                           <ComposedChart
                             layout="vertical"
-                            width={1200}
+                            width={380}
                             height={5000}
                             data={data}
                             margin={{
                               top: 20,
                               right: 20,
                               bottom: 10,
-                              left: 80
+                              left: 40
                             }}
                           >
-                            <XAxis type="number" tick={{fontSize: 18,}}/>
-                            <YAxis dataKey="name" minTickGap={10} type="category" tick={{fontSize: 18,}} scale="band" width={250}/>
+                            <XAxis type="number" tick={{fontSize: 14,}}/>
+                            <YAxis dataKey="name" minTickGap={10} type="category" tick={{fontSize: 14,}} scale="band" width={180}/>
                             <Tooltip />
                             <Legend wrapperStyle={style}/>
                             <Bar dataKey="Quantidade de usuários" barSize={40} fill="#0088FE" />

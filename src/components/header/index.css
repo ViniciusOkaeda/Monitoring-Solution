@@ -1,9 +1,10 @@
 
 .headerConfig {
     width: 100%;
-    min-width: 500px;
     height: 80px;
+    min-width: auto;
     margin-top: 25px;
+    margin-bottom: 40px;
 }
 
 header {
@@ -60,6 +61,30 @@ height: 80px;
     justify-content: flex-end;
 }
 
+.listConfig {
+    display: 'flex';
+    flex-direction: column;
+    margin: 5px 5px 10px 5px;
+}
+
+.listConfig li {
+    list-style-type: none;
+    padding-top: 25px;
+}
+
+.listConfig a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.dropDownList {
+    position: absolute;
+    z-index: 3;
+    right: 200px;
+
+}
+
+
 
 
 @media screen and (min-width: 771px) {
@@ -87,6 +112,13 @@ height: 80px;
         height: 80px
     
     }
+    .dropDownList {
+        right: 23%;
     }
+
+
+    }
+
+
     
 

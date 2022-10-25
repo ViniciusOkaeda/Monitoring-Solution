@@ -50,12 +50,20 @@ import 'swiper/css/effect-creative'
 import { PieChart, Pie, Legend, Tooltip, Sector, Cell, BarChart, XAxis, YAxis, Bar, Brush, CartesianGrid, ComposedChart  } from "recharts";
 
 const style = {
-  top: '50%',
-  right: 0,
+  top: '55%',
+  right: '10%',
   fontSize: 18,
-  transform: 'translate(0, -50%)',
+  transform: 'translate(0, -10%)',
   lineHeight: '24px',
 };
+
+const stl = styled("div")`
+top: 50%;
+right: 10%;
+font-size: 18px;
+transform: translate(0, -10%);
+line-height: 24px;
+`;
 
 const style2 = {
   fontSize: 18,
@@ -177,8 +185,8 @@ function Watching() {
 
     const [itensPerPage, setItensPerPage] = useState(25);
     const [currentPage, setCurrentPage] = useState(0);
-    const [pageNumberLimit, setPageNumberLimit] = useState(5);
-    const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
+    const [pageNumberLimit, setPageNumberLimit] = useState(3);
+    const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(3);
     const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 
     const [isOpen, setIsOpen] = useState(false);
@@ -189,7 +197,6 @@ function Watching() {
     const onOptionClicked = value => () => {
       setSelectedOption(value);
       setIsOpen(false);
-      console.log(selectedOption);
     };
 
     const [error, setError] = useState('');
@@ -210,7 +217,6 @@ function Watching() {
           token: localStorage.getItem("token")
         }})
         .then((result) =>  {
-          //console.log("aq oe", result.data.response.map( i => i.Vendor));
           setVendorName2(result.data.response.map( i => i.Vendor))
           setWatchingUsers(result.data.response);
           setLoading(true);
@@ -232,7 +238,6 @@ function Watching() {
           }
         })
         .then((result) => {
-          //console.log("aq oe", result.data.response);
           setWatchingQtdChannels(result.data.response);
           setLoading2(true);
   
@@ -254,7 +259,6 @@ function Watching() {
           }
         })
         .then((result) => {
-          //console.log("aq oe", result.data.response);
           setWatchingQtdDevices(result.data.response);
           setLoading3(true);
     })
@@ -275,7 +279,6 @@ function Watching() {
           }
         })
         .then((result) => {
-          //console.log("aq oe", result.data.response);
           setWatchingQtdTypes(result.data.response);
           setLoading4(true);
     })
@@ -301,7 +304,7 @@ function Watching() {
             {/*parte do input vendor */}
             <div style={{width: '95%', margin: 'auto',  borderRadius: 15}}>
             {loading === true && loading2 === true && loading3 === true && loading4 === true
-            ? <div style={{display: 'flex'}}>
+            ? <div style={{display: 'flex', position: 'relative', zIndex: 0}}>
               <Box className='paddT' sx={{ minWidth: 220, marginBottom: 5 }}>
                 <FormControl sx={{ width: 180 }}>
                   <InputLabel id="outlined-select-label">Vendor</InputLabel>
@@ -364,8 +367,6 @@ function Watching() {
                       const startIndex = currentPage * itensPerPage; //indexOfLastItem
                       const endIndex = startIndex + itensPerPage; //indexOfFirstItem
                       const currentItens = item.data.slice(startIndex, endIndex)
-                      console.log("minhas pg", pages)
-                      console.log("pg atual", currentPage)
 
                       const handleClickPage = (event) => {
                         setCurrentPage(Number(event.target.id));
@@ -396,7 +397,7 @@ function Watching() {
                       }
 
                       return(
-                      <Container key={index} style={{width: '100%',  height: 'auto', margin: 'auto', borderRadius: 10 }}>
+                      <Container key={index} style={{width: '100%',  height: 'auto', margin: 'auto', borderRadius: 10, paddingBottom: 20 }}>
                         
                           
 
@@ -410,13 +411,12 @@ function Watching() {
                               <MoreVertIcon></MoreVertIcon>
                             </DropDownHeader>
                             {isOpen && (
-                              <DropDownListContainer>
+                              <DropDownListContainer className='dropDownList'>
                                 <DropDownList>
                                     <ListItem >
                                       <div style={{fontSize: 14}}>
                                         <ExcelExportWatching data={currentItens} />
 
-                                        <p>Export to PDF</p>
 
                                         <CSVLink className='csvStyleP' filename={"watching-report.csv"} data={currentItens} headers={headers} separator={","}>
                                           <p className='menuAction'>Export to CSV</p>
@@ -430,8 +430,8 @@ function Watching() {
                           </div>
                         </div>
                         
-                        <div style={{ width: '95%', height: 'auto', margin: 'auto', marginBottom: 30}}>
-                          <table ref={tableRef} style={{ width: '100%', height: '100%', paddingTop: 30, paddingBottom: 30, }}>
+                        <div style={{ width: '95%', height: 'auto', margin: 'auto', marginBottom: 40, }}>
+                          <table ref={tableRef} style={{ width: '100%', height: '100%', paddingTop: 30, paddingBottom: 30, overflowX: 'scroll'}}>
 
                             <AlternativeTheadStyle style={{width: '100%', height: 60, }}>
                               <tr>
@@ -443,7 +443,7 @@ function Watching() {
                                 <th className='tbrc tbr3 fontTH'>Format</th>
                               </tr>
                             </AlternativeTheadStyle>
-                            <tbody style={{overflowY: 'scroll', width: '100%', height: 'auto', marginTop: 20,}}>
+                            <tbody className='scrX' style={{overflowY: 'scroll', width: '100%', height: 'auto', marginTop: 20, minWidth: 500, }}>
                               {currentItens.map((items, i) => (
                                 <tr key={i} >
                                   <td className='tbrc tbr1 fontS'>{items.login}</td>
@@ -458,57 +458,57 @@ function Watching() {
                           </table>
                         </div>
 
-                        <div style={{display: 'flex', justifyContent: 'space-between', margin: 'auto', width: '90%'}}>
-                          <ul className='pageNumbers'>
-                            <li>
-                              <button 
-                              onClick={handlePrevbtn}
-                              disabled={currentPage == 0 }
-                              className={currentPage == 0 ? 'disabled' : ''}
-                              >prev</button>
-                            </li>
-                            {pageDecrement}
-                            {Array.from(Array(pages), (pgs, index) => {
-                              if(index < maxPageNumberLimit+1 && index>minPageNumberLimit) {
-                                return (
-                                    <button 
-                                      key={index} 
-                                      id={index} 
-                                      onClick={handleClickPage}
-                                      className={currentPage == index ? "active" : null}
-                                    > <IconStyle>{index}</IconStyle> </button>
-                                  )
-                              }else {
-                                return null;
-                              }
-                            })}
-                            {pageIncrement}
+                        <div className='pageBNP-Config'>
+                          <div className='pageBNP-P1'>
+                            <ul className='pageNumbers'>
+                              <li>
+                                <button 
+                                onClick={handlePrevbtn}
+                                disabled={currentPage == 0 }
+                                className={currentPage == 0 ? 'disabled' : ''}
+                                >prev</button>
+                              </li>
+                              {pageDecrement}
+                              {Array.from(Array(pages), (pgs, index) => {
+                                if(index < maxPageNumberLimit+1 && index>minPageNumberLimit) {
+                                  return (
+                                      <button 
+                                        key={index} 
+                                        id={index} 
+                                        onClick={handleClickPage}
+                                        className={currentPage == index ? "active" : null}
+                                      > <IconStyle>{index}</IconStyle> </button>
+                                    )
+                                }else {
+                                  return null;
+                                }
+                              })}
+                              {pageIncrement}
 
-                            <li className={currentPage == pages - 1 ? 'disabled' : ''}>
-                              <button 
-                              onClick={handleNextbtn}
-                              disabled={currentPage == pages - 1}
-                              className={currentPage == pages - 1 ? 'disabled' : ''}
-                              >next</button>
-                            </li>
-                          </ul>
+                              <li className={currentPage == pages - 1 ? 'disabled' : ''}>
+                                <button 
+                                onClick={handleNextbtn}
+                                disabled={currentPage == pages - 1}
+                                className={currentPage == pages - 1 ? 'disabled' : ''}
+                                >next</button>
+                              </li>
+                            </ul>
+                          </div>
+                          <div className='pageBNP-P2'>
+                          <div style={{ display: 'flex', alignItems: 'center'}}>
 
-                          
-
-                          <div style={{ display: 'flex', width: 200, height: 80, justifyContent: 'space-around', alignItems: 'center'}}>
-
-                            <div style={{margin: 'auto'}}>
+                            <div style={{margin: 'auto 10px auto auto'}}>
                               <p style={{fontSize: '1rem', fontWeight: 'bold'}}>Itens p/ page:</p>
                             </div>
                             <div >
-                              <select style={{ height: 35, fontSize: '1rem', fontWeight: 'bold', margin: 'auto', borderRadius: 8}} value={itensPerPage} onChange={(e) => setItensPerPage(Number(e.target.value))}>
+                              <select style={{ height: 35, fontSize: '1rem', fontWeight: 'bold', margin: 'auto 20px auto auto', borderRadius: 8}} value={itensPerPage} onChange={(e) => setItensPerPage(Number(e.target.value))}>
                                 <option value={10}>10</option>
                                 <option value={25}>25</option>
                                 <option value={50}>50</option>
                               </select>
                             </div>
+                            </div>
                           </div>
-
                         </div>
 
 
@@ -530,13 +530,13 @@ function Watching() {
                       ))
                       return(
                         <React.Fragment key={index}>
-                          <Container style={{width: '100%', height: 'auto', margin: 'auto', borderRadius: 10, marginBottom: 10}}>
+                          <Container style={{width: '100%', height: 'auto', margin: 'auto', borderRadius: 10, marginBottom: 10,}}>
                           <div style={{margin: 'auto', width: '100%', paddingTop: 1}}>
                           <h2 className='gridH2 alignCenter'>Devices Used</h2>
-                          <PieChart width={550} height={350}>
+                          <PieChart width={380} height={530}>
                           <Pie
                             data={data}
-                            cx={140}
+                            cx={20}
                             cy={140}
                             label
                             paddingAngle={5}
@@ -550,7 +550,7 @@ function Watching() {
                             ))}
                           </Pie>
                             <Tooltip />
-                            <Legend layout="vertical" verticalAlign="middle" wrapperStyle={style}/>
+                            <Legend layout="vertical" verticalAlign="left" wrapperStyle={style} />
                               </PieChart>
                           </div>
                           </Container>
@@ -576,7 +576,7 @@ function Watching() {
                           <Container style={{width: '100%', height: 'auto', margin: 'auto', borderRadius: 10}}>
                           <div style={{margin: 'auto', width: '100%', paddingTop: 1}}>
                           <h2 className='gridH2 alignCenter'>Stream Types</h2>
-                          <PieChart  width={500} height={350}>
+                          <PieChart  width={350} height={530}>
                           <Pie
                             data={data}
                             cx={140}
@@ -592,7 +592,7 @@ function Watching() {
                             ))}
                           </Pie>
                             <Tooltip />
-                            <Legend layout="vertical" verticalAlign="middle" wrapperStyle={style}/>
+                            <Legend layout="vertical" verticalAlign="left" wrapperStyle={style}/>
 
                               </PieChart>
                           </div>
@@ -621,18 +621,18 @@ function Watching() {
                           <h2 className='gridH2 alignCenter'>Channels Being Watched</h2>
                           <ComposedChart
                             layout="vertical"
-                            width={500}
+                            width={400}
                             height={2200}
                             data={data}
                             margin={{
                               top: 20,
                               right: 20,
                               bottom: 10,
-                              left: 80
+                              left: 40
                             }}
                           >
-                            <XAxis type="number" tick={{fontSize: 18}}/>
-                            <YAxis dataKey="name" type="category" tick={{fontSize: 18}} scale="band" width={200} />
+                            <XAxis type="number" tick={{fontSize: 14}}/>
+                            <YAxis dataKey="name" type="category" tick={{fontSize: 14}} scale="band" width={150} />
                             <Tooltip />
                             <Legend wrapperStyle={style2}/>
                             <Bar dataKey="Quantidade de usuários" barSize={40} fill="#0088FE" />
@@ -645,9 +645,6 @@ function Watching() {
                     )}
 
                   </Grid>
-
-
-
 
                 </Grid>
 
