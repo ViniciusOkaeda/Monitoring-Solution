@@ -869,21 +869,24 @@ function Home() {
                     ))
                     return(
                       <div key={index} style={{marginTop: 30, marginBottom: 30}}>
-                        <AreaChart width={1100} height={350} data={data}
-                          margin={{ top: 10, right: 50, left: 30, bottom: 10 }}>
-                          <defs>
-                            <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                              <stop offset="5%" stopColor="#0088fe" stopOpacity={0.9}/>
-                              <stop offset="95%" stopColor="#0088fe" stopOpacity={0.1}/>
-                            </linearGradient>
-                          </defs>
-                          <CartesianGrid strokeDasharray="0.9 9" />
-                          <XAxis dataKey="month" />
-                          <YAxis />
-                          <Tooltip />
-                          <Area type="monotone" dataKey="Ativos" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
-                          <Area type="monotone" dataKey="faturamento" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
-                        </AreaChart>
+                        <ResponsiveContainer width="100%" height={350}>
+                          <AreaChart width={1100} height={350} data={data}
+                            margin={{ top: 10, right: 50, left: 30, bottom: 10 }}>
+                            <defs>
+                              <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1" >
+                                <stop offset="5%" stopColor="#0088fe" stopOpacity={0.9}/>
+                                <stop offset="95%" stopColor="#0088fe" stopOpacity={0.1}/>
+                              </linearGradient>
+                            </defs>
+                            <CartesianGrid strokeDasharray="0.9 9" />
+                            <XAxis dataKey="month" />
+                            <YAxis />
+                            <Tooltip />
+                            <Area type="monotone" dataKey="Ativos" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
+                            <Area type="monotone" dataKey="faturamento" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
+                          <Brush height={15} fill="url(#colorPv)" />
+                          </AreaChart>
+                          </ResponsiveContainer>
                       </div>
                     )
                   })}
@@ -935,13 +938,14 @@ function Home() {
                             </Select>
                         </FormControl>
 
-                        { monthName !== '' ?
+                        { monthName !== '' && provedorName !== ''?
 
                         <FormControl sx={{ width: 180 }}>
                             <InputLabel id="outlined-select-label">Provedor</InputLabel>
                             <Select
                             labelId="outlined-select-label"
                             id="outlined-select-currency"
+                            disabled={provedorName !== ''}
                             value={provedorName === '' ? '' : provedorName}
                             label="monthName"
                             onChange={handleChange2}

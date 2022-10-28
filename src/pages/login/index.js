@@ -16,9 +16,11 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
-import OutlinedInput from '@mui/material/OutlinedInput';
+import FilledInput from '@mui/material/FilledInput';
 
 import Yvideo from "../../movies/videoplayback.mp4";
+
+import Ycast from "../../assets/youcast_top4_logo.png";
 
 import 'animate.css';
 
@@ -99,55 +101,55 @@ function Login() {
             <div style={{width: '100%', minHeight: '100vh', backgroundColor: '#fff'}}>
 
                 <Grid container component="main" sx={{ height: '100vh', display: 'flex' }}>
-                  <Grid item xs={12} sm={12} md={8} elevation={6} square="true" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+                  <Grid item xs={12} sm={12} md={7} elevation={6} square="true" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh',  }}>
                     <div className="banner">
-                    <video autoPlay loop muted style={{
-                    }}>
-                      <source src={Yvideo} type="video/mp4"/>
-                    </video>
+
 
                     <div className="content ">
-                      <div className="emphasis animate__slideInLeft">
-
-                        <div className="emphasisContent">
-
-                          <h1>Resolver seus problemas nunca foi tão fácil!</h1>
+                      <div style={{ width: '80%', height: 140, marginTop: '50%', margin: '50% auto auto auto'  }}>
+                        <div style={{width: '80%', height: '100%', margin: 'auto', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                          <img src={Ycast} style={{ width: '100%', objectFit: 'none', margin: 'auto'}}></img>
                         </div>
                       </div>
 
-                      <div  className="geometric geometricContent" >
-                        <h2>Acesse já nosso portal</h2>
-                      </div>
                     </div>
 
                     </div>
+
+
                   </Grid>
 
-                    <Grid item xs={12} sm={12} md={4} elevation={6} square="true" style={{display: 'flex', zIndex: 1}}>
-                        <div style={{display: 'flex', flexDirection: 'column', backgroundColor: 'white', width: "100%", height: '100%', margin: "auto"}}>
+                    <Grid item xs={12} sm={12} md={5} elevation={6} square="true" style={{display: 'flex', zIndex: 1, boxShadow: '-0.1em 0 35px black'}}>
+                        <div style={{display: 'flex', flexDirection: 'column', backgroundColor: '#1c1e22', width: "100%", height: '100%', margin: "auto", }}>
                             <div className='centralize'>
-                                <img src={Logo} className='logo' alt="logo"/>
+                              <div style={{width: '80%', marginTop: 70}}>
+                                <h2 style={{fontFamily: 'Roboto Condensed,Roboto,Arial,sans-serif', fontWeight: 'bold', fontSize: '1.8em', width: 300, overflowWrap: 'break-word', wordWrap: 'break-word', wordBreak: 'break-word', textAlign: 'left', textShadow: "5px 5px 6px black", color: '#fff'}}>
+                                  MONITORING LOGIN</h2>
+
+                              </div>
                                 <div className='form'>
 
                                     <form noValidate>
-                                        <Box sx={{ width: '100%'}}>
+                                        <Box sx={{ width: '90%'}}>
                                             <TextField 
                                             label="Usuário" 
+                                            variant="filled"
                                             id="outlined-size-normal"
                                             autoComplete='username' 
                                             onChange={e => setUsername(e.target.value)}
-                                            style={{marginBottom: 10, width: '100%', borderColor: 'blue'}} />
+                                            style={{marginBottom: 10, width: '100%', borderColor: 'blue', backgroundColor: '#E8F0FE', borderRadius: 10}} />
                                             
-                                            <FormControl  variant="outlined" style={{marginBottom: 30, width: '100%'}}>
-                                                <InputLabel htmlFor="outlined-adornment-password">Senha</InputLabel>
-                                                <OutlinedInput
-                                                    id="outlined-adornment-password"
+                                            <FormControl  variant="filled" style={{marginBottom: 30, width: '100%'}}>
+                                                <InputLabel htmlFor="filled-adornment-password" >Senha</InputLabel>
+                                                <FilledInput
+                                                    id="filled-adornment-password"
                                                     autoComplete='current-password'
+                                                    style={{ backgroundColor: '#E8F0FE', borderRadius: 10}}
                                                     type={passwordValues.showPassword ? 'text' : 'password'}
                                                     value={passwordValues.password}
                                                     onChange={handleChange('password')}
                                                     endAdornment={
-                                                    <InputAdornment position="end">
+                                                    <InputAdornment position="end"  >
                                                         <IconButton
                                                         aria-label="toggle password visibility"
                                                         onClick={handleClickShowPassword}
@@ -175,8 +177,9 @@ function Login() {
 
                                         style={{
                                             background: '#FFD100',
-                                            width: '100%',
+                                            width: '90%',
                                             color: '#FFF',
+                                            borderRadius: 10,
                                             fontWeight: 'bold',
                                             "&:hover": {
                                                 background: "rgba(129, 129, 129, 1)"
@@ -192,8 +195,8 @@ function Login() {
 
                             </div>
 
-                            <Box mt={5}>
-                                <Copyright />
+                            <Box mt={5} >
+                                <Copyright style={{ color: '#E8F0FE'}}/>
                             </Box>
                         </div>
                     </Grid>

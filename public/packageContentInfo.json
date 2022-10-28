@@ -32,7 +32,7 @@
             "month": "abril",
             "totalAssinantes": 213,
             "data": [
-                {"provedor": "BARRACA DO ZE", "data": [{"provedor": "BARRACA DO ZE", "razaoSocial": "RITA TEREZINHA OLIVEIRA SANTOS EIRELI", "cnpj": "11.654.362/0001-12", "cidade": "AGUAS BELAS", "estado": "PE", "numeroAssinantes": 3, "month": "abril"}]},
+                {"provedor": "CONECTA AB", "data": [{"provedor": "CONECTA AB", "razaoSocial": "RITA TEREZINHA OLIVEIRA SANTOS EIRELI", "cnpj": "11.654.362/0001-12", "cidade": "AGUAS BELAS", "estado": "PE", "numeroAssinantes": 3, "month": "abril"}]},
                 {"provedor": "BRISNET", "data": [{"provedor": "BRISNET", "razaoSocial": "BRISNET TELECOMUNICACOES EIRELI", "cnpj": "33.736.532/0001-40", "cidade": "SÃO PAULO", "estado": "SP", "numeroAssinantes": 25, "month": "abril"}]},
                 {"provedor": "CANEJO TELECOM", "data": [{"provedor": "CANEJO TELECOM", "razaoSocial": "CANEJO ASSESSORIA EM TELECOMUNICACAO LTDA", "cnpj": "11.979.034/0001-96", "cidade": "MAUÁ", "estado": "SP", "numeroAssinantes": 2, "month": "abril"}]},
                 {"provedor": "CARIAP BUSINESS", "data": [{"provedor": "CARIAP BUSINESS", "razaoSocial": "CARIAP BUSINESS SERVICO DE LINCENCIAMENTO DE SOFTWARE EIRELI", "cnpj": "34.555.868/0001-70", "cidade": "SÃO PAULO", "estado": "SP", "numeroAssinantes": 6, "month": "abril"}]},

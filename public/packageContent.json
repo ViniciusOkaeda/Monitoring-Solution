@@ -8,7 +8,7 @@
             {"provedor": "CANEJO TELECOM" , "data": [
                 {"provedor": "CANEJO TELECOM", "login": "thaiscandido1", "pacote": "Full"    }
             ] },
-            {"provedor": "CARIAP BUSINESS BUSINESS" , "data": [
+            {"provedor": "CARIAP BUSINESS" , "data": [
                 {"provedor": "CARIAP BUSINESS ", "login": "abelgomes88@gmail.com", "pacote": "Full"    },
                 {"provedor": "CARIAP BUSINESS ", "login": "edvaldoads2014@gmail.com", "pacote": "Full"    },
                 {"provedor": "CARIAP BUSINESS ", "login": "PROGRAMADOR_PR@HOTMAIL.COM", "pacote": "Full"    },
@@ -43,7 +43,7 @@
                 {"provedor": "I9 CONECTA ", "login": "i90004", "pacote": "Full"    },
                 {"provedor": "I9 CONECTA ", "login": "i90005", "pacote": "Full"    }
             ] },
-            {"provedor": "IBW TELECOM TELECOM", "data": [
+            {"provedor": "IBW TELECOM", "data": [
                 {"provedor": "IBW TELECOM", "login": "alba.ibwtv", "pacote": "Full"    },
                 {"provedor": "IBW TELECOM", "login": "andres.ibwtv", "pacote": "Full"    },
                 {"provedor": "IBW TELECOM", "login": "angelina.ibwtv", "pacote": "Full"    },
