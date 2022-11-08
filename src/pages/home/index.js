@@ -142,7 +142,6 @@ function Home() {
     Pacote: '',
     QTD_Clientes: '',
   } ]);
-  //console.log("meu users", packagesUser)
 
   const [ packagesUserBrand, setPackagesUserBrand] = useState([ {
     dealer: '',
@@ -225,21 +224,14 @@ function Home() {
   const [ renderD, setRenderD] = React.useState(false)
 
   const toggleShown = (provedor) => {
-    //console.log("no provedor tem", provedor)
-    //console.log("na quantidade tem", quantidade)
     const shownState = detailsShown.slice();
-    //console.log("olha o shownState", shownState)
     const index = shownState.indexOf(provedor);
-    //console.log("olha o index", index)
 
     if(index >= 0) {
       shownState.splice(index, 1);
-      //console.log("aqui é o shownState.splice", shownState.splice(index, 1))
       setDetailsShown(shownState);
-      //console.log("aqui é o splice do shownState", shownState)
     } else {
       shownState.push(provedor);
-      //console.log("aqui seria o shownState.push", shownState.push(provedor))
       setDetailsShown(shownState)
     }
   }
@@ -255,7 +247,6 @@ function Home() {
       total:  '',
       data: [{}],
     }])
-    //console.log("ca esta", dealerReports)
 
     const headers = [
       { label: "Brand Name", key: "dealer" },
@@ -446,7 +437,6 @@ function Home() {
               res.json()
             ).then(resp => {
               setCtInfo(resp);
-              //console.log("o resp", resp.analytics.map((item, i) => item))
               setTotalPayment(resp.analytics.map((item, i) => item.info.map((item, index) => item.totalAssinantes).reduce((total, numero) => total + numero, 0) ));
               setLoading6(true);
             });
@@ -832,21 +822,11 @@ function Home() {
                                     "Ativos": item.totalAssinantes,
                                     "faturamento": totalEarned(item.totalAssinantes, 1.60)
                                   }))
-                                  console.log("o data dos ativos", data)
 
                                   return(
                                     <ExcelExportAtivos key={index} className='menuAction' data={data}/>
                                   )
                                 })}
-                                
-
-                                <Pdf targetRef={ref} filename="code-example.pdf" >
-                                  {({ toPdf }) => <p className='menuAction' onClick={toPdf} style={{cursor: 'pointer'}}>Export to PDF</p>}
-                                </Pdf>
-
-                                <CSVLink className='csvStyleP' filename={"dealer-report.csv"} data={dealerReports} headers={headers} separator={","}>
-                                  <p className='menuAction'>Export to CSV</p>
-                                </CSVLink>
 
                               </div>
                             </ListItem>
@@ -899,7 +879,6 @@ function Home() {
 
             <Grid item xs={12} sm={12} md={12} elevation={4} square="true">
               {ctInfo.analytics.map((item, index) => {
-                //console.log("o filtrado", item.info.filter((item) => item.month === monthName).map(item => item.data.map(item => item.provedor)))
 
                 const dataProv = item.info.map((item, index) => ({
                   "month": item.month,
@@ -909,7 +888,6 @@ function Home() {
                   )
                 }))
 
-                console.log("o meu dataProv", dataProv)
 
                 return(
                 <Container key={index} style={{width: '100%',  height: 'auto', margin: 'auto', borderRadius: 10,}}>
@@ -965,8 +943,9 @@ function Home() {
                         {provedorName !== null && provedorName !== '' ?
                           <Tooltips title="Remover Provedor" placement="right">
                             <button className='btnS' onClick={(e => {
+                              setDetailProvedor('');
                               setProvedorName('');
-                              toggleShown('');
+                              
                             })}><CancelIcon /></button>
                           </Tooltips>
                           :
@@ -999,7 +978,6 @@ function Home() {
                                     []
                                   );
 
-                                    console.log("o nome do periodo", periodName)
 
                                   const assinant = item.info
                                   .filter(item => monthName !== '' ? item.month === monthName : item)
@@ -1010,7 +988,6 @@ function Home() {
                                   .map((item, index) => ({
                                     "fatured": totalEarned(item.totalAssinantes, 1.60), 
                                   }))
-                                  console.log("o periodo é", fatured)
 
                                   return(
                                     <ExcelExportAtivosStenna 
@@ -1023,15 +1000,6 @@ function Home() {
                                       />
                                   )
                                 })}
-                                
-
-                                <Pdf targetRef={ref} filename="code-example.pdf" >
-                                  {({ toPdf }) => <p className='menuAction' onClick={toPdf} style={{cursor: 'pointer'}}>Export to PDF</p>}
-                                </Pdf>
-
-                                <CSVLink className='csvStyleP' filename={"dealer-report.csv"} data={dealerReports} headers={headers} separator={","}>
-                                  <p className='menuAction'>Export to CSV</p>
-                                </CSVLink>
 
                               </div>
                             </ListItem>
@@ -1104,7 +1072,6 @@ function Home() {
                                   detailsShown.includes(itens.provedor) && (
                                     <React.Fragment
                                     >
-                                    {console.log("aqui seria o detailsShown", detailsShown)}
                                     <tr>
                                         <td className='tbrc tbr1 fontS' colSpan="4" ></td>
                                         <td className='tbrc tbr1 fontTH' colSpan="2" >Base Ativos - {itens.month}</td>
@@ -1124,7 +1091,7 @@ function Home() {
                                         .map((item, index) => {
                                           
                                           return(
-                                            <tr key={index} style={{maxHeight: 300, minHeight: 200 }}>
+                                            <tr key={index} style={{maxHeight: 300, minHeight: 200}}>
                                                 <td colSpan="2" ></td>
                                                 <td colSpan="2" className='tbrc tbr4 fontS'>{item.provedor}</td>
                                                 <td colSpan="2" className='tbrc tbr4 fontS'>{item.login}</td>
@@ -1138,8 +1105,7 @@ function Home() {
                                         <td className='tbrc tbr1 fontTH' colSpan="2" >Evolução - Provedor</td>
                                         <td className='tbrc tbr1 fontS' colSpan="2" ></td>
                                     </tr>
-                                    {console.log("estruturando", ctInfo.analytics.map(item => item))}
-                                    <tr>                {console.log("o meu dataProv no graf", dataProv)}
+                                    <tr>                
 
                                         <td className='tbrc tbr1 fontS' colSpan="7" >
                                           <div style={{ width: '100%', height: 300}}>

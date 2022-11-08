@@ -85,7 +85,8 @@ function Login() {
         })
         .then(function (response) {
             if(response.data.status === 1) {
-                localStorage.setItem("token", response.data.response)
+                localStorage.setItem("token", response.data.response);
+                setLoading(false);
                 navigate('/dashboard');
             } 
           })
