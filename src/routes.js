@@ -19,6 +19,10 @@ import { useSelector, useDispatch } from "react-redux";
 import LayoutBackground from './styles/theme/components/LayoutBackground';
 
 import Home from './pages/home';
+import History from './pages/history';
+import Now from './pages/now';
+import Reporting from './pages/selection';
+
 import Watching from './pages/watching';
 import Login from './pages/login';
 import Packages from './pages/packages';
@@ -52,30 +56,21 @@ function AllRoutes() {
                 <Routes >
 
                   {!checkRoutes && (
-                  <Route exact path="/" element={<Login />} />)}
+                  <Route exact path="/" element={<Reporting />} />)}
 
-                  <Route path="/dashboard" element={
+                  <Route path="/now" element={
                         <PrivateRoute>
-                          <Home />
+                          <Now />
                         </PrivateRoute>  
                         } />
-                        <Route path="/watching" element={
+                        <Route path="/history" element={
                         <PrivateRoute>
-                          <Watching />
+                          <History />
                         </PrivateRoute>
-                        } />
-                        <Route path="/packages" element={
-                        <PrivateRoute>
-                          <Packages />
-                        </PrivateRoute>
-                        } />
-                        <Route path="/dealers" element={
-                        <PrivateRoute>
-                          <Dealers />
-                        </PrivateRoute>
-                        } />                  
+                        } />               
 
-                  <Route path="*" element={<Navigate to ={checkRoutes ? "/dashboard" : "/"} />} />
+                 <Route path="*" element={<Navigate to ={checkRoutes ? "/now" : "/"} />} /> 
+
 
                 </Routes>
             </BrowserRouter>

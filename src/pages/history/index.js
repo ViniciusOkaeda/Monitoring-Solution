@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import api from '../../services/api';
+import axios from 'axios';
 
 
 
@@ -77,6 +78,16 @@ const ListItem = styled("li")`
     return domNode;
   };
 
+  function formatValue(duration) {
+
+    const durationEvent = (duration / 60); 
+  
+    const total = durationEvent.toFixed(0);
+  
+    return total;
+  
+}
+
   const dataT = [
     { name: 'Page A', uv: 4000 },
     { name: 'Page B', uv: 3000 },
@@ -90,7 +101,7 @@ const ListItem = styled("li")`
 const ref = React.createRef();
 
 
-function Home() {
+function History() {
 
   const navigate  = useNavigate();
 
@@ -105,6 +116,7 @@ function Home() {
   const [loading7, setLoading7] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
+  const [isOpen3, setIsOpen3] = useState(false);
   const [qtdDealer, setQtdDealer] = React.useState(null);
   const [qtdVendor, setQtdVendor] = React.useState(null);
   const [expectedUsersBrand, setExpectedUsersBrand] = React.useState(null);
@@ -117,7 +129,7 @@ function Home() {
   const [authVerify, setAuthVerify] = React.useState('');
   const [ totalPayment, setTotalPayment] = React.useState(null);
   const [ detailsShown, setDetailsShown] = React.useState([]);
-  const [ detailProvedor, setDetailProvedor] = React.useState('');
+  const [ detailProvedor, setDetailProvedor] = React.useState("");
 
   function totalEarned(value, base) {
 
@@ -128,9 +140,31 @@ function Home() {
     return formated;
   
   };
+  function totalEarnedFilter(value, base) {
+
+    const total = (value * base); 
+  
+    const formated = total.toFixed(0);
+  
+    return formated;
+  
+  };
+
+  function totalEarnedFilter2(value) {
+
+    const total = parseInt(value)
+  
+    const formated = total.toFixed(0);
+  
+    return formated;
+  
+  };
 
   const handleChange = (event) => {
     setMonthName(event.target.value);
+  };
+  const handleChange3 = (event) => {
+    setYearValue(event.target.value);
   };
   const handleChange2 = (event) => {
     setProvedorName(event.target.value);
@@ -171,42 +205,48 @@ function Home() {
   const [ ctInfo, setCtInfo] = useState([ {
     analytics: [{
       info: [{
-        year: '',
-        period: '',
-        month: '',
-        totalAssinantes: '',
+        year: "",
+        period: "",
+        month: "",
+        totalSubscribers: "",
         data: [{
-          provedor: '',
-          data: [{
-            provedor: '',
-            razaoSocial: '',
-            cnpj: '',
-            cidade: '',
-            estado: '',
-            numeroAssinantes: '',
-            month: ''
-          }]
+            dealer: "",
+            data: [{
+                dealerName: "",
+                corporateName: "",
+                cnpj: "",
+                city: "",
+                numberOfSubscribers: ""
+            }]
         }]
       }]
     }]
   } ]);
 
-  const [ monthName, setMonthName ] = useState('março');
-  const [ periodName, setPeriodName ] = useState(["01/03/2022 até 31/03/2022"]);
-  const [ yearName, setYearName ] = useState('2022');
+  const [ contentUsers, setContentUsers] = useState ([{
 
-  const [ provedorName, setProvedorName ] = useState('');
+  }]);
+
+  const [ yearValue, setYearValue ] = useState("2022");
+  const [ monthName, setMonthName ] = useState("março");
+  const [ periodName, setPeriodName ] = useState(["01/03/2022 até 31/03/2022"]);
+  const [ yearName, setYearName ] = useState("2022");
+
+  const [ totalUsers, setTotalUsers] = useState(0);
+
+  const [openDetails, setOpenDetails] = React.useState(false);
+  const [ provedorName, setProvedorName ] = useState("");
   const [open2, setOpen2] = React.useState(false);
 
   const [ctInfoUsers, setCtInfoUsers] = useState([ {
     analyticsInfo: [{
-      month: '',
+      month: "",
       data: [{
-        provedor: '',
+        provedor: "",
         data: [{
-          provedor: '',
-          login: '',
-          pacote: '',
+          provedor: "",
+          login: "",
+          pacote: "",
         }]
       }]
     }]
@@ -219,6 +259,10 @@ function Home() {
   const toggling2 = () => setIsOpen2(!isOpen2);
   let domNode2 = useClickOutside(() => {
       setIsOpen2(false);
+    });
+  const toggling3 = () => setIsOpen3(!isOpen3);
+  let domNode3 = useClickOutside(() => {
+      setIsOpen3(false);
     });
 
   const [ renderD, setRenderD] = React.useState(false)
@@ -237,53 +281,57 @@ function Home() {
   }
 
 
-    const [ dealerReports, setDealerReports] = useState ([{
-      dealer: '',
-      basicCount: '',
-      compactCount: '',
-      fullCount: '',
-      premiumCount: '',
-      urbanTv: '',
-      total:  '',
-      data: [{}],
-    }])
-
-    const headers = [
-      { label: "Brand Name", key: "dealer" },
-      { label: "Basic", key: "basicCount" },
-      { label: "Compact", key: "compactCount" },
-      { label: "Full", key: "fullCount" },
-      { label: "Premium", key: "premiumCount" },
-      { label: "Urban", key: "urbanTv" },
-      { label: "Total", key: "total" },
+    const yearsOption = [
+      { year: "2022" },
+      { year: "2023" },
     ];
 
     useEffect (() => {
 
-      fetch('./packageContentInfo.json', {
-        headers: {
-          Accept: "application/json"
-        }
-      }).then(res => 
-        res.json()
-      ).then(resp => {
-        setCtInfo(resp);
-        setTotalPayment(resp.analytics.map((item, i) => item.info.map((item, index) => item.totalAssinantes).reduce((total, numero) => total + numero, 0) ));
-        setLoading6(true);
-      });
+      (async () => {
+        const result = await api.get('getDealerInfo', {
+        })
+        .then((result) => {
+          setCtInfo(result.data);
+          //console.log("o result", result)
+          setTotalPayment(totalEarnedFilter2(result.data.analytics.map((item, i) => item.info.map((item, index) => item.totalSubscribers * item.unitaryValue).reduce((total, numero) => total + numero, 0) )));
+          setLoading6(true);
 
-      fetch('./packageContent.json', {
-        headers: {
-          Accept: "application/json"
+  
+    })
+        .catch((error) => {
+          if(error) {
+            console.log(error)
         }
-      }).then(res => 
-        res.json()
-      ).then(resp => {
-        setCtInfoUsers(resp);
-        setLoading7(true);
-      });
+    })})();
+
 
   }, [])
+
+  async function getInfoUsers(mes, ano, provedor) {
+
+    let mesT = mes;
+    let anoT = ano
+    let provedorT = provedor
+    console.log("o mes", mes, ano, provedor)
+    const requisicao = axios.post('https://monitoringv2.youcast.tv.br/getUsersDealerInfo', {
+      month: mesT, year: anoT, dealer: provedorT,
+    
+    })
+    .then(function (response) {
+      console.log("deu bom", response)
+      setCtInfoUsers(response.data);
+      setContentUsers(response.data);
+      setLoading7(true);
+
+      })
+      .catch(function (error) {
+        console.log(error)
+      });
+
+      console.log("o que eu enviei", requisicao)
+
+}
 
   return(
 
@@ -296,13 +344,13 @@ function Home() {
           <Header />
 
           <div style={{width: '95%', margin: 'auto',  borderRadius: 15}}>
-          {loading6 === true && loading7 === true
+          {loading6 === true 
           ?
           <Grid className='animationPg2' container component="main" sx={{  display: 'flex', }} spacing={2}>
 
             <Grid item xs={12} sm={12} md={5} elevation={4} square="true">
               <Container  style={{
-                  height: 250, 
+                  height: 180, 
                   borderRadius: 10, 
                   boxShadow: 'none'}}>
                     <div className='defConfigCard'>
@@ -319,8 +367,8 @@ function Home() {
 
                         <div className='gridCardC1C2 gridMarginTop' style={{display: 'flex'}}>
                           <div className='gridCardC1C2D12'>
-                            <h2 className='gridH2'>{totalEarned(totalPayment, 1.60)}</h2>
-                            <p className='gridSub'>Valor Base: R$ 1,60 (Unitário)</p>
+                            <h2 className='gridH2'>R$: {totalPayment}</h2>
+                            <p className='gridSub'></p>
                           </div>
                         </div>
                       </div>
@@ -338,8 +386,10 @@ function Home() {
               <Container style={{width: '100%',  height: 'auto', margin: 'auto', borderRadius: 10,}}>
                 <div style={{margin: 'auto', width: '90%',  display: 'flex', justifyContent: 'space-between', height: 70, alignItems: 'center', paddingTop: 30}}>
                   <div style={{width: '20%',  height: 'auto'}}>
-                    <h2 className='gridH2'>Evolução de ativos </h2>
+                    <h2 className='gridH2'>Evolução de Customers - 2022</h2>
                   </div>
+
+                  {/* 
                   <div style={{width: '10%', height: 45,  display: 'flex', justifyContent: 'flex-end'}}>
                     <div ref={domNode} className='dropDownHeaderStyle'>
                     <DropDownHeader  onClick={toggling}>
@@ -351,11 +401,13 @@ function Home() {
                             <ListItem >
                               <div style={{fontSize: 14}}>
                                 {ctInfo.analytics.map((item, index) => {
-                                  const data = item.info.map((item) => ({
-                                    "month": item.month,
-                                    "Ativos": item.totalAssinantes,
-                                    "faturamento": totalEarned(item.totalAssinantes, 1.60)
-                                  }))
+                                  const data = item.info.filter(item => item.year === '2022').map((item) => (
+                                    {
+                                      "month": item.month,
+                                      "Quantidade": item.totalSubscribers,
+                                      "faturamento": totalEarnedFilter(item.totalSubscribers, item.unitaryValue)
+
+                                    }))
 
                                   return(
                                     <ExcelExportAtivos key={index} className='menuAction' data={data}/>
@@ -368,16 +420,104 @@ function Home() {
                         </DropDownListContainer>
                       )}
                     </div>
-                  </div>
+                  </div>*/}
+
                 </div>
 
                 <div style={{ width: '95%', height: 'auto', margin: 'auto', }}>
                   {ctInfo.analytics.map((item, index) => {
-                    const data = item.info.map((item) => (
+                    const data = item.info.filter(item => item.year === '2022').map((item) => (
                       {
                         "month": item.month,
-                        "Ativos": item.totalAssinantes,
-                        "faturamento": totalEarned(item.totalAssinantes, 1.60)
+                        "Quantidade": item.totalSubscribers,
+                        "faturamento": totalEarnedFilter(item.totalSubscribers, item.unitaryValue)
+
+                      }))
+
+
+                    return(
+                      <div key={index} style={{marginTop: 30, marginBottom: 30}}>
+                        <ResponsiveContainer width="100%" height={350}>
+                          <AreaChart width={1100} height={350} data={data}
+                            margin={{ top: 10, right: 50, left: 30, bottom: 10 }}>
+                            <defs>
+                              <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1" >
+                                <stop offset="5%" stopColor="#0088fe" stopOpacity={0.9}/>
+                                <stop offset="95%" stopColor="#0088fe" stopOpacity={0.1}/>
+                              </linearGradient>
+                            </defs>
+                            <CartesianGrid strokeDasharray="0.9 9" />
+                            <XAxis dataKey="month" />
+                            <YAxis />
+                            <Tooltip />
+                            <Area type="monotone" dataKey="Quantidade" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
+                            <Area type="monotone" dataKey="faturamento" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
+                          <Brush height={15} fill="url(#colorPv)" />
+                          </AreaChart>
+                          </ResponsiveContainer>
+                      </div>
+                    )
+                  })}
+
+                </div>
+                
+
+              
+              </Container>
+
+            </Grid>
+            <Grid item xs={12} sm={12} md={12} elevation={4} square="true">
+              <Container style={{width: '100%',  height: 'auto', margin: 'auto', borderRadius: 10,}}>
+                <div style={{margin: 'auto', width: '90%',  display: 'flex', justifyContent: 'space-between', height: 70, alignItems: 'center', paddingTop: 30}}>
+                  <div style={{width: '20%',  height: 'auto'}}>
+                    <h2 className='gridH2'>Evolução de Customers - 2023 </h2>
+                  </div>
+                  {/* 
+                  <div style={{width: '10%', height: 45,  display: 'flex', justifyContent: 'flex-end'}}>
+                    <div ref={domNode} className='dropDownHeaderStyle'>
+                    <DropDownHeader  onClick={toggling3}>
+                        <MoreVertIcon></MoreVertIcon>
+                      </DropDownHeader>
+                      {isOpen3 && (
+                        <DropDownListContainer className='dropDownList'>
+                          <DropDownList>
+                            <ListItem >
+                              <div style={{fontSize: 14}}>
+                                {ctInfo.analytics.map((item, index) => {
+                                  const data = item.info.filter(item => item.year === '2023').map((item) => (
+                                    {
+                                      "month": item.month,
+                                      "Quantidade": item.totalSubscribers,
+                                      "faturamento": totalEarnedFilter(item.totalSubscribers, item.unitaryValue)
+
+                                    }
+                                  ))
+
+                                  return(
+                                    <ExcelExportAtivos key={index} className='menuAction' data={data}/>
+                                  )
+                                })}
+
+                              </div>
+                            </ListItem>
+                          </DropDownList>
+                        </DropDownListContainer>
+                      )}
+                    </div>
+                  </div>*/}
+                </div>
+
+
+                
+                <div style={{ width: '95%', height: 'auto', margin: 'auto', }}>
+                  {ctInfo.analytics.map((item, index) => {
+
+
+                    const data = item.info.filter(item => item.year === '2023').map((item) => (
+                      {
+                        "month": item.month,
+                        "Quantidade": item.totalSubscribers,
+                        "faturamento": totalEarnedFilter(item.totalSubscribers, item.unitaryValue)
 
                       }
                     ))
@@ -396,7 +536,7 @@ function Home() {
                             <XAxis dataKey="month" />
                             <YAxis />
                             <Tooltip />
-                            <Area type="monotone" dataKey="Ativos" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
+                            <Area type="monotone" dataKey="Quantidade" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
                             <Area type="monotone" dataKey="faturamento" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
                           <Brush height={15} fill="url(#colorPv)" />
                           </AreaChart>
@@ -414,78 +554,62 @@ function Home() {
             <Grid item xs={12} sm={12} md={12} elevation={4} square="true">
               {ctInfo.analytics.map((item, index) => {
 
-                const dataProv = item.info.map((item, index) => ({
+                const dataProv = item.info.filter(item => item.year === '2022').map((item, index) => ({
                   "month": item.month,
-                  "quantidadeAtivos": item.data.map(item => item.data.filter(item => detailProvedor !== '' ? item.provedor === detailProvedor : '').slice().map(item => item.numeroAssinantes)).reduce(
+                  "quantidadeAtivos": item.data.map(item => item.data.filter(item => detailProvedor !== "" ? item.dealerName === detailProvedor : "").slice().map(item => item.numberOfSubscribers)).reduce(
                     ( acumulador, valorAtual ) => acumulador.concat(valorAtual),
                     []
                   )
                 }))
 
 
+
                 return(
                 <Container key={index} style={{width: '100%',  height: 'auto', margin: 'auto', borderRadius: 10,}}>
                   <div style={{margin: 'auto', width: '90%',  display: 'flex', justifyContent: 'space-between', height: 70, alignItems: 'center', paddingTop: 30}}>
                     <div style={{width: '20%',  height: 'auto',}}>
-                      <h2 className='gridH2'>Info Ativos </h2>
+                      <h2 className='gridH2'>Info Qtd. </h2>
                     </div>
                     {/*inserir o button aqui */}
-                    <div style={{ height: 45,  display: 'flex', justifyContent: 'flex-end', width: '50%'}}>
+                    <div style={{ height: 45,  display: 'flex', justifyContent: 'flex-end', width: '70%'}}>
                       <div style={{width: '100%'}}>
                         <div style={{display: 'flex', position: 'relative', zIndex: 0,}}>
-                        <Box className='' sx={{ minWidth: 220, marginBottom: 5 }}>
+                        <Box sx={{ minWidth: 220, marginBottom: 5 }}>
+
+
+                        <FormControl sx={{ width: 180, paddingRight: 5 }}>
+                            <InputLabel id="outlined-select-label">Ano</InputLabel>
+                            <Select
+                            labelId="outlined-select-label"
+                            id="outlined-select-currency"
+                            value={yearValue === "" ? "" : yearValue}
+                            label="yearValue"
+                            onChange={handleChange3}
+                            >
+                              {yearsOption.map((option, w) => (
+                            <MenuItem key={w} value={option.year}>
+                            {option.year}
+                            </MenuItem>))}
+                            </Select>
+                        </FormControl>
+
                         <FormControl sx={{ width: 180, paddingRight: 5 }}>
                             <InputLabel id="outlined-select-label">Mês</InputLabel>
                             <Select
                             labelId="outlined-select-label"
                             id="outlined-select-currency"
-                            value={monthName === '' ? '' : monthName}
+                            value={monthName === "" ? "" : monthName}
                             label="monthName"
                             onChange={handleChange}
                             >
-                              {item.info.map((option, w) => (
+                              {item.info.filter(item => yearValue !== "" ? item.year === yearValue : item).map((option, w) => (
                             <MenuItem key={w} value={option.month}>
                             {option.month}
                             </MenuItem>))}
                             </Select>
                         </FormControl>
 
-                        { monthName !== '' && provedorName !== ''?
-
-                        <FormControl sx={{ width: 180 }}>
-                            <InputLabel id="outlined-select-label">Provedor</InputLabel>
-                            <Select
-                            labelId="outlined-select-label"
-                            id="outlined-select-currency"
-                            disabled={provedorName !== ''}
-                            value={provedorName === '' ? '' : provedorName}
-                            label="monthName"
-                            onChange={handleChange2}
-                            >
-                            {item.info.filter(item => monthName !== '' ? item.month === monthName : '').map(item => item.data.map((option, w) => (
-                            <MenuItem key={w} value={option.provedor}>
-                            {option.provedor}
-                            </MenuItem>)))}
-
-                            </Select>
-                        </FormControl>
-                          :
-                          ''
-                          
-                        } 
-                        </Box>
-                        {provedorName !== null && provedorName !== '' ?
-                          <Tooltips title="Remover Provedor" placement="right">
-                            <button className='btnS' onClick={(e => {
-                              setDetailProvedor('');
-                              setProvedorName('');
-                              
-                            })}><CancelIcon /></button>
-                          </Tooltips>
-                          :
-                          ''
-                          
-                        }                
+                        </Box>                
                         </div>
                       </div>
                       <div style={{ height: 45,  }}>
@@ -500,12 +624,13 @@ function Home() {
                               <div style={{fontSize: 14}}>
                                 {ctInfo.analytics.map((item, index) => {
                                   const data = item.info
-                                  .filter(item => monthName !== '' ? item.month === monthName : item)
+                                  .filter(item => yearValue !== "" ? item.year === yearValue : item)
+                                  .filter(item => monthName !== "" ? item.month === monthName : item)
                                   .map((item) => item.data
                                     .map((item) => item.data
                                       .find((item, index) => ({
-                                    "provedor": item.provedor,
-                                    "razaoSocial": item.razaoSocial,
+                                    "provedor": item.dealerName,
+                                    "razaoSocial": item.corporateName,
                                     "cnpj": item.cnpj
                                   })))).reduce(
                                     ( acumulador, valorAtual ) => acumulador.concat(valorAtual),
@@ -514,13 +639,16 @@ function Home() {
 
 
                                   const assinant = item.info
-                                  .filter(item => monthName !== '' ? item.month === monthName : item)
+                                  .filter(item => yearValue !== "" ? item.year === yearValue : item)
+                                  .filter(item => monthName !== "" ? item.month === monthName : item)
                                   .map(item => item)
 
                                   const fatured = item.info
-                                  .filter(item => monthName !== '' ? item.month === monthName : item)
+                                  .filter(item => yearValue !== "" ? item.year === yearValue : item)
+                                  .filter(item => monthName !== "" ? item.month === monthName : item)
                                   .map((item, index) => ({
-                                    "fatured": totalEarned(item.totalAssinantes, 1.60), 
+                                    "fatured": totalEarned(item.totalSubscribers, item.unitaryValue),
+                                    "baseValue": item.unitaryValue.toFixed(2)
                                   }))
 
                                   return(
@@ -556,120 +684,111 @@ function Home() {
                           <th className='tbrc tbr1 fontTH'>Razão Social</th>
                           <th className='tbrc tbr4 fontTH'>CNPJ</th>
                           <th className='tbrc tbr4 fontTH'>Cidade</th>
-                          <th className='tbrc tbr4 fontTH'>Estado</th>
                           <th className='tbrc tbr4 fontTH'>Assinantes</th>
-                          <th className='tbrc tbr4 fontTH'>Ações</th>
+                          {/* 
+                          <th className='tbrc tbr4 fontTH'>Ações</th>*/}
                         </tr>
                       </AlternativeTheadStyle>
 
                         {item.info
-                        .filter(item => monthName !== '' ? item.month === monthName : item)
+                        .filter(item => yearValue !== "" ? item.year === yearValue : item)
+                        .filter(item => monthName !== "" ? item.month === monthName : item)
                         .map(item => item.data
-                          .filter(item => provedorName !== '' ? item.provedor === provedorName : item)
                           .map(item => item.data
                             .map((itens, i) => {
                           return(
                                 <tbody ref={ref} key={i} style={{ width: '100%', height: 'auto', marginTop: 20,}}>
                                 <tr>
-                                  <td className='tbrc tbr4 fontS'>{itens.provedor}</td>
-                                  <td className='tbrc tbr1 fontS'>{itens.razaoSocial}</td>
+                                  <td className='tbrc tbr4 fontS'>{itens.dealerName}</td>
+                                  <td className='tbrc tbr1 fontS'>{itens.corporateName}</td>
                                   <td className='tbrc tbr4 fontS'>{itens.cnpj}</td>
-                                  <td className='tbrc tbr4 fontS'>{itens.cidade}</td>
-                                  <td className='tbrc tbr4 fontS'>{itens.estado}</td>
-                                  <td className='tbrc tbr4 fontS'>{itens.numeroAssinantes}</td>
+                                  <td className='tbrc tbr4 fontS'>{itens.city}</td>
+                                  <td className='tbrc tbr4 fontS'>{itens.numberOfSubscribers}</td>
                                   
+                                  {/* 
                                   <td className='tbrc tbr4 fontS'>
-                                    {
-                                      provedorName !== '' 
-                                      ?
-                                      ''
-                                      :
                                         <Tooltips title="Detalhes Evolução - Provedor" placement="right">
                                           <IconButton
                                             aria-label="expand row"
                                             size="small"
                                             onClick={() => {
-                                              toggleShown(itens.provedor, itens.numeroAssinantes);
-                                              setDetailProvedor(itens.provedor)
-                                              setProvedorName(itens.provedor)
+
+                                              //toggleShown(itens.dealerName, itens.numberOfSubscribers);
+                                              //setDetailProvedor(itens.dealerName)
+                                              setProvedorName(itens.dealerName)
+                                              getInfoUsers(monthName, yearValue, item.dealer)
+                                              setTotalUsers(itens.numberOfSubscribers)
+                                              setOpenDetails(true)
+
                                             }}
                                           >
                                             <Insights style={{color: '#0088FE'}} />
                                             </IconButton>
                                         </Tooltips>
-                                    }
-                                  </td>
+                                  </td>*/}
                                 </tr>
 
-                                {provedorName !== '' 
-                                ?
-                                  detailsShown.includes(itens.provedor) && (
-                                    <React.Fragment
-                                    >
-                                    <tr>
-                                        <td className='tbrc tbr1 fontS' colSpan="4" ></td>
-                                        <td className='tbrc tbr1 fontTH' colSpan="2" >Base Ativos - {itens.month}</td>
-                                    </tr>
-                                    <tr style={{height: 70, }}>
-                                        <td colSpan="2" ></td>
-                                        <td colSpan="2" className='tbrc tbr4 fontTH'>Provedor</td>
-                                        <td colSpan="2" className='tbrc tbr4 fontTH'>Login</td>
-                                        <td colSpan="1" className='tbrc tbr4 fontTH'>Pacote</td>
-                                    </tr>
+                                {openDetails === true
+                                     ?
+                                     <div className='containerDetails'>
+                                        <Container className='contentDetails'>
+                                          <div className='contentDetailsHeader'>
+                                            <div className='contentDetailsHeaderTitle'>
+                                              <h6>{provedorName}</h6>
+                                              <h6>Total Previsto: {totalUsers}</h6>
 
-                                      {ctInfoUsers.analytics
-                                      .filter(item => item.month === monthName)
-                                      .map(item => item.data
-                                        .filter(item => item.provedor === detailProvedor)
-                                      .map(item => item.data
-                                        .map((item, index) => {
-                                          
-                                          return(
-                                            <tr key={index} style={{maxHeight: 300, minHeight: 200}}>
-                                                <td colSpan="2" ></td>
-                                                <td colSpan="2" className='tbrc tbr4 fontS'>{item.provedor}</td>
-                                                <td colSpan="2" className='tbrc tbr4 fontS'>{item.login}</td>
-                                                <td colSpan="1" className='tbrc tbr4 fontS'>{item.pacote}</td>
-                                            </tr>
+                                            </div>
 
-                                          )
-                                        })))}
-                                    <tr>
-                                        <td className='tbrc tbr1 fontS' colSpan="2" ></td>
-                                        <td className='tbrc tbr1 fontTH' colSpan="2" >Evolução - Provedor</td>
-                                        <td className='tbrc tbr1 fontS' colSpan="2" ></td>
-                                    </tr>
-                                    <tr>                
-
-                                        <td className='tbrc tbr1 fontS' colSpan="7" >
-                                          <div style={{ width: '100%', height: 300}}>
-                                          <ResponsiveContainer width="100%" height={200}>
-                                            <LineChart
-                                              width={500}
-                                              height={200}
-                                              data={dataProv}
-                                              margin={{
-                                                top: 10,
-                                                right: 30,
-                                                left: 0,
-                                                bottom: 0,
-                                              }}
-                                            >
-                                              <CartesianGrid strokeDasharray="3 3" />
-                                              <XAxis dataKey="month" />
-                                              <YAxis />
-                                              <Tooltip />
-                                              <Line type="monotone" dataKey="quantidadeAtivos" stroke="#0088FE" fill="#0088FE" />
-                                            </LineChart>
-                                          </ResponsiveContainer>
+                                            <div className='contentDetailsHeaderButton'>
+                                            <Tooltips title="Fechar Detalhes" placement="right">
+                                              <button className='btnS' onClick={(e => {
+                                                setOpenDetails(false);
+                                                setProvedorName("");
+                                                
+                                              })}><CancelIcon /></button>
+                                            </Tooltips>
+                                            </div>
                                           </div>
-                                        </td>
-                                    </tr>
-                                    </React.Fragment>
-                                  )
-                                :
-                                ''
-                                }
+
+                                          <div className='contentDetailsBody'>
+                                            <table style={{width: '100%'}}>
+                                            <div style={{width: '100%', }}>
+                                            <AlternativeTheadStyle style={{width: '100%', height: 60, }}>
+                                              <tr style={{}}>
+                                                <th className='tbrc tbr1 fontTH'>Login</th>
+                                                <th className='tbrc tbr4 fontTH'>Pacote</th>
+                                              </tr>
+                                            </AlternativeTheadStyle>
+                                            {yearValue === '2023' ? 
+                                              contentUsers.length > 0 ?
+                                              
+                                              console.log("o content aqui", contentUsers.map(e => e[0].customers
+                                                .filter(item => item.isactive === true && 
+                                                                item.pacoteYplayStatus !== "ERRO" && 
+                                                                item.pacoteYplay !== "Basic" && 
+                                                                item.pacoteYplay !== "Compact" ))
+                                                                )                                            
+
+                                            : ''
+                                          
+                                            :
+                                            ''
+                                          }
+
+
+
+                                            </div>
+                                            
+
+
+                                            </table>
+                                          </div>
+                                        </Container>
+                                     </div>
+                                     :
+                                     ''
+                                    
+                                  }
                           </tbody>
                               
 
@@ -693,7 +812,7 @@ function Home() {
           </Grid>
           :
 
-          error === '' ?
+          error === "" ?
           <Box className='paddT' sx={{ display: 'flex', margin: 'auto' }}>
           <CircularProgress />
           </Box>
@@ -713,4 +832,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default History;

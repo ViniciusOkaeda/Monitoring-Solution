@@ -947,7 +947,7 @@ export const ExcelExportAtivosStenna = ({data, month, assinant, fatured}) => {
             console.log(url)
             const downloadAnchorNode = document.createElement('a');
             downloadAnchorNode.setAttribute('href', url);
-            downloadAnchorNode.setAttribute('download', 'RELATORIO DE ASSINANTES - SIMBA - REF. '+month.toUpperCase().substr(-20, 3)+'_'+year+'.xlsx');
+            downloadAnchorNode.setAttribute('download', 'RELATORIO DE ASSINANTES - SIMBA - Ref. '+month.toUpperCase().substr(-20, 3)+'_'+year+'.xlsx');
             downloadAnchorNode.click()
             downloadAnchorNode.remove()
         });
@@ -985,11 +985,12 @@ export const ExcelExportAtivosStenna = ({data, month, assinant, fatured}) => {
     const handleExport = () => {
         const title =[{A: 'OPERADORA: YOU CAST COMERCIO DE EQUIPAMENTOS ELETRONICOS LTDA'}]; 
         const title2 =[{A: 'Relatório - Evolução de Ativos STENNA'}]; 
-        console.log("aqui temos o assinant", assinant.find(item => item.totalAssinantes))
-        console.log("aqui temos o assinant", assinant.slice(item => item.totalAssinantes))
-        const assinantes = assinant.map(item => item.totalAssinantes).toString();
+        console.log("aqui temos o assinant", assinant.find(item => item.totalSubscribers))
+        console.log("aqui temos o assinant", assinant.slice(item => item.totalSubscribers))
+        const assinantes = assinant.map(item => item.totalSubscribers).toString();
         const periodo = assinant.map(item => item.period).toString();
         const faturado = fatured.map(item => item.fatured).toString()
+        const base = fatured.map(item => item.baseValue).toString()
         console.log("o res é ", assinantes.toString())
 
         let table1 =[
@@ -1003,7 +1004,7 @@ export const ExcelExportAtivosStenna = ({data, month, assinant, fatured}) => {
             },
             {
                 A: 'VALOR UNITARIO POR ASSINANTES',
-                B: 'R$ 1,60'
+                B: "R$ " + base
             },
             {
                 A: 'MÍNIMO GARANTIDO',
@@ -1035,11 +1036,11 @@ export const ExcelExportAtivosStenna = ({data, month, assinant, fatured}) => {
             //console.log("o period", period)
 
             table2.push({
-                A: row.provedor,
-                B: row.razaoSocial,
+                A: row.dealerName,
+                B: row.corporateName,
                 C: row.cnpj,
-                D: row.cidade+"/"+row.estado,
-                E: row.numeroAssinantes,
+                D: row.city,
+                E: row.numberOfSubscribers,
             });
             //console.log("tabela", table1)
 
@@ -1123,7 +1124,7 @@ export const ExcelExportAtivosStenna = ({data, month, assinant, fatured}) => {
             });
 
             //Planilha 1 tamanhos e etc
-            workbook.sheet(0).column("A").width(48);
+            workbook.sheet(0).column("A").width(45);
             workbook.sheet(0).column("B").width(35);
             workbook.sheet(0).row(1).height(25);
 

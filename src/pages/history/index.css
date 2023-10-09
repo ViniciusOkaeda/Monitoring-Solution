@@ -1,0 +1,208 @@
+
+.inputSearch:hover,
+.inputSearch:focus {
+  box-shadow: 0px 0px 25px rgba(220, 220, 220, 1)
+}
+.inputSearch2:hover,
+.inputSearch2:focus {
+  box-shadow: 0px 0px 25px rgba(220, 220, 220, 1)
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  }
+
+
+
+
+.mdl{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400;
+  background: white;
+  box-shadow: 4;
+  border-radius: 10px;
+  padding: 4,
+}
+
+.tableStyle {
+  min-width: 170px;
+  border: none;
+}
+
+/*          cards config                        */
+.defConfigCard {
+width: 100%;
+height: 100%;
+display: flex;
+}
+.gridDefCardC1 {
+width: 70%;
+height: 100%;
+}
+
+.gridCardC1C1 {
+width: 90%;
+height: 30%;
+display: flex;
+margin: 25px 0 auto auto;
+}
+
+.gridCardC1C1D1 {
+width: 50px;
+height: 50px;
+border-radius: 5px;
+box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
+margin-top: auto;
+}
+
+.gridColor1 {
+background-color: #e100ff;
+}
+.gridColor2 {
+background-color: #00ffd0;
+}
+.gridColor3 {
+background-color: #0088fe;
+}
+.gridColor4 {
+background-color: #ff7f00;
+}
+
+.gridCardC1C1D2 {
+width: auto;
+min-width: 50%;
+max-width: 80%;
+height: 100%;
+}
+
+
+.gridCardC1C2 {
+width: 90%;
+height: 50%;
+margin: 0 0 0 auto;
+}
+.gridCardC1C2D1 {
+width: 30%;
+height: 100%;
+}
+
+.gridCardC1C2D12 {
+width: 80%;
+height: 100%;
+}
+
+
+.gridDefCardC2 {
+width: 30%;
+height: 100%;
+display: flex;
+}
+
+.gridCardIcon {
+color: #fff;
+width: 32px;
+height: 32px;
+object-fit: contain;
+margin-left: 12px;
+margin-top: 12px;
+}
+
+.gridH2 {
+font-weight: bold;
+font-size: 28px;
+}
+
+.gridSub {
+font-weight: bold;
+font-size: 18px;
+margin-top: -15px;
+}
+
+.gridMargin {
+margin-left: 10%;
+}
+
+.gridMarginTop {
+margin-top: 20px;
+}
+
+.containerDetails {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: rgba(77, 76, 76, 0.1);
+}
+
+.contentDetails {
+  width: 80%;
+  height: 80%;
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  border-radius: 10px;
+  min-width: 200px;
+  min-height: 200px;
+  box-shadow: none;
+}
+
+.contentDetailsHeader {
+  width: 95%;
+  height: 40px;
+  margin: 20px auto 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contentDetailsHeaderTitle {
+  width: 96%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.contentDetailsHeaderTitle h4{
+  width: 96%;
+  margin: 0;
+}
+
+.contentDetailsHeaderTitle h6{
+  margin: 0;
+}
+
+
+
+.contentDetailsHeaderButton {
+  width: 4%;
+  height: 100%;
+  margin: auto;
+}
+
+.contentDetailsBody {
+  width: 95%;
+  height: 80%;
+  overflow-y: auto;
+  margin: auto;
+}
+
+/* ------------------------------------------------------------*/
+
+@media screen and (max-width: 770px) {
+.gridH2 {
+  font-size: 22px;
+}
+
+.gridSub {
+  font-size: 16px;
+}
+}
+
+

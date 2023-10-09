@@ -1,0 +1,172 @@
+*{
+    margin: 0;
+    padding: 0
+}
+
+.styledContainer {
+    width: 100%;
+    position: relative;
+    height: 100vh;
+    overflow-y: auto;
+    background-image: linear-gradient(0deg,#eceded,#f1f1f2,#f6f6f6,#fafafb,#fff)
+}
+
+.styledHeader {
+    width: 100%;
+    height: 90px;
+    margin-bottom: 50px;
+}
+
+.styleHeaderContent {
+    width: 70%;
+    height: 100%;
+    margin: auto;
+    border-bottom: 1px solid #D7D7D7;
+    padding-top: 30px;
+}
+
+.styleHeaderContent h1 {
+    color: #1d253b;
+    text-align: center;
+}
+
+.styledH1One {
+    font-weight: 300;
+    font-size: 1.9rem;
+}
+.styledH1Two {
+    font-weight: bold;
+    font-size: 2.3rem;
+    margin-top: -10px;
+}
+
+.styledColor {
+    background-image: linear-gradient(0deg,#eceded,#f1f1f2,#f6f6f6,#fafafb,#fff)
+
+}
+
+.styledBody{
+    width: 90%;
+    height: auto;
+    display: grid;
+    grid-gap: 1rem;
+    gap: 1rem;
+    grid-template-columns: repeat(5,1fr);
+    height: auto;
+    margin: auto;
+    padding-bottom: 25px ;
+}
+
+.styledBody button {
+    width: 200px;
+    height: 130px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding-top: 25px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border: none;
+}
+
+.styledBody button:hover {
+    background-color: #F0CC17;
+    cursor: pointer;
+}
+
+.styledBody button:hover .styleButtonIconColor{
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.styledBody button:hover h2{
+    color: rgb(253, 253, 253);
+    cursor: pointer;
+}
+
+.styleButtonIconColor {
+    font-size: 2rem;
+    color: #1d253b;
+}
+
+.selectionH2{
+    color: #1d253b;
+
+}
+
+.stylePassContent {
+    width: 100%;
+    height: 100vh;
+    position:absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.stylePassContainer {
+    width: 50%;
+    height: 210px;
+    top: 25%;
+    border-radius: 5px;
+    left: 25%;
+    margin: auto;
+    position:absolute;
+    background-color: white;
+}
+
+.stylePassHeader {
+    display: flex;
+    width: 95%;
+    height: 30%;
+    margin: 10px auto auto auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.stylePassHeader1 {
+    width: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.stylePassHeader2 {
+    width: 90%;
+    font-size: 1.1rem;
+    text-align: left;
+    padding-left: 15px;
+    vertical-align: center;
+
+}
+.stylePassHeader3 {
+    width: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stylePassBody {
+    width: 95%;
+    height: 100%;
+    margin: auto;
+    margin-top: 30px;
+}
+
+@media screen and (max-width: 1200px) {
+    .styledBody{
+        grid-gap: 1rem;
+        gap: 1rem;
+        grid-template-columns: repeat(4,1fr);
+    }
+    }
+@media screen and (max-width: 900px) {
+    .styledBody{
+        grid-gap: 1rem;
+        gap: 1rem;
+        grid-template-columns: repeat(3,1fr);
+    }
+    }
+
+@media screen and (max-width: 700px) {
+    .styledBody{
+        grid-gap: 1rem;
+        gap: 1rem;
+        grid-template-columns: repeat(2,1fr);
+    }
+    }

@@ -112,10 +112,8 @@ function Header(props) {
                             <DropDownList>
                               <ListItem className='listConfig'>
                                 <ul>
-                                  <li ><a href="/dashboard">Home</a></li>
-                                  <li><a href="/watching">Watching</a></li>
-                                  <li><a href="/packages">Packages</a></li>
-                                  <li><a href="/dealers">Dealers</a></li>
+                                  <li ><a href="/now">Home</a></li>
+                                  <li><a href="/history">History</a></li>
                                 </ul>
                                 
                                 

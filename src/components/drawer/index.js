@@ -33,6 +33,7 @@ export default function PermanentDrawerLeft() {
     //const token = localStorage.getItem("token");
     //console.log("aqui", token);
 
+    {/*
     (async () => {
       const result = await api.get('auth/verify', {
         headers: {
@@ -54,7 +55,7 @@ export default function PermanentDrawerLeft() {
       }
   })
     
-    })();
+    })();*/}
 
   }, [])
 
@@ -67,8 +68,8 @@ export default function PermanentDrawerLeft() {
       <BackgroundLogo/>
 
       <Divider />
-      {authVerify === "1" 
-      ?
+
+
       <List style={{paddingTop: 50, paddingBottom: 10, paddingLeft: 30  }}>
 
       <ListItem button className='click' >
@@ -77,7 +78,7 @@ export default function PermanentDrawerLeft() {
           <DashboardIcon />
           </Links>
         </ListItemIcon >
-        <Link href="/dashboard" className='linkEffect' underline="none" >
+        <Link href="/now" className='linkEffect' underline="none" >
           <ListItemText primary="Home"   className='link' />
         </Link>
       </ListItem>
@@ -88,57 +89,13 @@ export default function PermanentDrawerLeft() {
           <MonitorHeartIcon />
           </Links>
         </ListItemIcon >
-        <Link href="/watching" className='linkEffect' underline="none" >
-          <ListItemText primary="Watching" className='link' />
-        </Link>
-      </ListItem>
-
-      <ListItem button className='click' >
-        <ListItemIcon className='icone'>
-          <Links>
-          <SummarizeIcon />
-          </Links>
-        </ListItemIcon >
-        <Link href="/packages" className='linkEffect' underline="none" >
-          <ListItemText primary="Packages"  className='link'/>
-        </Link>
-      </ListItem>
-
-      <ListItem button className='click' >
-        <ListItemIcon className='icone'>
-          <Links>
-          <WorkIcon />
-          </Links>
-        </ListItemIcon >
-        <Link href="/dealers" className='linkEffect' underline="none" >
-          <ListItemText primary="Dealers"  className='link'/>
+        <Link href="/history" className='linkEffect' underline="none" >
+          <ListItemText primary="History"   className='link' />
         </Link>
       </ListItem>
 
       </List>
-      :
-      ""
-      }
 
-      {authVerify === "2" 
-      ?
-      <List style={{paddingTop: 50, paddingBottom: 10, paddingLeft: 30  }}>
-
-      <ListItem button className='click' >
-        <ListItemIcon className='icone'>
-          <Links>
-          <DashboardIcon />
-          </Links>
-        </ListItemIcon >
-        <Link href="/dashboard" className='linkEffect' underline="none" >
-          <ListItemText primary="Home"   className='link' />
-        </Link>
-      </ListItem>
-
-      </List>
-      :
-      ""
-      }
       
 
       </Container>
